@@ -9,12 +9,9 @@ import '../Utils.js' as Utils
     SignInForm {
         id: signinForm
         property bool loggedIn: false
-        property var stack
-        property var home
-
 
        signin.onClicked: {
-           stack.push("qrc:/ui/MainActivity/Home.qml", {stack: stack});
+           stack.push("qrc:/ui/MainActivity/Home.qml");
 
            const verifyUser = (data) => {
                console.log(data.password)

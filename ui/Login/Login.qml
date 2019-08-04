@@ -8,10 +8,6 @@ SplitView {
     anchors.fill: parent
     orientation: Qt.Vertical
 
-    property var user
-    property var stack
-    property var home
-
     Rectangle {
         id: presentation
         color: "#EFEFEF"
@@ -91,11 +87,7 @@ SplitView {
            currentIndex: tabBar.currentIndex
 
            SignUp {}
-           SignIn {
-//               user: view.user
-               stack: view.stack
-//               home: view.home
-           }
+           SignIn {}
        }
    }
 }

@@ -7,14 +7,13 @@ import QtQuick.Layouts 1.3
 HomeForm {
 
     menuArea.onClicked: drawer.open()
-    property var stack;
 
     Drawer {
         id: drawer
         width: parent.width * 3 / 4
         height: parent.height
         SideMenu {
-            stack: stack
+            drawer: drawer
         }
     }
 }

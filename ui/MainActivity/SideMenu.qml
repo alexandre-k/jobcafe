@@ -4,10 +4,25 @@ import QtQuick.Controls.Material 2.3
 import QtQuick.Layouts 1.3
 
 SideMenuForm {
-    property var stack;
+    property var drawer;
     profile.clickableArea.onClicked: {
-        console.log("CLICKED ON PROFILE")
-        stack.push("qrc:/ui/Profile/Profile.qml");
+        stack.push("qrc:/ui/Profile/Profile.qml", {user: appstate.getUser()});
+        drawer.close();
+    }
+
+    payment.clickableArea.onClicked: {
+        stack.push("qrc:/ui/Payment/PaymentDetails.qml");
+        drawer.close();
+    }
+
+    support.clickableArea.onClicked: {
+        stack.push("qrc:/ui/Support/Support.qml");
+        drawer.close();
+    }
+
+    settings.clickableArea.onClicked: {
+        stack.push("qrc:/ui/Setting/Settings.qml");
+        drawer.close();
     }
 
 //    property alias profile: profile

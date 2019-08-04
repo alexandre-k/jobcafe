@@ -14,6 +14,7 @@ import "./AppState"
 import "./Introduction"
 
 ApplicationWindow {
+    id: root
     visible: true
     width: 410
     height: 580
@@ -21,28 +22,35 @@ ApplicationWindow {
     Material.primary: Material.Blue
     Material.accent: Material.Blue
 
+    property var stack: stackView
+    property var state: state
 
-
+    AppState {
+        id: state
+    }
 
     StackView {
-        id: stack
+        id: stackView
         // initialItem: welcome
-        initialItem: login
+        initialItem: Home
         anchors.fill: parent
+
         Home {
             id: home
         }
 
-        Login {
-            id: login
-            // user: state.user
-            // stack: stack
-            // home: home
-        }
+
+//            Profile {
+
+//                id: profile
+
+//            }
+
+//        Login {
+//            id: login
+//        }
         Welcome {
             id: welcome
-            // stack: stack
-            // login: login
 
         }
 
@@ -51,9 +59,6 @@ ApplicationWindow {
 //    Home {}
 
 
-//    AppState {
-//        id: state
-//    }
 
 //    Profile {
 //        user: state.user;

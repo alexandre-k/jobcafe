@@ -60,6 +60,6 @@ import QtQuick.Layouts 1.3
                 color: "#3497fd"
             }
 
-            onClicked: welcome.parent.push("qrc:/ui/Login/Login.qml", {stack: welcome.parent})
+            onClicked: stack.push("qrc:/ui/Login/Login.qml")
         }
     }
