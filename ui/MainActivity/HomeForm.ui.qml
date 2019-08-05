@@ -58,7 +58,6 @@ Page {
 
                 ListView {
                     id: view
-                    // anchors.fill: parent
                     height: 500
                     spacing: 10
                     width: backgroundColor.width

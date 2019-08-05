@@ -5,7 +5,6 @@ import QtQuick.Layouts 1.3
 
 SplitView {
     id: view
-    anchors.fill: parent
     orientation: Qt.Vertical
 
     Rectangle {

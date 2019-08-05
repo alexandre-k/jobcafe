@@ -20,19 +20,17 @@ Page {
         width: parent.width
         anchors.top: parent.top
         anchors.margins: 10
-        BackButton {
-        }
+        BackButton {}
     }
 
     ColumnLayout {
 
-        anchors.fill: parent
-        anchors.margins: 50
-
         Image {
             id: profilePicture
-            anchors.horizontalCenter: parent.horizontalCenter
             fillMode: Image.PreserveAspectFit
+            Layout.leftMargin: 50
+            Layout.rightMargin: 50
+            Layout.minimumWidth: 300
         }
 
         Text {
@@ -44,9 +42,8 @@ Page {
                 pointSize: 24
             }
             color: "#444f63"
+            Layout.alignment: Qt.AlignHCenter
 
-            anchors.horizontalCenter: parent.horizontalCenter
-            horizontalAlignment: Text.AlignHCenter
         }
 
         Text {
@@ -57,95 +54,54 @@ Page {
             }
             color: "#444f63"
             opacity: 0.56
-            anchors.horizontalCenter: parent.horizontalCenter
-            horizontalAlignment: Text.AlignHCenter
+            Layout.alignment: Qt.AlignHCenter
+
         }
 
-        TextField {
+        Entry {
             id: name
-            Layout.fillWidth: true
-            leftPadding: 35
-            placeholderText: "Name"
-            Image {
-                source: "name.svg"
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.left: parent.left
-                anchors.leftMargin: 5
-                fillMode: Image.PreserveAspectFit
-            }
+            name: "Name"
+            image: "name.svg"
         }
 
-        TextField {
+        Entry {
             id: email
-            Layout.fillWidth: true
-            leftPadding: 35
-            placeholderText: "Email"
-            readOnly: true
-            Image {
-                source: "mail.svg"
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.left: parent.left
-                anchors.leftMargin: 5
-                fillMode: Image.PreserveAspectFit
-            }
-        }
-        TextField {
-            id: password
-            Layout.fillWidth: true
-            leftPadding: 35
-            echoMode: TextInput.Password
-            placeholderText: "Password"
-            readOnly: true
-            Image {
-                source: "password.svg"
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.left: parent.left
-                anchors.leftMargin: 5
-                fillMode: Image.PreserveAspectFit
-            }
+            name: "Email"
+            image: "mail.svg"
         }
 
-        TextField {
+        Entry {
+            id: password
+            echoMode: TextInput.Password
+            name: "Password"
+            readOnly: true
+            image: "password.svg"
+        }
+
+        Entry {
             id: phone
-            Layout.fillWidth: true
-            leftPadding: 35
-            placeholderText: "Phone number"
-            Image {
-                source: "phone.svg"
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.left: parent.left
-                anchors.leftMargin: 5
-                fillMode: Image.PreserveAspectFit
-            }
+            name: "Phone number"
+            image: "phone.svg"
         }
 
         ComboBox {
             id: profession
-            Layout.fillWidth: true
-            leftPadding: 35
             model: []
             Image {
                 source: "account.svg"
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.left: parent.left
-                anchors.leftMargin: 5
                 fillMode: Image.PreserveAspectFit
             }
+            Layout.alignment: Qt.AlignHCenter
+            Layout.minimumWidth: 300
         }
 
         Button {
             id: next
-            Layout.fillWidth: true
-            anchors.bottom: parent.bottom
-            anchors.right: parent.right
             text: qsTr("Save changes")
             Material.background: Material.Blue
             Material.foreground: "#ffffff"
+            Layout.alignment: Qt.AlignHCenter
+            Layout.minimumWidth: 300
         }
     }
 }
