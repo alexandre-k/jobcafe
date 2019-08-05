@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 1.4
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
+import "../BackButton"
 
 Page {
        id: support
@@ -12,19 +13,13 @@ Page {
                width: parent.width
                anchors.top: parent.top
                anchors.margins: 10
-               Image {
-                   anchors.left: parent.left
-                   anchors.margins: 20
-                   source: "/images/arrow-left258.svg"
-               }
-
-
+               BackButton {}
                Text {
                    id: aboutTitle
                    width: parent.width
                    anchors.left: parent.left
                    anchors.margins: 60
-                   text: qsTr("About Us")
+                   text: qsTr("Support")
                    color: "#444f63"
                    font {
                    pointSize: 16

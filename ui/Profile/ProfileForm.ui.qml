@@ -3,6 +3,7 @@ import QtQuick.Controls 2.5
 import QtQuick.Controls.Material 2.3
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.3
+import "../BackButton"
 
 Page {
     property alias name: name
@@ -19,10 +20,7 @@ Page {
         width: parent.width
         anchors.top: parent.top
         anchors.margins: 10
-        Image {
-            anchors.left: parent.left
-            anchors.margins: 20
-            source: "/images/arrow-left258.svg"
+        BackButton {
         }
     }
 
@@ -151,8 +149,6 @@ Page {
         }
     }
 }
-
-
 
 
 

@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 1.4
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
+import "../BackButton"
 
 Page {
     id: settings
@@ -9,11 +10,7 @@ Page {
     property var user
 
     header: ColumnLayout {
-        Image {
-            anchors.left: parent.left
-            anchors.margins: 20
-            source: "/images/arrow-left258.svg"
-        }
+        BackButton {}
         Text {
             text: qsTr("Setting")
             font {
