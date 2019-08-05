@@ -40,8 +40,10 @@
         <file>ui/MainActivity/images/support.png</file>
         <file>ui/Login/CreateNewPassword.qml</file>
         <file>ui/Login/ForgotPassword.qml</file>
+        <file>ui/Login/ForgotPasswordForm.ui.qml</file>
         <file>ui/Login/Login.qml</file>
         <file>ui/Login/EnterVerificationCode.qml</file>
+        <file>ui/Login/EnterVerificationCodeForm.ui.qml</file>
         <file>ui/Login/SignUp.qml</file>
         <file>ui/Login/SignUpForm.ui.qml</file>
         <file>ui/Login/SignIn.qml</file>
