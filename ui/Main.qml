@@ -32,43 +32,12 @@ ApplicationWindow {
 
     StackView {
         id: stackView
-        // initialItem: welcome
-        initialItem: Home
+        initialItem: welcome
         anchors.fill: parent
 
-        Home {
-            id: home
-        }
+        Home { id: home }
 
-
-//            Profile {
-
-//                id: profile
-
-//            }
-
-//        Login {
-//            id: login
-//        }
-        Welcome {
-            id: welcome
-
-        }
-
+        Welcome { id: welcome }
 
     }
-//    Home {}
-
-
-
-//    Profile {
-//        user: state.user;
-
-//    }
-//    Settings {
-//        user: state.user;
-//    }
-//    Support {
-//        user: state.user;
-//    }
 }
