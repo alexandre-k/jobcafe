@@ -11,8 +11,8 @@ EnterVerificationCodeForm {
     }
 
     verify.onClicked: {
-            Utils.request('PUT', `/reminder`, {"code": verificationCode.text}, changeCurrentPassword());
-        }
+            Utils.request('PUT', `/reminder`, {"code": verificationCode.text}, changeCurrentPassword);
+    }
     function changeCurrentPassword() {
 
         stack.push("qrc:/ui/Login/CreateNewPassword.qml");
