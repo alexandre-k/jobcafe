@@ -27,7 +27,19 @@ Page {
         }
         Text {
             id: passwordReminder
-            text: "<a href='http://google.com'>Forgot Password</a>"
+            text: "Forgot Password"
+            font {
+                family: "Gibson"
+                underline: true
+            }
+            color: "#3497fd"
+
+            MouseArea {
+                id: passwordReminderArea
+                anchors.fill: parent
+            }
+            Layout.alignment: Qt.AlignCenter
+            Layout.margins: 30
         }
     }
     Button {
