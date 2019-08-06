@@ -29,20 +29,20 @@ Page {
                }
 
                TabBar {
-               id: tabBar
-               anchors.top: title.bottom
-               anchors.margins: 30
-               width: parent.width
-               currentIndex: swipeView.currentIndex
+                   id: tabBar
+                   anchors.top: title.bottom
+                   anchors.margins: 30
+                   width: parent.width
+                   currentIndex: swipeView.currentIndex
 
-               TabButton {
-                   text: qsTr("Open tickets")
-               }
+                   TabButton {
+                       text: qsTr("Open tickets")
+                   }
 
-               TabButton {
-                   text: qsTr("Closed tickets")
+                   TabButton {
+                       text: qsTr("Closed tickets")
+                   }
                }
-           }
            }
 
        SwipeView {
