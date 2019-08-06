@@ -23,7 +23,8 @@ SignInForm {
        Utils.request('GET', `/user/` + username.text, undefined, verifyUser);
    }
 
-   passwordReminder.onLinkActivated: {
+   passwordReminderArea.onClicked: {
+
        stack.push("qrc:/ui/Login/ForgotPassword.qml");
    }
 

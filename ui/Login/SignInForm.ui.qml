@@ -7,8 +7,8 @@ import QtQuick.Layouts 1.3
 Page {
     property alias username: username
     property alias password: password
-    property alias passwordReminder: passwordReminder
     property alias signin: signin
+    property alias passwordReminderArea: passwordReminderArea
     ColumnLayout {
         anchors.fill: parent
         anchors.margins: 50
