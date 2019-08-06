@@ -39,6 +39,7 @@
         <file>ui/MainActivity/images/settings.png</file>
         <file>ui/MainActivity/images/support.png</file>
         <file>ui/Login/CreateNewPassword.qml</file>
+        <file>ui/Login/CreateNewPasswordForm.ui.qml</file>
         <file>ui/Login/ForgotPassword.qml</file>
         <file>ui/Login/ForgotPasswordForm.ui.qml</file>
         <file>ui/Login/Login.qml</file>
