@@ -13,6 +13,7 @@
         <file>ui/About/TermsOfUse.qml</file>
         <file>ui/About/shield.svg</file>
 	<file>ui/BackButton/BackButton.qml</file>
+	<file>ui/ErrorMessage/ErrorMessage.qml</file>
         <file>ui/MainActivity/Home.qml</file>
         <file>ui/MainActivity/HomeForm.ui.qml</file>
         <file>ui/MainActivity/MyFiles.qml</file>
