@@ -7,12 +7,13 @@ Page {
     id: homeForm
     property alias menu: menu
     property alias menuArea: menuArea
-    anchors.margins: 20
-    anchors.fill: parent
-    header: Row {
+    // anchors.margins: 20
+    // anchors.fill: parent
+    header: RowLayout {
         Image {
             id: menu
             source: "images/menu.svg"
+            Layout.margins: 10
             MouseArea {
                 id: menuArea
                 anchors.fill: parent
@@ -22,6 +23,11 @@ Page {
         Text {
             anchors.centerIn: parent
             text: "Jjjjjjjjjjjjjj"
+            font {
+                family: "Magnolia Script"
+                pointSize: 14
+            }
+            color: "#032f3e"
         }
     }
 
@@ -37,12 +43,11 @@ Page {
 
             ColumnLayout {
                 spacing: 10
-                Row {
+                RowLayout {
                     spacing: 100
                     Text {
                         id: welcomeMessage
                         text: qsTr("Welcome Back,\nJohn")
-                        horizontalAlignment: Text.AlignLeft
                         color: "#241332"
                         font {
                             family: "Montserrat"
@@ -53,6 +58,8 @@ Page {
 
                     Button {
                         text: "Follow"
+                        Material.background: Material.Purple
+                        Material.foreground: "#ffffff"
                     }
                 }
 
@@ -68,7 +75,8 @@ Page {
                         width: backgroundColor.width * 5 / 6
                         color: "#eceff0"
                         radius: 20
-                        Row {
+                        RowLayout {
+                            anchors.fill: parent
 
                             spacing: 2
                             Image {
@@ -79,11 +87,20 @@ Page {
 
                             Text {
                                 Layout.alignment: Text.AlignHCenter
+                                horizontalAlignment:  Text.AlignHCenter
                                 text: textContents
+                                font {
+                                    family: "Titillium Web"
+                                    pointSize: 10
+                                    bold: true
+                                }
+                                color: "#444f63"
                             }
 
                             Button {
-                                Layout.alignment: Qt.AlignBottom
+                                Layout.rightMargin: 15
+                                Layout.bottomMargin: 5
+                                Layout.alignment: Qt.AlignRight | Qt.AlignBottom
                                 Material.background: Material.Blue
                                 Material.foreground: "#ffffff"
                                 icon.source: "images/right_arrow.svg"
@@ -114,40 +131,6 @@ Page {
         }
     }
 
-    footer: TabBar {
-        TabButton {
-            ColumnLayout {
-                Image {
-                    source: "images/home.svg"
-                }
-                Label {
-                    text: qsTr("Home")
-                }
-            }
-        }
-
-        TabButton {
-            ColumnLayout {
-                Image {
-                    source: "images/my_files.svg"
-                }
-                Label {
-                    text: qsTr("My Files")
-                }
-            }
-        }
-
-        TabButton {
-            ColumnLayout {
-                Image {
-                    source: "images/templates.svg"
-                }
-                Label {
-                    text: qsTr("Templates")
-                }
-            }
-        }
-    }
 }
 
 

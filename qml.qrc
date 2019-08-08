@@ -15,6 +15,7 @@
 	<file>ui/BackButton/BackButton.qml</file>
 	<file>ui/ErrorMessage/ErrorMessage.qml</file>
         <file>ui/MainActivity/Home.qml</file>
+        <file>ui/MainActivity/HomeFrame.qml</file>
         <file>ui/MainActivity/HomeForm.ui.qml</file>
         <file>ui/MainActivity/MyFiles.qml</file>
         <file>ui/MainActivity/MyFilesForm.ui.qml</file>
