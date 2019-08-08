@@ -17,7 +17,8 @@ function request(verb, endpoint, obj, onSuccess, onError) {
                 if (data) onSuccess(data);
                 console.log("LOADED ->", data);
             } else {
-                onError();
+                if (onError)
+                    onError();
             }
         }
     }
