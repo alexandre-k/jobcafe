@@ -53,6 +53,11 @@
         <file>ui/Login/SignInForm.ui.qml</file>
         <file>ui/Payment/PaymentDetails.qml</file>
         <file>ui/Payment/PaymentPlan.qml</file>
+        <file>ui/Payment/PaymentCompleted.qml</file>
+        <file>ui/Payment/PaymentCompletedForm.ui.qml</file>
+        <file>ui/Payment/PaymentSummary.qml</file>
+        <file>ui/Payment/PaymentSummaryForm.ui.qml</file>
+        <file>ui/Payment/PaymentText.qml</file>
         <file>ui/Payment/MyPlan.qml</file>
         <file>ui/Profile/Entry.qml</file>
         <file>ui/Profile/Profile.qml</file>
