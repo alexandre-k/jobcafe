@@ -52,6 +52,8 @@
         <file>ui/Login/SignIn.qml</file>
         <file>ui/Login/SignInForm.ui.qml</file>
         <file>ui/Payment/PaymentDetails.qml</file>
+        <file>ui/Payment/PaymentPlan.qml</file>
+        <file>ui/Payment/MyPlan.qml</file>
         <file>ui/Profile/Entry.qml</file>
         <file>ui/Profile/Profile.qml</file>
         <file>ui/Profile/ProfileForm.ui.qml</file>
