@@ -5,58 +5,20 @@ import QtQuick.Layouts 1.3
 
 SideMenuForm {
     property var drawer;
-    profile.clickableArea.onClicked: {
-        stack.push("qrc:/ui/Profile/Profile.qml", {user: appstate.getUser()});
+    function showView(qmlFile) {
+        stack.push(qmlFile);
         drawer.close();
     }
 
-    payment.clickableArea.onClicked: {
-        stack.push("qrc:/ui/Payment/PaymentDetails.qml");
+    profile.clickableArea.onClicked: showView("qrc:/ui/Profile/Profile.qml")
+    payment.clickableArea.onClicked: showView("qrc:/ui/Payment/PaymentDetails.qml")
+    support.clickableArea.onClicked: showView("qrc:/ui/Support/Support.qml")
+    settings.clickableArea.onClicked: showView("qrc:/ui/Setting/Settings.qml")
+    aboutUsClickableArea.onClicked: showView("qrc:/ui/About/About.qml")
+    closeMenuClickableArea.onClicked: drawer.close()
+    logoutClickableArea.onClicked: {
+        stack.pop();
         drawer.close();
     }
 
-    support.clickableArea.onClicked: {
-        stack.push("qrc:/ui/Support/Support.qml");
-        drawer.close();
-    }
-
-    settings.clickableArea.onClicked: {
-        stack.push("qrc:/ui/Setting/Settings.qml");
-        drawer.close();
-    }
-
-//    property alias profile: profile
-//    property alias payment: payment
-//    property alias support: support
-//    property alias settings: settings
-
-//    StackView {
-//        initialItem:
-//	    profile.clickableArea.onClicked: {
-
-//	    }
-//    }
 }
-
-
-//    StackView {
-//        id: stack
-//        // initialItem: welcome
-//        initialItem: login
-//        anchors.fill: parent
-//        Home {
-//            id: home
-//        }
-
-//        Login {
-//            id: login
-//            user: state.user
-//            stack: stack
-//            home: home
-//        }
-//        Welcome {
-//            id: welcome
-//            stack: stack
-//            login: login
-
-//        }

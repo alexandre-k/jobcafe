@@ -11,16 +11,20 @@ Page {
     property alias profileFullName: profileFullName
     property alias profilePicture: profilePicture
     property alias closeMenu: closeMenu
+    property alias closeMenuClickableArea: closeMenuClickableArea
     property alias membership: membership
     property alias profile: profile
     property alias payment: payment
     property alias support: support
     property alias settings: settings
+    property alias aboutUs: aboutUs
+    property alias logoutClickableArea: logoutClickableArea
+    property alias aboutUsClickableArea: aboutUsClickableArea
 
     header: ColumnLayout {
         spacing: 5
 
-        Row {
+        RowLayout {
             Image {
                 id: profilePicture
                 source: "/images/profile_picture.png"
@@ -31,6 +35,11 @@ Page {
                 id: closeMenu
                 source: "images/menu_activated.svg"
                 fillMode: Image.PreserveAspectFit
+                MouseArea {
+                    id: closeMenuClickableArea
+                    anchors.fill: parent
+                }
+                Layout.alignment: Qt.AlignRight
             }
         }
 
@@ -84,18 +93,36 @@ Page {
     footer: ColumnLayout {
         spacing: 30
         Text {
+            id: aboutUs
             text: "About Us"
+            MouseArea {
+                id: aboutUsClickableArea
+                anchors.fill: parent
+            }
         }
 
         Item {
             id: logout
-            Image {
-                source: "images/logout.svg"
-            }
-            Text {
+            width: 100
+            height: 100
 
-                text: "Log Out"
-                color: "#1677cb"
+            RowLayout {
+
+                Image {
+                    source: "images/logout.svg"
+                    Layout.alignment: Qt.AlignLeft
+                }
+                Text {
+
+                    text: "Log Out"
+                    color: "#1677cb"
+                    Layout.alignment: Qt.AlignRight
+                }
+            }
+
+            MouseArea {
+                id: logoutClickableArea
+                anchors.fill: parent
             }
         }
 
@@ -105,3 +132,11 @@ Page {
         }
     }
 }
+
+
+
+
+/*##^## Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+ ##^##*/
