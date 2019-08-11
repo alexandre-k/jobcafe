@@ -11,7 +11,7 @@ SideMenuForm {
     }
 
     profile.clickableArea.onClicked: showView("qrc:/ui/Profile/Profile.qml")
-    payment.clickableArea.onClicked: showView("qrc:/ui/Payment/PaymentDetails.qml")
+    payment.clickableArea.onClicked: showView("qrc:/ui/Payment/PaymentPlan.qml")
     support.clickableArea.onClicked: showView("qrc:/ui/Support/Support.qml")
     settings.clickableArea.onClicked: showView("qrc:/ui/Setting/Settings.qml")
     aboutUsClickableArea.onClicked: showView("qrc:/ui/About/About.qml")
