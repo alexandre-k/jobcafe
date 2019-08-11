@@ -8,6 +8,7 @@ Page {
     property alias name: name
     property alias email: email
     property alias password: password
+    property alias next: next
     ColumnLayout {
         anchors.fill: parent
         anchors.leftMargin: 50
