@@ -7,8 +7,6 @@ Page {
     id: homeForm
     property alias menu: menu
     property alias menuArea: menuArea
-    // anchors.margins: 20
-    // anchors.fill: parent
     header: RowLayout {
         Image {
             id: menu
@@ -47,7 +45,7 @@ Page {
                     spacing: 100
                     Text {
                         id: welcomeMessage
-                        text: qsTr("Welcome Back,\nJohn")
+                        text: qsTr("Welcome Back,\n" + root.state.user.firstName)
                         color: "#241332"
                         font {
                             family: "Montserrat"

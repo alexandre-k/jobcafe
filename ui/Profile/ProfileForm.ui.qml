@@ -16,14 +16,11 @@ Page {
     property alias profilePicture: profilePicture
     anchors.fill: parent
 
-    header: Column {
-        width: parent.width
-        anchors.top: parent.top
-        anchors.margins: 10
-        BackButton {}
-    }
-
     ColumnLayout {
+
+        BackButton {
+            Layout.margins: 20
+        }
 
         Image {
             id: profilePicture
@@ -47,7 +44,7 @@ Page {
         }
 
         Text {
-            text: "Basic Membership"
+            text: root.state.user.membership? root.state.user.membership : "No membership"
             font {
                 family: "Montserrat"
                 pointSize: 14

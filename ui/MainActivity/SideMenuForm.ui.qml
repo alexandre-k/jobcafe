@@ -45,7 +45,7 @@ Page {
 
         Text {
             id: profileFullName
-            text: "John Doe"
+            text: root.state.user.fullName
             font {
                 family: "Montserrat"
                 bold: true
@@ -56,7 +56,7 @@ Page {
 
         Text {
             id: membership
-            text: "Basic Membership"
+            text: root.state.user.membership? root.state.user.membership : "No membership"
             font {
                 family: "Montserrat"
                 pointSize: 14

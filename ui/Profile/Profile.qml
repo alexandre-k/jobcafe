@@ -6,13 +6,12 @@ import QtQuick.Layouts 1.3
 import '../Utils.js' as Utils
 
 ProfileForm {
-    property var user: ({})
-    email.text: user.email;
-    password.text: user.password;
-    name.text: user.fullName;
-    profileName.text: user.fullName;
-    phone.text: user.phone
-    profilePicture.source: user.profilePicture
+    email.text: root.state.user.email;
+    password.text: root.state.user.password;
+    name.text: root.state.user.fullName;
+    profileName.text: root.state.user.fullName;
+    phone.text: root.state.user.phone
+    profilePicture.source: root.state.user.profilePicture
 
     Component.onCompleted: function () {
         function updateModel (data) {
@@ -22,19 +21,19 @@ ProfileForm {
     }
 
     name.onEditingFinished: {
-        [user.firstName, user.lastName] = [...name.text.split(' ')]
+        [root.state.user.firstName, root.state.user.lastName] = [...name.text.split(' ')]
     }
 
     phone.onEditingFinished: {
-        user.phone = phone.text;
+        root.state.user.phone = phone.text;
     }
 
     profession.onAccepted: {
-        user.profession = profession.currentText;
+        root.state.user.profession = profession.currentText;
     }
 
     next.onClicked: {
-        Utils.request('PUT', `/user/` , user);
+        Utils.request('PUT', `/user/` , root.state.user);
     }
 
 }
