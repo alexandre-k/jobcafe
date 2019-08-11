@@ -1,4 +1,5 @@
 import QtQuick 2.4
+import "../Utils.js" as Utils
 
 PaymentSummaryForm {
     property var paymentMethod: ({})
@@ -21,8 +22,8 @@ PaymentSummaryForm {
         return numbers;
     }
 
-    creditCardNumber.text: secureCreditCardNumber(paymentMethod.cardNumber)
-    cardCvv.text: secureCvv(paymentMethod.cvv)
+//    creditCardNumber.text: secureCreditCardNumber(paymentMethod.cardNumber)
+//    cardCvv.text: secureCvv(paymentMethod.cvv)
 
     processPayment.onClicked: {
         function updatePlanOrder(data) {
@@ -30,6 +31,6 @@ PaymentSummaryForm {
             stack.push("qrc:/ui/Payment/PaymentCompleted.qml", {subscriptionPlan: subscriptionPlan, paymentMethod: paymentMethod, planOrder: planOrder});
         }
 
-        Utils.request('POST', '/order/', {planLabel: subscriptionPlan.label, email: "john.doe@gmail.com"}, updatePlanOrder);
+        Utils.request('POST', '/order/', {planLabel: subscriptionPlan.label, email: root.state.user.email}, updatePlanOrder);
     }
 }

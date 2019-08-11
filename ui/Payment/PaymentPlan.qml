@@ -8,7 +8,7 @@ import "../Utils.js" as Utils
 
 PaymentPlanForm {
 
-    property var subscriptionPlan
+    property var subscriptionPlans
 
     Component.onCompleted: {
         function updateSubscriptionPlan(data) {
@@ -82,9 +82,10 @@ PaymentPlanForm {
 
     function goToNext(index) {
         if (subscriptionPlans === undefined) {
+            errorMessage.msg = "Could not get subscription plans! Verify your Internet connection."
             errorMessage.open();
         }
-        subscriptionPlan = subscriptionPlans[index];
+        const subscriptionPlan = subscriptionPlans[index];
         subscriptionPlan.priceAllTaxIncluded = Number(subscriptionPlan.price) + Number(subscriptionPlan.tax);
         stack.push("qrc:/ui/Payment/PaymentCart.qml", {subscriptionPlan: subscriptionPlan});
     }

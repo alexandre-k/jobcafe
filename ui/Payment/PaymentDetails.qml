@@ -2,7 +2,6 @@ import QtQuick 2.12
 import '../Utils.js' as Utils
 
 PaymentDetailsForm {
-    property var state: ({user: {email: "john.doe@gmail.com"}})
     property var paymentMethod: {
         firstname: ""
         lastname: ""
@@ -16,8 +15,13 @@ PaymentDetailsForm {
         country: ""
     }
 
+    property var subscriptionPlan
+
     Component.onCompleted: {
         function updatePaymentMethod(data) {
+            if (!data) {
+                return;
+            }
             paymentMethod = data;
             var index = creditCardIssuer.find(data.card.issuer);
             creditCardIssuer.currentIndex = index;
@@ -33,7 +37,7 @@ PaymentDetailsForm {
             country.text = data.country;
             address.text = data.address;
         }
-        Utils.request('GET', '/payment-method/' + state.user.email, undefined, updatePaymentMethod);
+        Utils.request('GET', '/payment-method/' + root.state.user.email, undefined, updatePaymentMethod);
     }
 
     creditCardIssuer.onDisplayTextChanged: {
@@ -92,6 +96,6 @@ PaymentDetailsForm {
 
     placeOrder.onClicked: {
         Utils.request('POST', '/payment-method', {paymentMethod: paymentMethod});
-        stack.push("qrc:/ui/Payment/PaymentSummary.qml");
+        stack.push("qrc:/ui/Payment/PaymentSummary.qml", {paymentMethod: paymentMethod, subscriptionPlan: subscriptionPlan});
     }
 }

@@ -8,7 +8,7 @@ import "../ErrorMessage"
 PaymentCartForm {
     checkout.onClicked: {
         if (subscriptionPlan) {
-            stack.push("qrc:/ui/Payment/PaymentDetails.qml");
+            stack.push("qrc:/ui/Payment/PaymentDetails.qml", {subscriptionPlan: subscriptionPlan});
         } else {
             errorMessage.open()
         }
