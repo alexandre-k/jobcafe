@@ -5,13 +5,25 @@ import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.3
 import "../BackButton"
 
-
 ColumnLayout {
     id: paymentInfo
+    property alias creditCardIssuer: creditCardIssuer
+    property alias firstname: firstname
+    property alias lastname: lastname
+    property alias cardNumber: cardNumber
+    property alias cvv: cvv
+    property alias expirationDate: expirationDate
+    property alias city: city
+    property alias stateProvince: stateProvince
+    property alias postalCode: postalCode
+    property alias country: country
+    property alias placeOrder: placeOrder
+    property alias address: address
     anchors.fill: parent
     anchors.margins: 20
 
-    BackButton {}
+    BackButton {
+    }
 
     Text {
         text: "Payment plan"
@@ -42,6 +54,7 @@ ColumnLayout {
     ColumnLayout {
 
         ComboBox {
+            id: creditCardIssuer
             Layout.fillWidth: true
             Layout.margins: 10
             model: ["VISA", "MasterCard"]
@@ -121,7 +134,7 @@ ColumnLayout {
                     }
 
                     TextField {
-                        id: state
+                        id: stateProvince
                         placeholderText: "State"
                         Layout.leftMargin: 80
                     }
@@ -146,7 +159,7 @@ ColumnLayout {
     }
 
     Button {
-        id: next
+        id: placeOrder
         text: qsTr("Place order")
         Layout.alignment: Qt.AlignHCenter
         Material.background: Material.Blue
@@ -155,5 +168,12 @@ ColumnLayout {
         Layout.leftMargin: 10
         Layout.rightMargin: 10
     }
-
 }
+
+
+
+
+/*##^## Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+ ##^##*/

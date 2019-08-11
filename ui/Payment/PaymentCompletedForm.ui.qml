@@ -10,6 +10,7 @@ Page {
     property alias paymentReference: paymentReference
     property alias paymentSum: paymentSum
     property alias goToHomePage: goToHomePage
+    property alias paymentPlan: paymentPlan
 
     ColumnLayout {
 
@@ -61,7 +62,7 @@ Page {
 
                 PaymentText {
                     id: paymentPlan
-                    text: "Premium Plan JJJJJ"
+                    text: subscriptionPlan.label
                     font.pointSize: 14
                     color: "black"
                     Layout.topMargin: 0
@@ -70,28 +71,28 @@ Page {
 
                 PaymentText {
                     id: paymentDate
-                    text: "Payment date: 11/11/2018"
+                    text: "Payment date: " + planOrder.createdDate
                     Layout.topMargin: 0
                     Layout.leftMargin: 20
                 }
 
                 PaymentText {
                     id: estimatedDeliveryDate
-                    text: "Estimated delivery date: 11/11/2019"
+                    text: "Estimated delivery date: " + planOrder.deliveryEstimate
                     Layout.topMargin: 0
                     Layout.leftMargin: 20
                 }
 
                 PaymentText {
                     id: paymentReference
-                    text: "Reference No. FG123512"
+                    text: "Reference No. " + planOrder.id
                     Layout.topMargin: 0
                     Layout.leftMargin: 20
                 }
 
                 PaymentText {
                     id: paymentSum
-                    text: "$69.99"
+                    text: "$" + subscriptionPlan.priceAllTaxIncluded
                     Layout.topMargin: 0
                     Layout.leftMargin: 20
                 }

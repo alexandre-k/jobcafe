@@ -20,6 +20,8 @@ Page {
     property alias tax: tax
     property alias priceWithTax: priceWithTax
     property alias processPayment: processPayment
+    property alias paymentPlan: paymentPlan
+    property alias planExpirationDate: planExpirationDate
     anchors.fill: parent
 
     ColumnLayout {
@@ -56,7 +58,7 @@ Page {
 
                 PaymentText {
                     id: paymentPlan
-                    text: "Premium Plan Jjjjjjj"
+                    text: subscriptionPlan.label
                     font.pointSize: 14
                     color: "black"
                     Layout.topMargin: 0
@@ -65,7 +67,7 @@ Page {
 
                 PaymentText {
                     id: planExpirationDate
-                    text: "Expiration date: 11/11/2019"
+                    text: "Expiration date: " + paymentMethod.expirationDate
                     Layout.topMargin: 0
                     Layout.bottomMargin: 5
                 }
@@ -80,13 +82,13 @@ Page {
             RowLayout {
                 PaymentText {
                     id: firstname
-                    text: "John"
+                    text: paymentMethod.firstname
                     Layout.fillWidth: true
                 }
 
                 PaymentText {
                     id: lastname
-                    text: "Doe"
+                    text: paymentMethod.lastname
                     Layout.alignment: Qt.AlignRight
                 }
             }
@@ -101,18 +103,18 @@ Page {
 
                 PaymentText {
                     id: creditCardNumber
-                    text: "4695********6843"
+                    text: paymentMethod.cardNumber
                 }
 
                 RowLayout {
                     PaymentText {
                         id: cardCvv
-                        text: "***"
+                        text: paymentMethod.cvv
                     }
 
                     PaymentText {
                         id: cardExpirationDate
-                        text: "25/03/2021"
+                        text: paymentMethod.expirationDate
                     }
                 }
             }
@@ -126,7 +128,7 @@ Page {
             RowLayout {
                 PaymentText {
                     id: addressStreet
-                    text: "25 John St"
+                    text: paymentMethod.address
                 }
             }
         }
@@ -139,22 +141,22 @@ Page {
                 RowLayout {
                     PaymentText {
                         id: addressCity
-                        text: "Sidney"
+                        text: paymentMethod.city
                     }
 
                     PaymentText {
                         id: addressState
-                        text: "NSW"
+                        text: paymentMethod.stateProvince
                     }
                 }
                 RowLayout {
                     PaymentText {
                         id: addressPostalCode
-                        text: "6000"
+                        text: paymentMethod.postalCode
                     }
                     PaymentText {
                         id: addressCountry
-                        text: "Australia"
+                        text: paymentMethod.country
                     }
                 }
             }
@@ -171,7 +173,7 @@ Page {
 
             Text {
                 id: priceWithoutTax
-                text: "$70.99"
+                text: "$" + subscriptionPlan.price
                 Layout.margins: 5
                 Layout.rightMargin: 50
                 Layout.alignment: Qt.AlignRight
@@ -188,7 +190,7 @@ Page {
 
             Text {
                 id: tax
-                text: "$9.00"
+                text: "$" + subscriptionPlan.tax
                 Layout.margins: 5
                 Layout.rightMargin: 50
                 Layout.alignment: Qt.AlignRight
@@ -213,7 +215,7 @@ Page {
 
                 Text {
                     id: priceWithTax
-                    text: "$79.99"
+                    text: "$" + subscriptionPlan.priceAllTaxIncluded
                     Layout.margins: 5
                     Layout.rightMargin: 50
                     Layout.alignment: Qt.AlignRight
