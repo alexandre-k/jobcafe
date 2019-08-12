@@ -6,12 +6,11 @@ import QtQuick.Layouts 1.3
 
 Column {
 
-    // anchors.fill: parent
     anchors.right: author.email === root.state.user.email ? undefined : parent.right
     Row {
 
         Column {
-            spacing: 10
+            spacing: 2
             Text {
                 anchors.right: parent.right
                 anchors.rightMargin: 50

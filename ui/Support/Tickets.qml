@@ -8,7 +8,6 @@ import '../Utils.js' as Utils
 TicketsForm{
 
     Component.onCompleted: {
-        console.log("STATE ", root.state.user.email)
 
         const updateTickets = (data) => {
             data.map((ticket, index) => {
@@ -25,6 +24,6 @@ TicketsForm{
     }
 
     openNewTicket.onClicked: {
-        stack.push("qrc:/ui/Support/OpenTicket.qml")
+        stack.push("qrc:/ui/Support/CreateTicket.qml")
     }
 }

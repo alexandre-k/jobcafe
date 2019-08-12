@@ -16,10 +16,11 @@ ColumnLayout {
             anchors.fill: parent
             onClicked: {
                 stack.push("qrc:/ui/Support/SupportMessaging.qml", {
-                               ticketTitle: title,
-                               ticketOwner: owner.email,
-                               ticketStatus: status
-                           })
+                    ticketId: id,
+                    ticketTitle: title,
+                    ticketOwner: owner.email,
+                    ticketStatus: status
+                })
             }
         }
 

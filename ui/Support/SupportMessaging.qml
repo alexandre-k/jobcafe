@@ -6,10 +6,10 @@ SupportMessagingForm {
     property int ticketId
 
     Component.onCompleted: {
-        root.state.user.email = "john.doe@gmail.com"
 
         const updateMessages = (data) => {
             data.forEach((message, index) => {
+                message.createdDate = Utils.formatDate(message.createdDate);
                 messages.append(message);
             });
         }
@@ -23,16 +23,16 @@ SupportMessagingForm {
         }
 
         const newMessageWritten = {
-            author: root.state.user.email,
+            author: root.state.user,
             content: newMesssage.text,
             ticketId: ticketId,
-            createdDate: Utils.formatDate(new Date())
+            createdDate: new Date()
             // attachedFile: attachedFile
         }
-        console.log(newMessageWritten.author)
-        messages.append(newMessageWritten)
 
         Utils.request('POST', '/message', newMessageWritten, showMessage);
+        newMessageWritten.createdDate = Utils.formatDate(newMessageWritten.createdDate);
+        messages.append(newMessageWritten);
     }
 
     changeTicketStatus.onClicked: {

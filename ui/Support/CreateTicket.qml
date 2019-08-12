@@ -6,7 +6,7 @@ import QtQuick.Layouts 1.3
 import '../ErrorMessage'
 import '../Utils.js' as Utils
 
-OpenTicketForm {
+CreateTicketForm {
     property url picturePath: ""
 
     Component.onCompleted: {
@@ -47,5 +47,9 @@ OpenTicketForm {
     uploadPictureDialog.onAccepted: {
         picturePath = uploadPictureDialog.fileUrl;
         Qt.quit();
+    }
+
+    confirmDialog.onDiscard: {
+        stack.pop();
     }
 }

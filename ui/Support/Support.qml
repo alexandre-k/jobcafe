@@ -65,7 +65,5 @@ Page {
             status: "CLOSED"
         }
 
-
-
     }
 }

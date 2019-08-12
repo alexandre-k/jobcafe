@@ -17,24 +17,41 @@ Page {
     property string ticketOwner
     property string ticketStatus
 
-    header: ColumnLayout {
+    header: Rectangle {
+        width: 100
+        height: 120
+        ColumnLayout {
 
         BackButton {
-            Layout.margins: 20
+            Layout.leftMargin: 20
+            Layout.topMargin: 20
         }
 
         Text {
-            text: "Ticket: " + ticketTitle
+            text: "Ticket"
             font {
                 family: "Montserrat"
                 bold: true
-                pointSize: 18
+                pointSize: 16
+            }
+            color: "#444f63"
+            Layout.leftMargin: 30
+            Layout.topMargin: 10
+        }
+
+        Text {
+            text: ticketTitle
+            font {
+                family: "Montserrat"
+                bold: true
+                pointSize: 12
             }
             color: "#444f63"
             Layout.leftMargin: 10
             Layout.maximumWidth: 370
             fontSizeMode: Text.Fit
             wrapMode: Text.WordWrap
+        }
         }
     }
 
@@ -62,6 +79,7 @@ Page {
                     color: "#fff"
                     radius: 12
                     Image {
+                        // Credit the author: <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/"                 title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"                 title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
                         id: send
                         source: "forward.svg"
                         anchors.right: parent.right
@@ -77,10 +95,6 @@ Page {
                         }
                     }
                 }
-
-
-
-                // Credit the author: <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/"                 title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"                 title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
             }
 
             Button {
