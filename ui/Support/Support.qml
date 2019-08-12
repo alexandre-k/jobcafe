@@ -6,7 +6,6 @@ import "../BackButton"
 
 Page {
     id: support
-//    anchors.fill: parent
 
     header: ColumnLayout {
         BackButton {
@@ -33,7 +32,7 @@ Page {
 
             TabButton {
                 text: qsTr("Open tickets")
-                font: {
+                font {
                     family: "Europa"
                     bold: true
                 }
@@ -41,7 +40,7 @@ Page {
 
             TabButton {
                 text: qsTr("Closed tickets")
-                font: {
+                font {
                     family: "Europa"
                     bold: true
                 }
@@ -52,10 +51,21 @@ Page {
     SwipeView {
         id: swipeView
         currentIndex: tabBar.currentIndex
-//        anchors.fill: parent
+        anchors.fill: parent
+        Tickets {
 
-        OpenTickets {}
+            id: openedTickets
+            status: "OPEN"
+        }
 
-        ClosedTickets {}
+
+        Tickets {
+
+            id: closedTickets
+            status: "CLOSED"
+        }
+
+
+
     }
 }
