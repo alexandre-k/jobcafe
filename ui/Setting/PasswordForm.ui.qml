@@ -1,6 +1,7 @@
 import QtQuick 2.12
-import QtQuick.Controls 1.4
 import QtQuick.Controls 2.5
+import QtQuick.Controls.Material 2.3
+import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.3
 
 Page {
@@ -47,7 +48,9 @@ Page {
         Button {
             id: saveChanges
             Layout.fillWidth: true
-            text: qsTr("Save changes")
+            Material.background: Material.Blue
+            Material.foreground: "#ffffff"
+            text: qsTr("Save")
         }
     }
 }

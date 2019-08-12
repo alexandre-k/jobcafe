@@ -1,5 +1,4 @@
 import QtQuick 2.12
-import QtQuick.Controls 1.4
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
 import "../BackButton"
@@ -7,20 +6,23 @@ import "../BackButton"
 Page {
     id: settings
     anchors.fill: parent
-    property var user
 
     header: ColumnLayout {
-        BackButton {}
+        BackButton {
+            Layout.margins: 20
+        }
         Text {
             text: qsTr("Setting")
             font {
                 pointSize: 16
                 bold: true
             }
+            Layout.leftMargin: 20
         }
         TabBar {
             id: tabBar
             currentIndex: swipeView.currentIndex
+            Layout.fillWidth: true
             TabButton {
                 text: qsTr("Password")
             }
@@ -34,16 +36,10 @@ Page {
    SwipeView {
        id: swipeView
        anchors.fill: parent
-        currentIndex: tabBar.currentIndex
-        orientation: Qt.Horizontal
-
-
-       Password {
-           user: settings.user
-       }
-       Notification {
-           user: settings.user
-       }
+       currentIndex: tabBar.currentIndex
+       orientation: Qt.Horizontal
+       Password {}
+       Notification {}
     }
 
 }

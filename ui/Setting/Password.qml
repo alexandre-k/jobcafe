@@ -3,25 +3,33 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
 import '../Utils.js' as Utils
+import "../ErrorMessage"
 
 PasswordForm {
 
     id: passwordForm
 
     property bool currentPasswordMatched: false;
-    property var user: user
 
     function validatePassword() {
         if (newPassword.text === '' || confirmPassword.text === '') {
-            console.log('Empty password given!');
+            errorMessage.msg = "Empty password given!";
+            errorMessage.open();
             return false;
         }
+
+        if (newPassword.text !== confirmPassword.text) {
+            errorMessage.msg = "Passwords do not match!"
+            errorMessage.open();
+            return false;
+        }
+
         return true;
     }
 
     currentPassword.onEditingFinished: {
         console.log('Entered password: ', currentPassword.text)
-        if (currentPassword.text === user.password) {
+        if (currentPassword.text === root.state.user.password) {
             currentPasswordMatched = true;
         } else {
             currentPasswordMatched = false;
@@ -48,7 +56,10 @@ PasswordForm {
 
     saveChanges.onClicked: {
         if (validatePassword()) {
-            Utils.request('PUT', `/user/`, user);
+            root.state.user.password = newPassword.text;
+            Utils.request('PUT', `/user/`, root.state.user);
         }
     }
+
+    ErrorMessage { id: errorMessage }
 }

@@ -9,30 +9,28 @@ NotificationForm {
 
     id: notificationForm
 
-    property var user
-
-    subscription.checked: user.subscribed;
-    newServices.checked: user.isNewServiceAdvertised;
-    pushNotifications.checked: user.isNewMessageNotified;
+    subscription.checked: root.state.user.subscribed;
+    newServices.checked: root.state.user.isNewServiceAdvertised;
+    pushNotifications.checked: root.state.user.isNewMessageNotified;
 
     subscription.onClicked: {
-        user.subscribed = subscription.checked;
-        Utils.request('PUT', `/user/`, user);
+        root.state.user.subscribed = subscription.checked;
+        Utils.request('PUT', `/user/`, root.state.user);
     }
 
     /*
      * Notify by email a user about a new service.
      */
     newServices.onClicked: {
-        user.isNewServiceAdvertised = newServices.checked;
-        Utils.request('PUT', `/user/`, user);
+        root.state.user.isNewServiceAdvertised = newServices.checked;
+        Utils.request('PUT', `/user/`, root.state.user);
     }
 
     /*
      * Notifications are made for letting the user know when a new reply has arrived for ticket.
      */
     pushNotifications.onClicked: {
-        user.isNewMessageNotified = pushNotifications.checked;
-        Utils.request('PUT', `/user/`, user);
+        root.state.user.isNewMessageNotified = pushNotifications.checked;
+        Utils.request('PUT', `/user/`, root.state.user);
     }
 }
