@@ -86,10 +86,13 @@
         <file>ui/Introduction/Welcome.qml</file>
         <file>ui/Support/ClosedTickets.qml</file>
         <file>ui/Support/ClosedTicketsForm.ui.qml</file>
+        <file>ui/Support/forward.svg</file>
+	<file>ui/Support/MessageElement.qml</file>
         <file>ui/Support/OpenTickets.qml</file>
         <file>ui/Support/OpenTicketsForm.ui.qml</file>
         <file>ui/Support/Support.qml</file>
         <file>ui/Support/SupportMessaging.qml</file>
         <file>ui/Support/SupportMessagingForm.ui.qml</file>
+        <file>ui/Support/TicketElement.qml</file>
     </qresource>
 </RCC>
