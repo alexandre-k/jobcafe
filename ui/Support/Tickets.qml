@@ -5,20 +5,26 @@ import QtQuick.Controls.Material 2.3
 import QtQuick.Layouts 1.3
 import '../Utils.js' as Utils
 
-
-ClosedTicketsForm{
+TicketsForm{
 
     Component.onCompleted: {
+        console.log("STATE ", root.state.user.email)
 
         const updateTickets = (data) => {
             data.map((ticket, index) => {
                 ticket.createdDate = Utils.formatDate(ticket.createdDate);
-                tickets.append(ticket);
+
+                if (ticket.status === status) {
+                    tickets.append(ticket);
+                }
             });
 
         }
-        root.state.user.email = "john.doe@gmail.com"
         Utils.request('GET', `/ticket?owner=` + root.state.user.email, undefined, updateTickets);
 
+    }
+
+    openNewTicket.onClicked: {
+        stack.push("qrc:/ui/Support/OpenTicket.qml")
     }
 }

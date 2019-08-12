@@ -6,9 +6,10 @@ import QtQuick.Layouts 1.3
 
 Page {
     id: ticketsOverview
-    anchors.fill: parent
 
     property alias tickets: tickets
+    property alias openNewTicket: openNewTicket
+    property string status
 
     ListView {
         id: view
@@ -17,17 +18,18 @@ Page {
         delegate: TicketElement {}
 
         model: ListModel { id: tickets }
-
-        footer:
-            RowLayout {
-                Button {
-                    Layout.leftMargin: 150
-                    Material.background: Material.Blue
-                    Material.foreground: "#ffffff"
-                    text: qsTr("Open New Ticket")
-                }
-        }
     }
+
+    footer:
+        RowLayout {
+            Button {
+                id: openNewTicket
+                Layout.leftMargin: 150
+                Material.background: Material.Blue
+                Material.foreground: "#ffffff"
+                text: qsTr("Open New Ticket")
+            }
+        }
 }
 
 /*##^## Designer {
