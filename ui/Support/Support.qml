@@ -5,55 +5,57 @@ import QtQuick.Layouts 1.3
 import "../BackButton"
 
 Page {
-       id: support
-       anchors.fill: parent
-       property var user
+    id: support
+//    anchors.fill: parent
 
-           header: Column {
-               width: parent.width
-               anchors.top: parent.top
-               anchors.margins: 10
-               BackButton {}
-               Text {
-                   id: aboutTitle
-                   width: parent.width
-                   anchors.left: parent.left
-                   anchors.margins: 60
-                   text: qsTr("Support")
-                   color: "#444f63"
-                   font {
-                   pointSize: 16
-                   bold: true
-                   family: "Montserrat"
-                   }
-               }
+    header: ColumnLayout {
+        BackButton {
+            Layout.margins: 20
+        }
 
-               TabBar {
-                   id: tabBar
-                   anchors.top: title.bottom
-                   anchors.margins: 30
-                   width: parent.width
-                   currentIndex: swipeView.currentIndex
+        Text {
+            id: aboutTitle
+            width: parent.width
+            text: qsTr("Support")
+            color: "#444f63"
+            font {
+                pointSize: 16
+                bold: true
+                family: "Montserrat"
+            }
+            Layout.margins: 10
+        }
 
-                   TabButton {
-                       text: qsTr("Open tickets")
-                   }
+        TabBar {
+            id: tabBar
+            currentIndex: swipeView.currentIndex
+            Layout.minimumWidth: 380
 
-                   TabButton {
-                       text: qsTr("Closed tickets")
-                   }
-               }
-           }
+            TabButton {
+                text: qsTr("Open tickets")
+                font: {
+                    family: "Europa"
+                    bold: true
+                }
+            }
 
-       SwipeView {
-           id: swipeView
-           currentIndex: tabBar.currentIndex
-           anchors.fill: parent
+            TabButton {
+                text: qsTr("Closed tickets")
+                font: {
+                    family: "Europa"
+                    bold: true
+                }
+            }
+        }
+    }
 
-           OpenTickets {
-           }
-           ClosedTickets {
-               user: support.user
-           }
-       }
-   }
+    SwipeView {
+        id: swipeView
+        currentIndex: tabBar.currentIndex
+//        anchors.fill: parent
+
+        OpenTickets {}
+
+        ClosedTickets {}
+    }
+}

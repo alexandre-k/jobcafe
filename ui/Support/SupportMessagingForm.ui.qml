@@ -3,112 +3,102 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls 2.5
 import QtQuick.Controls.Material 2.3
 import QtQuick.Layouts 1.3
+import "../BackButton"
 
 Page {
     id: ticketsOverview
     anchors.fill: parent
+    property alias view: view
+    property alias messages: messages
+    property alias newMesssage: newMessage
+    property alias sendArea: sendArea
+    property alias changeTicketStatus: changeTicketStatus
+    property string ticketTitle
+    property string ticketOwner
+    property string ticketStatus
+
+    header: ColumnLayout {
+
+        BackButton {
+            Layout.margins: 20
+        }
+
+        Text {
+            text: "Ticket: " + ticketTitle
+            font {
+                family: "Montserrat"
+                bold: true
+                pointSize: 18
+            }
+            color: "#444f63"
+            Layout.leftMargin: 10
+            Layout.maximumWidth: 370
+            fontSizeMode: Text.Fit
+            wrapMode: Text.WordWrap
+        }
+    }
 
     ListView {
         id: view
         anchors.fill: parent
         orientation: ListView.Vertical
-        Component.onCompleted: positionViewAtEnd()
-        model: ListModel {
-            id: data
-            ListElement {
-                userName: "John Doe"
-                message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                sentAt: "January 1st"
-            }
-            ListElement {
-                userName: "user"
-                message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Velit egestas dui id ornare arcu odio. Elementum eu facilisis sed odio."
-                sentAt: "March 2nd"
-            }
-            ListElement {
-                userName: "John Doe"
-                message: "Lorem ipsum dolorsit amet..."
-                sentAt: "June 28th"
-            }
-            ListElement {
-                userName: "user"
-                message: "Lorem ipsum dolorsit amet..."
-                sentAt: "Novermber 13th"
-            }
-        }
+        model: ListModel { id: messages }
+        delegate: MessageElement { id: messageDelegate }
+    }
 
-        delegate:
-            Column {
-            anchors.fill: view
-            anchors.right: userName == 'user' ? undefined : parent.right
-            Row {
+    footer:
+        ColumnLayout {
 
-                Column {
-                    spacing: 10
-                    Text {
-                        anchors.right: parent.right
-                        anchors.rightMargin: 50
-                        text: sentAt
-                        color: "#78849e"
-                        opacity: 0.56
-                        font {
-                            family: "Gibson"
-                        }
-                    }
-
-                    Rectangle {
-                        id: summary
-                        height: msg.implicitHeight + 40
-                        width: view.width * 3/4
-                        color: userName == 'user' ? "white" : "#dfe2e8"
-                        border.color: "#eceff0"
-                        border.width: 10
-                        radius: 20
-                        Text {
-                            id: msg
-                            anchors.centerIn: parent
-                            width: parent.width * 3/4
-                            text: message
-                            color: "#444f63"
-                            font {
-                                family: "Gibson"
-                            }
-
-                            fontSizeMode: Text.Fit
-                            wrapMode: Text.WordWrap
-                        }
-                    }
-                }
-            }
-        }
-
-        footer:
-            Column {
-                Rectangle {
+            TextArea {
+                id: newMessage
+                height: 50
+                Layout.minimumWidth: 370
+                Layout.minimumHeight: text.length + 20
+                Layout.margins: 20
+                wrapMode: Text.WordWrap
+                textMargin: 10
+                placeholderText: "Tap here to write..."
+                background: Rectangle {
                     color: "#fff"
-                    width: ticketsOverview.width * 3/4
-                    height: 50
                     radius: 12
-
-                    TextEdit {
-                        id: newMessage
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.left: parent.left
-                        anchors.leftMargin: 20
-                        text: qsTr("Say something...")
-                        color: "#78849e"
-                        font {
-                            family: "Gibson"
+                    Image {
+                        id: send
+                        source: "forward.svg"
+                        anchors.right: parent.right
+                        anchors.bottom: parent.bottom
+                        anchors.rightMargin: 10
+                        anchors.bottomMargin: 10
+                        fillMode: Image.PreserveAspectFit
+                        width: 25
+                        height: 25
+                        MouseArea {
+                            id: sendArea
+                            anchors.fill: parent
                         }
                     }
                 }
 
-                Button {
-                    Material.background: Material.Blue
-                    Material.foreground: "#ffffff"
-                    text: qsTr("Close ticket")
-                }
+
+
+                // Credit the author: <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/"                 title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"                 title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
             }
 
+            Button {
+                id: changeTicketStatus
+                Layout.margins: 20
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                Layout.minimumWidth: 100
+                Material.background: Material.Blue
+                Material.foreground: "#ffffff"
+                text: ticketStatus === "OPEN" ? qsTr("Close ticket") : qsTr("Re-open ticket")
+            }
         }
 }
+
+
+
+/*##^## Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+ ##^##*/

@@ -39,12 +39,12 @@ OpenTicketsForm {
         Utils.request('POST', '/ticket', newTicket, onSuccess, onError);
     }
 
+    ErrorMessage { id: errorMessage; msg: "Unable to open a ticket.
+    }
+
     uploadPicture.onClicked: uploadPictureDialog.open()
 
     uploadPictureDialog.onAccepted: {
         picturePath = uploadPictureDialog.fileUrl;
-        Qt.quit();
-    }
-
-    ErrorMessage { id: errorMessage; msg: "Unable to open a ticket. Verify your Internet connection." }
+        Qt.quit(); Verify your Internet connection." }
 }

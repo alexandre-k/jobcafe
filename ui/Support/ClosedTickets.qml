@@ -8,24 +8,17 @@ import '../Utils.js' as Utils
 
 ClosedTicketsForm{
 
-    property var user
-
     Component.onCompleted: {
+
         const updateTickets = (data) => {
-            console.log('DATA ***********')
-            const tickets = Array.from(data).map(datum => datum);
-            console.log(tickets[0])
-            model: tickets
+            data.map((ticket, index) => {
+                ticket.createdDate = Utils.formatDate(ticket.createdDate);
+                tickets.append(ticket);
+            });
 
         }
-    //            ListElement {
-    //                userName: "John Doe"
-    //                responsible: "David James"
-    //                lastMessageExcerpt: "Lorem ipsum dolorsit amet..."
-    //                lastUpdatedAt: "January 1st"
-    //            }
-
-        Utils.request('GET', `/ticket?` + user, undefined, updateTickets);
+        root.state.user.email = "john.doe@gmail.com"
+        Utils.request('GET', `/ticket?owner=` + root.state.user.email, undefined, updateTickets);
 
     }
 }
