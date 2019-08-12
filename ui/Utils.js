@@ -9,12 +9,13 @@ function request(verb, endpoint, obj, onSuccess, onError) {
     var BASE = ipAddress;
     var xhr = new XMLHttpRequest();
     var url = BASE + (endpoint ? endpoint : '');
-    console.log('Using URL --> ' + url);
+
     if (onSuccess) {
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
                 data = JSON.parse(xhr.responseText);
                 if (data) onSuccess(data);
+                console.log('Using URL --> ' + url);
                 console.log("LOADED ->", data);
             } else {
                 if (onError)
@@ -28,4 +29,23 @@ function request(verb, endpoint, obj, onSuccess, onError) {
     var data = obj? JSON.stringify(obj) : '';
     xhr.send(data);
     console.log(verb + ' ' + endpoint + '\n\t' + data);
+}
+
+const formatDate = aDate => {
+    const monthNames = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ];
+    const createdDate = new Date(aDate);
+    return `${createdDate.getUTCFullYear()} ${monthNames[createdDate.getMonth()]} ${createdDate.getUTCDate()}`;
 }
