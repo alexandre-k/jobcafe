@@ -10,12 +10,12 @@ SignInForm {
     property bool loggedIn: false
 
    signin.onClicked: {
-       stack.push("qrc:/ui/MainActivity/Home.qml");
+
 
        const verifyUser = (data) => {
-           console.log(data.password)
            if (data.email === username.text && data.password === password.text) {
-               stack.push(home);
+               root.state.user = data;
+               stack.push("qrc:/ui/MainActivity/Home.qml");
                return true;
            }
        }
