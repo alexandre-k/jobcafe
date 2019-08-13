@@ -7,6 +7,7 @@ Page {
     id: homeForm
     property alias menu: menu
     property alias menuArea: menuArea
+    property alias follow: follow
     header: RowLayout {
         Image {
             id: menu
@@ -19,6 +20,7 @@ Page {
         }
 
         Text {
+            // TODO remove anchors, replace with Layout
             anchors.centerIn: parent
             text: "Jjjjjjjjjjjjjj"
             font {
@@ -55,6 +57,7 @@ Page {
                     }
 
                     Button {
+                        id: follow
                         text: "Follow"
                         Material.background: Material.Purple
                         Material.foreground: "#ffffff"

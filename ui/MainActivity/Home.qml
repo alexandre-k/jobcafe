@@ -16,4 +16,12 @@ HomeForm {
             drawer: drawer
         }
     }
+
+    follow.onClicked: {
+        followDialog.open()
+    }
+
+    Follow { id: followDialog }
+
+
 }

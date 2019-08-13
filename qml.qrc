@@ -16,6 +16,10 @@
 	<file>ui/ErrorMessage/ErrorMessage.qml</file>
 	<file>ui/ErrorMessage/warning.svg</file>
 	<file>ui/LoadingMessage/LoadingMessage.qml</file>
+	<file>ui/MainActivity/Follow.qml</file>
+        <file>ui/MainActivity/facebook.svg</file>
+        <file>ui/MainActivity/instagram.svg</file>
+        <file>ui/MainActivity/twitter.svg</file>
         <file>ui/MainActivity/Home.qml</file>
         <file>ui/MainActivity/HomeFrame.qml</file>
         <file>ui/MainActivity/HomeForm.ui.qml</file>
