@@ -15,7 +15,7 @@ SignInForm {
        const verifyUser = (data) => {
            if (data.email === username.text && data.password === password.text) {
                root.state.user = data;
-               stack.push("qrc:/ui/MainActivity/Home.qml");
+               stack.push("qrc:/ui/MainActivity/HomeFrame.qml");
                return true;
            }
        }
