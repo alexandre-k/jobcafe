@@ -14,7 +14,8 @@ Popup {
     ColumnLayout {
 
         BusyIndicator {
-            running: image.status === Image.Loading
+            running: true
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
         }
         Text {
             text: msg
