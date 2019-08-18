@@ -1,8 +1,4 @@
-const ipAddress = 'http://127.0.0.1:8080';
-
-const updateUserState = (data) => {
-    user = data;
-}
+const ipAddress = 'http://127.0.0.1:8089';
 
 function request(verb, endpoint, obj, onSuccess, onError) {
 
@@ -10,25 +6,33 @@ function request(verb, endpoint, obj, onSuccess, onError) {
     var xhr = new XMLHttpRequest();
     var url = BASE + (endpoint ? endpoint : '');
 
-    if (onSuccess) {
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                data = JSON.parse(xhr.responseText);
-                if (data) onSuccess(data);
-                console.log('Using URL --> ' + url);
-                console.log("LOADED ->", data);
-            } else {
-                if (onError)
-                    onError();
-            }
-        }
-    }
     xhr.open(verb, url);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.setRequestHeader('Accept', 'application/json');
     var data = obj? JSON.stringify(obj) : '';
     xhr.send(data);
     console.log(verb + ' ' + endpoint + '\n\t' + data);
+
+    if (onSuccess) {
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    console.log("RESPONSE TEXT ", xhr.responseText);
+                    try {
+                        data = JSON.parse(xhr.responseText);
+                    } catch(error) {
+                        data = xhr.responseText;
+                    }
+                    if (data) onSuccess(data);
+                    console.log("Request successful");
+                } else {
+                    if (onError) onError(xhr.status, xhr.responseText);
+                    console.log("Request failed");
+
+                }
+            }
+        }
+    }
 }
 
 const formatDate = aDate => {
