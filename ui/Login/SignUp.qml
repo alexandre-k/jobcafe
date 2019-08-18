@@ -10,8 +10,19 @@ import "../LoadingMessage"
 SignUpForm {
 
     next.onClicked: {
-        function updateUser(data) {
+        function onSuccess(data) {
             loadingMessage.close();
+            root.state.user = data;
+            stack.push("qrc:/ui/MainActivity/HomeFrame.qml");
+        }
+
+        function onError(status, response) {
+            loadingMessage.close();
+            errorMessage.msg = "Unable to sign up. "
+            if (typeof response === "string") {
+                errorMessage.msg += response;
+            }
+            errorMessage.open();
         }
 
         const user_name = name.text.trim();
@@ -23,6 +34,12 @@ SignUpForm {
             return;
         }
         const [firstname, lastname] = user_name.split(' ');
+        if (firstname === undefined || lastname === undefined) {
+            errorMessage.msg = "Write your firstname and lastname with a space in between.\nExample: John Doe.";
+            errorMessage.open();
+            return;
+        }
+
         const user = {
             email: email.text,
             firstName: firstname,
@@ -34,7 +51,7 @@ SignUpForm {
             isStaff: false,
             // profilePicture: ""
         }
-        Utils.request('POST', '/user', user, updateUser);
+        Utils.request('POST', '/user', user, onSuccess, onError);
         loadingMessage.open();
 
 

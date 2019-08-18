@@ -37,6 +37,7 @@ Page {
 
             }
             placeholderText: "Password"
+            echoMode: TextInput.Password
             Layout.alignment: Qt.AlignCenter
             Layout.minimumWidth: 300
         }
@@ -50,6 +51,7 @@ Page {
 
             }
             placeholderText: "Confirm password"
+            echoMode: TextInput.Password
             Layout.alignment: Qt.AlignCenter
             Layout.minimumWidth: 300
         }

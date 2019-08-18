@@ -7,19 +7,24 @@ import "../Utils.js" as Utils
 
 EnterVerificationCodeForm {
 
+    property string email;
+
     sendCodeAgainArea.onClicked: {
         stack.pop();
     }
 
     verify.onClicked: {
-        Utils.request('PUT', `/reminder`, {"code": verificationCode.text}, changeCurrentPassword, onError);
+        console.log("USED EMAIL", email)
+        Utils.request('PUT', `/reminder`, {
+                          "email": email,
+                          "code": verificationCode.text}
+                      , changeCurrentPassword, onError);
     }
     function changeCurrentPassword() {
-
-        stack.push("qrc:/ui/Login/CreateNewPassword.qml");
+        stack.push("qrc:/ui/Login/CreateNewPassword.qml", {email: email});
     }
 
-    function onError() {
+    function onError(status, response) {
         errorMessage.open();
     }
 

@@ -5,7 +5,7 @@ ForgotPasswordForm {
 
     sendVerificationCode.onClicked: {
         Utils.request('POST', `/reminder`, {"email": emailAddress.text});
-        stack.push("qrc:/ui/Login/EnterVerificationCode.qml")
+        stack.push("qrc:/ui/Login/EnterVerificationCode.qml", {email: emailAddress.text})
     }
 
 }
