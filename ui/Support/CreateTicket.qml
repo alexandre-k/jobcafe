@@ -24,7 +24,7 @@ CreateTicketForm {
             confirmDialog.open();
         }
 
-        function onError() {
+        function onError(status, response) {
             errorMessage.open();
         }
 
