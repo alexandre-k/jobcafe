@@ -22,11 +22,11 @@ Item {
 
         Image {
             id: icon
-            width: 50
-            height: 50
             source: image
             fillMode: Image.PreserveAspectFit
             Layout.alignment: Qt.AlignLeft
+            Layout.preferredHeight: 50
+            Layout.preferredWidth: 50
 
         }
         Text {
