@@ -7,7 +7,7 @@ import '../Utils.js' as Utils
 
 ProfileForm {
     email.text: root.state.user.email;
-    password.text: root.state.user.password;
+    password.text: 'a' * root.state.user.passwordLength + 'a';
     name.text: root.state.user.fullName;
     profileName.text: root.state.user.fullName;
     phone.text: root.state.user.phone
