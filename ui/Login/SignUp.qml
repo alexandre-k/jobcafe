@@ -54,7 +54,6 @@ SignUpForm {
         Utils.request('POST', '/user', user, onSuccess, onError);
         loadingMessage.open();
 
-
     }
 
     ErrorMessage {

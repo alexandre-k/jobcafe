@@ -15,11 +15,13 @@ SignInForm {
 
        const onSuccess = (data) => {
            root.state.user = data;
+           loadingMessage.close();
            stack.push("qrc:/ui/MainActivity/HomeFrame.qml");
            return true;
        }
 
        const onError = (status, response) => {
+           loadingMessage.close();
            console.log(response)
            errorMessage.msg = "Unable to sign you in:\n" + response;
            errorMessage.open();
@@ -27,10 +29,10 @@ SignInForm {
 
        Utils.request('POST', `/user/` + username.text, {
                          "password": password.text}, onSuccess, onError);
+       loadingMessage.open();
    }
 
    passwordReminderArea.onClicked: {
-
        stack.push("qrc:/ui/Login/ForgotPassword.qml");
    }
 
