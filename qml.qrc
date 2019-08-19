@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>ui/Main.qml</file>
-        <file>ui/AppConfig.qml</file>
 	<file>ui/Utils.js</file>
         <file>images/arrow-left258.svg</file>
         <file>images/bg100.svg</file>
