@@ -112,10 +112,13 @@ ColumnLayout {
             height: 60
             color: "white"
 
-            TextField {
-                id: address
-                placeholderText: "Address"
-                Layout.leftMargin: 20
+            ColumnLayout {
+
+                TextField {
+                    id: address
+                    placeholderText: "Address"
+                    Layout.leftMargin: 20
+                }
             }
         }
 

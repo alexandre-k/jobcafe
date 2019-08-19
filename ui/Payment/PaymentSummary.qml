@@ -1,4 +1,5 @@
 import QtQuick 2.4
+import "../LoadingMessage"
 import "../Utils.js" as Utils
 
 PaymentSummaryForm {
@@ -27,10 +28,17 @@ PaymentSummaryForm {
 
     processPayment.onClicked: {
         function updatePlanOrder(data) {
-            planOrder = data
+            var planOrder = data
+            loadingMessage.close();
             stack.push("qrc:/ui/Payment/PaymentCompleted.qml", {subscriptionPlan: subscriptionPlan, paymentMethod: paymentMethod, planOrder: planOrder});
         }
 
-        Utils.request('POST', '/order/', {planLabel: subscriptionPlan.label, email: root.state.user.email}, updatePlanOrder);
+        Utils.request('POST', '/order/', {label: subscriptionPlan.label, orderer: root.state.user.email}, updatePlanOrder);
+        loadingMessage.open();
+    }
+
+    LoadingMessage {
+        id: loadingMessage
+        msg: "Processing your order. Please, wait..."
     }
 }

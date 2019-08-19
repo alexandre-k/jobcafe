@@ -37,7 +37,7 @@ PaymentDetailsForm {
             country.text = data.country;
             address.text = data.address;
         }
-        Utils.request('GET', '/payment-method/' + root.state.user.email, undefined, updatePaymentMethod);
+        Utils.request('GET', '/payment-method/?email=' + root.state.user.email, undefined, updatePaymentMethod);
     }
 
     creditCardIssuer.onDisplayTextChanged: {
