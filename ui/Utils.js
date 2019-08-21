@@ -1,4 +1,4 @@
-const ipAddress = 'http://127.0.0.1:8089';
+const ipAddress = 'http://52.197.89.183:8089';
 
 function request(verb, endpoint, obj, onSuccess, onError) {
 
