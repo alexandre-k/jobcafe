@@ -3,7 +3,6 @@ import QtQuick.Controls 2.5
 import QtQuick.Controls.Material 2.3
 import QtQuick.Layouts 1.3
 import QtWebView 1.1
-import QtWebEngine 1.8
 
 Page {
     id: myFilesForm
@@ -12,12 +11,9 @@ Page {
     property alias webView: webView
 
 
-    WebEngineView {
+    WebView {
         id: webView
         anchors.fill: parent
         url: website
-        profile: WebEngineProfile {
-            httpUserAgent: "Android Browser"
-        }
     }
 }
