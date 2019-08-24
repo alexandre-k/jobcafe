@@ -11,28 +11,31 @@ SignInForm {
     id: signinForm
     property bool loggedIn: false
 
-   signin.onClicked: {
+    username.onEditingFinished: password.focus = true
+    password.onEditingFinished: signin.focus = true
 
-       const onSuccess = (data) => {
-           root.state.user = data;
-           loadingMessage.close();
-           stack.push("qrc:/ui/MainActivity/HomeFrame.qml");
-           return true;
-       }
+    signin.next.onClicked: {
+        const onSuccess = (data) => {
+            root.state.user = data;
+            loadingMessage.close();
+            stack.push("qrc:/ui/MainActivity/HomeFrame.qml");
+            return true;
+        }
 
-       const onError = (status, response) => {
-           loadingMessage.close();
-           console.log(response)
-           errorMessage.msg = "Unable to sign you in:\n" + response;
-           errorMessage.open();
-       }
+        const onError = (status, response) => {
+            loadingMessage.close();
+            console.log(response)
+            console.log(status)
+            errorMessage.msg = "Unable to sign you in:\n" + response;
+            errorMessage.open();
+        }
 
-       Utils.request('POST', `/user/` + username.text, {
+        Utils.request('POST', `/user/` + username.text, {
                          "password": password.text}, onSuccess, onError);
-       loadingMessage.open();
-   }
+        loadingMessage.open();
+    }
 
-   passwordReminderArea.onClicked: {
+    passwordReminderArea.onClicked: {
        stack.push("qrc:/ui/Login/ForgotPassword.qml");
    }
 

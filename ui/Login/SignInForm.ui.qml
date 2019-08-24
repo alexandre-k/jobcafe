@@ -42,15 +42,7 @@ Page {
             Layout.margins: 30
         }
     }
-    Button {
-        id: signin
-        anchors.bottom: parent.bottom
-        anchors.right: parent.right
-        text: qsTr("sign in")
-        font.capitalization: Font.AllUppercase
-        Material.background: Material.Blue
-        Material.foreground: "#ffffff"
-    }
+    footer: NextButton { id: signin; btext: "sign in" }
 }
 
 

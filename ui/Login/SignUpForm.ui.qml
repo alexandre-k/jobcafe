@@ -1,5 +1,4 @@
 import QtQuick 2.12
-import QtQuick.Controls 1.4
 import QtQuick.Controls.Material 2.3
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
@@ -8,7 +7,8 @@ Page {
     property alias name: name
     property alias email: email
     property alias password: password
-    property alias next: next
+    property alias signup: signup
+
     ColumnLayout {
         anchors.fill: parent
         anchors.leftMargin: 50
@@ -34,25 +34,5 @@ Page {
             placeholderText: "Password"
         }
     }
-    footer: Button {
-        id: next
-        text: qsTr("next")
-        font.capitalization: Font.AllUppercase
-        Material.background: Material.Blue
-        Material.foreground: "#ffffff"
-//        contentItem: Text {
-//            text: getStarted.text
-//            font.capitalization: Font.AllUppercase
-//            color: "white"
-//            horizontalAlignment: Text.AlignHCenter
-//            verticalAlignment: Text.AlignVCenter
-//        }
-//            height: 70
-//            width: 200
-//            background: Rectangle {
-//                color: "#3497fd"
-//                radius: 30
-
-//        }
-    }
+    footer: NextButton { id: signup; btext: "next" }
 }

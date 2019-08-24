@@ -3,7 +3,7 @@ import "../Utils.js" as Utils
 
 ForgotPasswordForm {
 
-    sendVerificationCode.onClicked: {
+    sendVerificationCode.next.onClicked: {
         Utils.request('POST', `/reminder`, {"email": emailAddress.text});
         stack.push("qrc:/ui/Login/EnterVerificationCode.qml", {email: emailAddress.text})
     }

@@ -13,8 +13,7 @@ EnterVerificationCodeForm {
         stack.pop();
     }
 
-    verify.onClicked: {
-        console.log("USED EMAIL", email)
+    verify.next.onClicked: {
         Utils.request('PUT', `/reminder`, {
                           "email": email,
                           "code": verificationCode.text}

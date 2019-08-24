@@ -12,7 +12,7 @@ Page {
 
 
     ColumnLayout {
-        anchors.fill: parent
+        width: parent.width
 
         BackButton {
             Layout.margins: 10
@@ -23,9 +23,11 @@ Page {
              color: "#454f63"
              font {
                  family: "Lato"
-                 pointSize: 20
+                 pointSize: 17
              }
              Layout.alignment: Qt.AlignCenter
+             Layout.margins: 20
+             Layout.bottomMargin: 40
          }
 
         TextField {
@@ -40,6 +42,7 @@ Page {
             echoMode: TextInput.Password
             Layout.alignment: Qt.AlignCenter
             Layout.minimumWidth: 300
+            Layout.bottomMargin: 20
         }
 
         TextField {
@@ -54,16 +57,14 @@ Page {
             echoMode: TextInput.Password
             Layout.alignment: Qt.AlignCenter
             Layout.minimumWidth: 300
+            Layout.bottomMargin: 20
         }
 
-
-        Button {
+        NextButton {
             id: submit
-            text: "Submit"
-            Material.background: Material.Blue
-            Material.foreground: "#ffffff"
+            btext: "Submit"
             Layout.alignment: Qt.AlignRight
-            Layout.minimumWidth: 200
-         }
+            Layout.topMargin: 40
+        }
     }
 }

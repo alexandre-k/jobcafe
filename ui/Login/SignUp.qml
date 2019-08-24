@@ -9,7 +9,7 @@ import "../LoadingMessage"
 
 SignUpForm {
 
-    next.onClicked: {
+    signup.next.onClicked: {
         function onSuccess(data) {
             loadingMessage.close();
             root.state.user = data;
@@ -33,6 +33,15 @@ SignUpForm {
             errorMessage.open();
             return;
         }
+
+        const strength = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{6,})");
+
+        if (!strength.test(user_password)) {
+            errorMessage.msg = "Your password should contain at least 6 characters, and should include more than one upper case letter, lower case letter and number."
+            errorMessage.open();
+            return;
+        }
+
         const [firstname, lastname] = user_name.split(' ');
         if (firstname === undefined || lastname === undefined) {
             errorMessage.msg = "Write your firstname and lastname with a space in between.\nExample: John Doe.";
@@ -48,8 +57,7 @@ SignUpForm {
             isNewMessageNotified: true,
             isNewServiceAdvertised: true,
             subscribed: true,
-            isStaff: false,
-            // profilePicture: ""
+            isStaff: false
         }
         Utils.request('POST', '/user', user, onSuccess, onError);
         loadingMessage.open();

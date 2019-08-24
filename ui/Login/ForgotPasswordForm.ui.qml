@@ -42,11 +42,9 @@ Page {
             Layout.minimumWidth: 300
         }
 
-        Button {
+        NextButton {
             id: sendVerificationCode
-            text: "Send verification code"
-            Material.background: Material.Blue
-            Material.foreground: "#ffffff"
+            btext: "Send verification code"
             Layout.alignment: Qt.AlignRight
         }
     }

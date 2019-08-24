@@ -11,7 +11,8 @@ Page {
     property alias sendCodeAgainArea: sendCodeAgainArea
 
     ColumnLayout {
-        anchors.fill: parent
+        width: parent.width
+        height: parent.height / 2
 
         BackButton {
             Layout.margins: 20
@@ -40,17 +41,31 @@ Page {
             Layout.margins: 20
         }
 
-
         TextField {
             id: verificationCode
-            placeholderText: "Verification code"
-            font {
-                family: "Lato"
-                pointSize: 14
-                bold: true
+            horizontalAlignment: TextInput.AlignHCenter
+            inputMethodHints: Qt.ImhPreferNumbers
+            maximumLength: 4
+            background: Rectangle {
+                radius: 7
+                color: "#ffffff"
+                border.color: verificationCode.focus ? "#3497fd" : "transparent"
+
+                Text {
+                    anchors.centerIn: parent
+                    text: verificationCode.focus || verificationCode.text ? "" : qsTr("Verification code")
+                    font {
+                        family: "Lato"
+                        pointSize: 14
+                        bold: true
+                        letterSpacing: 1
+                    }
+
+                    color: "#454f63"
+                }
             }
-            color: "#454f63"
-            Layout.alignment: Qt.AlignCenter
+
+            Layout.alignment: Qt.AlignCenter || Qt.AlignVCenter
             Layout.fillWidth: true
             Layout.leftMargin: 50
             Layout.rightMargin: 50
@@ -73,13 +88,10 @@ Page {
             Layout.margins: 30
         }
 
-        Button {
+        NextButton {
             id: verify
-            text: qsTr("Verify")
-            Material.background: Material.Blue
-            Material.foreground: "#ffffff"
+            btext: qsTr("Verify")
             Layout.alignment: Qt.AlignRight
-            Layout.minimumWidth: 150
         }
     }
 

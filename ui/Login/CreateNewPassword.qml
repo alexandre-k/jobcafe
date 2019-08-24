@@ -16,7 +16,7 @@ CreateNewPasswordForm {
         }
     }
 
-    submit.onClicked: {
+    submit.next.onClicked: {
         Utils.request('PUT', `/user`, {
                           "email": email,
                           "password": password.text}, onSuccess, onError);
