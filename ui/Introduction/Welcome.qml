@@ -22,7 +22,10 @@ import QtQuick.Layouts 1.3
                     id: title
                     Layout.topMargin: 50
                     Layout.leftMargin: 50
-                    text: "Looooooo Aaaaaannnn"
+                    Layout.maximumWidth: 360
+                    text: "Looooooo Aaaaaannnn kkk"
+                    fontSizeMode: Text.Fit
+                    wrapMode: Text.WordWrap
                     font {
                         bold: true
                         pointSize: 25
@@ -59,14 +62,15 @@ import QtQuick.Layouts 1.3
                 text: getStarted.text
                 font {
                     capitalization: Font.AllUppercase
-                    letterSpacing: 2
+                    pointSize: 13
+                    letterSpacing: 3
                     bold: true
                 }
                 color: "white"
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
             }
-            height: 70
+            height: 80
             onClicked: stack.push("qrc:/ui/Login/Login.qml")
         }
     }

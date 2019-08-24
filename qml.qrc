@@ -56,6 +56,8 @@
         <file>ui/Login/SignUpForm.ui.qml</file>
         <file>ui/Login/SignIn.qml</file>
         <file>ui/Login/SignInForm.ui.qml</file>
+        <file>ui/Login/right_arrow.svg</file>
+	<file>ui/Login/NextButton.qml</file>
         <file>ui/Payment/basic.png</file>
         <file>ui/Payment/premium.png</file>
         <file>ui/Payment/standard.png</file>
