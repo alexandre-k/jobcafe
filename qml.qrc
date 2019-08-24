@@ -16,6 +16,7 @@
 	<file>ui/ErrorMessage/warning.svg</file>
 	<file>ui/LoadingMessage/LoadingMessage.qml</file>
 	<file>ui/MainActivity/Follow.qml</file>
+	<file>ui/MainActivity/Frame.qml</file>
         <file>ui/MainActivity/facebook.svg</file>
         <file>ui/MainActivity/instagram.svg</file>
         <file>ui/MainActivity/twitter.svg</file>
@@ -61,18 +62,19 @@
         <file>ui/Payment/basic.png</file>
         <file>ui/Payment/premium.png</file>
         <file>ui/Payment/standard.png</file>
+        <file>ui/Payment/MyPlan.qml</file>
         <file>ui/Payment/PaymentCart.qml</file>
         <file>ui/Payment/PaymentCartForm.ui.qml</file>
         <file>ui/Payment/PaymentDetails.qml</file>
         <file>ui/Payment/PaymentDetailsForm.ui.qml</file>
         <file>ui/Payment/PaymentPlan.qml</file>
-        <file>ui/Payment/PaymentPlanForm.ui.qml</file>
+        <file>ui/Payment/PaymentPlanFrame.qml</file>
         <file>ui/Payment/PaymentCompleted.qml</file>
         <file>ui/Payment/PaymentCompletedForm.ui.qml</file>
         <file>ui/Payment/PaymentSummary.qml</file>
         <file>ui/Payment/PaymentSummaryForm.ui.qml</file>
         <file>ui/Payment/PaymentText.qml</file>
-        <file>ui/Payment/MyPlan.qml</file>
+        <file>ui/Payment/Ellipse.qml</file>
         <file>ui/Payment/cart.svg</file>
         <file>ui/Profile/Entry.qml</file>
         <file>ui/Profile/Profile.qml</file>
