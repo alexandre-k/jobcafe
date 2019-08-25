@@ -6,7 +6,7 @@ import QtQuick.Layouts 1.3
 Item {
 
     width: 100
-    height: 70
+    height: 40
 
     property string image
     property string label
@@ -18,15 +18,15 @@ Item {
     }
     RowLayout {
 
-        spacing: 20
+        spacing: 25
 
         Image {
             id: icon
             source: image
             fillMode: Image.PreserveAspectFit
             Layout.alignment: Qt.AlignLeft
-            Layout.preferredHeight: 50
-            Layout.preferredWidth: 50
+            Layout.preferredHeight: 20
+            Layout.preferredWidth: 20
 
         }
         Text {

@@ -2,11 +2,10 @@ import QtQuick 2.4
 import QtQuick.Controls 2.5
 import QtQuick.Controls.Material 2.3
 import QtQuick.Layouts 1.3
+import QtGraphicalEffects 1.0
 
 Page {
     id: sideMenu
-    anchors.fill: parent
-    anchors.margins: 20
 
     property alias profileFullName: profileFullName
     property alias profilePicture: profilePicture
@@ -20,123 +19,185 @@ Page {
     property alias aboutUs: aboutUs
     property alias logoutClickableArea: logoutClickableArea
     property alias aboutUsClickableArea: aboutUsClickableArea
+    property int leftShift: -50
+    property int rightShift: 70
 
-    header: ColumnLayout {
-        spacing: 5
+    Rectangle {
+        anchors.left: parent.left
+        anchors.leftMargin:  leftShift
+        height: 680
+        width: 370
+        radius: 50
+        color: "#dfe2e8"
 
-        RowLayout {
-            Image {
-                id: profilePicture
-                source: "/images/profile_picture.png"
-                fillMode: Image.PreserveAspectFit
-            }
+        ColumnLayout {
+            spacing: 5
+            width: parent.width
 
-            Image {
-                id: closeMenu
-                source: "images/menu_activated.svg"
-                fillMode: Image.PreserveAspectFit
-                MouseArea {
-                    id: closeMenuClickableArea
-                    anchors.fill: parent
-                }
-                Layout.alignment: Qt.AlignRight
-            }
-        }
-
-        Text {
-            id: profileFullName
-            text: root.state.user.fullName
-            font {
-                family: "Montserrat"
-                bold: true
-                pointSize: 24
-            }
-            color: "#444f63"
-        }
-
-        Text {
-            id: membership
-            text: root.state.user.membership? root.state.user.membership : "No membership"
-            font {
-                family: "Montserrat"
-                pointSize: 14
-            }
-            color: "#444f63"
-            opacity: 0.56
-        }
-    }
-
-    ColumnLayout {
-        SideMenuElement {
-            id: profile
-            label: "Edit profile"
-            image: "images/profile.png"
-        }
-
-        SideMenuElement {
-            id: payment
-            label: "Payment plan"
-            image: "images/payment.png"
-        }
-        SideMenuElement {
-            id: support
-            label: "Support"
-            image: "images/support.png"
-        }
-        SideMenuElement {
-            id: settings
-            label: "Settings"
-            image: "images/settings.png"
-        }
-    }
-
-    footer: ColumnLayout {
-        spacing: 30
-        Text {
-            id: aboutUs
-            text: "About Us"
-            MouseArea {
-                id: aboutUsClickableArea
-                anchors.fill: parent
-            }
-        }
-
-        Item {
-            id: logout
-            width: 100
-            height: 100
-
+            Rectangle { height: 5 }
             RowLayout {
+                Layout.leftMargin: rightShift
+
+                Item {
+                    Layout.margins: 20
+
+                    Rectangle {
+                        id: frame
+                        width: 60
+                        height: 60
+                        radius: 10
+                        visible: false
+
+                    }
+
+                    Image {
+                        id: profilePicture
+                        source: "images/profile_picture.png"
+                        width: 60
+                        height: 60
+                        fillMode: Image.PreserveAspectCrop
+                        sourceSize: Qt.size(parent.width, parent.height)
+                        smooth: true
+                        visible: true
+                        layer.enabled: true
+                        layer.effect: OpacityMask {
+                            maskSource: frame
+                        }
+                    }
+                }
+
+                Rectangle { width: 200 }
 
                 Image {
-                    source: "images/logout.svg"
-                    Layout.alignment: Qt.AlignLeft
-                }
-                Text {
-
-                    text: "Log Out"
-                    color: "#1677cb"
+                    id: closeMenu
+                    source: "images/menu_activated.svg"
+                    fillMode: Image.PreserveAspectFit
+                    MouseArea {
+                        id: closeMenuClickableArea
+                        anchors.fill: parent
+                    }
                     Layout.alignment: Qt.AlignRight
+                    Layout.rightMargin: 20
                 }
             }
 
-            MouseArea {
-                id: logoutClickableArea
-                anchors.fill: parent
+            Text {
+                id: profileFullName
+                text: root.state.user.fullName
+                font {
+                    family: "Montserrat"
+                    bold: true
+                    pointSize: 22
+                }
+                color: "#444f63"
+                Layout.leftMargin: rightShift + 20
+                Layout.topMargin: 50
             }
-        }
 
-        Text {
-            id: appVersion
-            text: "Version 4.8.15.16.23.42"
+            Text {
+                id: membership
+                text: root.state.user.membership? root.state.user.membership.label : "No membership"
+                font {
+                    family: "Montserrat"
+                    pointSize: 12
+                }
+                color: "#444f63"
+                opacity: 0.56
+                Layout.leftMargin: rightShift + 20
+
+            }
+
+            Rectangle { height: 50 }
+
+            SideMenuElement {
+                id: home
+                label: "Home"
+                image: "images/home.png"
+                Layout.leftMargin: rightShift
+            }
+
+            SideMenuElement {
+                id: profile
+                label: "Edit profile"
+                image: "images/profile.png"
+                Layout.leftMargin: rightShift
+            }
+
+            SideMenuElement {
+                id: payment
+                label: "Payment plan"
+                image: "images/payment.svg"
+                Layout.leftMargin: rightShift
+            }
+            SideMenuElement {
+                id: support
+                label: "Support"
+                image: "images/support.png"
+                Layout.leftMargin: rightShift
+            }
+            SideMenuElement {
+                id: settings
+                label: "Settings"
+                image: "images/settings.png"
+                Layout.leftMargin: rightShift
+            }
+
+            Rectangle { height: 30 }
+
+            Text {
+                id: aboutUs
+                text: "About Us"
+                color: "#444f63"
+                font {
+                    family: "Montserrat"
+                    pointSize: 12
+                }
+                MouseArea {
+                    id: aboutUsClickableArea
+                    anchors.fill: parent
+                }
+                Layout.leftMargin: rightShift
+            }
+
+            Rectangle { height: 40 }
+
+            Item {
+                id: logout
+                width: 10
+                height: 10
+                Layout.leftMargin: rightShift
+
+                RowLayout {
+
+                    Image {
+                        source: "images/logout.svg"
+                        Layout.alignment: Qt.AlignLeft
+                    }
+                    Text {
+
+                        text: "Log Out"
+                        font {
+                            family: "Montserrat"
+                            pointSize: 12
+                        }
+                        color: "#1677cb"
+                        Layout.alignment: Qt.AlignRight
+                    }
+                }
+
+                MouseArea {
+                    id: logoutClickableArea
+                    anchors.fill: parent
+                }
+            }
+
+            Rectangle { height: 50 }
+
+            Text {
+                id: appVersion
+                text: "Version 1.0 beta-2"
+                Layout.leftMargin: rightShift
+            }
         }
     }
 }
-
-
-
-
-/*##^## Designer {
-    D{i:0;autoSize:true;height:480;width:640}
-}
- ##^##*/
