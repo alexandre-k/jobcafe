@@ -53,6 +53,116 @@ ColumnLayout {
 
     ColumnLayout {
 
+        Rectangle {
+            height: 2
+            color: "lightGray"
+            width: root.width - 80
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            property string completeColor: "#00b123"
+            property string incompleteColor: "#fff"
+            property bool productsCompleted: false
+
+
+            RowLayout {
+                id: products
+
+                ColumnLayout {
+
+                    Rectangle {
+                        color: productsCompleted ? "#00b123" : "#fff"
+                        height: 20
+                        width: 20
+                        radius: 50
+                        border { color: productsCompleted ? "transparent" : "black" }
+                        Layout.alignment: Qt.AlignTop
+                        Layout.topMargin: -10
+                    }
+
+                    Text {
+                        color: productsCompleted ? "#00b123" : "#2699fb"
+                        text: "Products"
+                        Layout.alignment: Qt.AlignLeft
+                        Layout.leftMargin: -10
+                    }
+                }
+
+                Rectangle { width: 50; color: "transparent" }
+
+                ColumnLayout {
+                    id: paymentDetails
+                    property bool paymentDetailsCompleted: false
+
+                    Rectangle {
+                        color: paymentDetailsCompleted ? "#00b123" : "#fff"
+                        height: 20
+                        width: 20
+                        radius: 50
+                        border { color: paymentDetailsCompleted ? "transparent" : "black" }
+                        Layout.alignment: Qt.AlignTop
+                        Layout.topMargin: -10
+                    }
+
+                    Text {
+                        color: paymentDetailsCompleted ? "#00b123" : "#2699fb"
+                        text: "Payment details"
+                        Layout.alignment: Qt.AlignLeft
+                        Layout.leftMargin: -30
+                    }
+                }
+
+                Rectangle { width: 30; color: "transparent" }
+
+                ColumnLayout {
+                    id: summary
+                    property bool summaryCompleted: false
+
+                    Rectangle {
+                        color: summaryCompleted ? "#00b123" : "#fff"
+                        height: 20
+                        width: 20
+                        radius: 50
+                        border { color: summaryCompleted ? "transparent" : "black" }
+                        Layout.alignment: Qt.AlignTop
+                        Layout.topMargin: -10
+                    }
+
+                    Text {
+                        color: summaryCompleted ? "#00b123" : "#2699fb"
+                        text: "Summary"
+                        Layout.alignment: Qt.AlignLeft
+                        Layout.leftMargin: -10
+                    }
+                }
+
+                Rectangle { width: 40; color: "transparent" }
+
+                ColumnLayout {
+                    id: confirmation
+                    property bool confirmationCompleted: false
+
+                    Rectangle {
+                        color: confirmationCompleted ? "#00b123" : "#fff"
+                        height: 20
+                        width: 20
+                        radius: 50
+                        border { color: confirmationCompleted ? "transparent" : "black" }
+                        Layout.alignment: Qt.AlignTop
+                        Layout.topMargin: -10
+                    }
+
+                    Text {
+                        color: confirmationCompleted ? "#00b123" : "#2699fb"
+                        text: "Completed"
+                        Layout.alignment: Qt.AlignLeft
+                        Layout.leftMargin: -30
+                    }
+                }
+            }
+        }
+
+        Rectangle { height: 25; color: "transparent" }
+
+
         ComboBox {
             id: creditCardIssuer
             Layout.fillWidth: true

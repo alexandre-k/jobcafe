@@ -56,8 +56,6 @@ Page {
             }
         }
 
-
-
         Component {
             id: delegate
 
@@ -80,6 +78,7 @@ Page {
                     source: imageSource
 
                     MouseArea {
+                        id: planArea
                         anchors.fill: parent
                         onClicked: selectPlan(plan.name)
                     }
@@ -99,6 +98,33 @@ Page {
             delegate: delegate
             path: Ellipse {}
 
+        }
+    }
+
+    footer: ColumnLayout {
+        height: 200
+        Rectangle {
+            width: checkout.implicitWidth + 70
+            height: checkout.implicitHeight + 30
+            color: "#3497fd"
+            radius: 5
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            Text {
+                id: checkout
+                anchors.centerIn: parent
+                text: "Process to Checkout"
+                color: "#fff"
+                font {
+                    family: "Titilium Web"
+                    pointSize: 13
+                    bold: true
+                    underline: true
+                }
+            }
+            MouseArea {
+                anchors.fill: parent
+//                onClicked:
+            }
         }
     }
 
