@@ -7,9 +7,12 @@ import QtQuick.Layouts 1.3
         id: welcome
         anchors.fill: parent
 
-        header:Image {
-            source: "qrc:/images/introduction.svg"
-            fillMode: Image.PreserveAspectFit
+        header:ColumnLayout {
+            Rectangle { height: 100; color: "transparent" }
+            Image {
+                source: "qrc:/images/introduction.svg"
+                fillMode: Image.PreserveAspectFit
+            }
         }
 
         Rectangle {
@@ -28,7 +31,7 @@ import QtQuick.Layouts 1.3
                     wrapMode: Text.WordWrap
                     font {
                         bold: true
-                        pointSize: 25
+                        pointSize: 38
                         family: "Europa"
                     }
                     color: "#7f7f7f"
@@ -46,7 +49,7 @@ import QtQuick.Layouts 1.3
                     Layout.leftMargin: 50
                     text: "we are here to help"
                     font {
-                        pointSize: 15
+                        pointSize: 22
                         family: "Europa"
                     }
                     color: "#7f7f7f"
@@ -54,23 +57,46 @@ import QtQuick.Layouts 1.3
             }
         }
 
-        footer:Button {
+        footer: RowLayout {
             id: getStarted
-            Material.background: Material.Blue
-            text: "Get started"
-            contentItem: Text {
-                text: getStarted.text
-                font {
-                    capitalization: Font.AllUppercase
-                    pointSize: 13
-                    letterSpacing: 3
-                    bold: true
+            spacing: 0
+
+            Rectangle {
+                Layout.preferredWidth: root.width - 80
+                Layout.alignment: Qt.AlignLeft
+                Layout.preferredHeight: 80
+                color: "#41aaff"
+                Text {
+                    text: "Get started"
+                    font {
+                        capitalization: Font.AllUppercase
+                        pointSize: 18
+                        letterSpacing: 3
+                        bold: true
+                    }
+                    color: "white"
+                    anchors.centerIn: parent
                 }
-                color: "white"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
             }
-            height: 80
-            onClicked: stack.push("qrc:/ui/Login/Login.qml")
+
+            Rectangle {
+                color: "#3497fd"
+                Layout.preferredWidth: 80
+                Layout.preferredHeight: 80
+                Layout.alignment: Qt.AlignRight
+
+                Image {
+                    source: "right_arrow.svg"
+                    fillMode: Image.PreserveAspectFit
+                    anchors.centerIn: parent
+
+                }
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: stack.push("qrc:/ui/Login/Login.qml")
+            }
+
         }
     }
