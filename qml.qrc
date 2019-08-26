@@ -41,9 +41,11 @@
         <file>ui/MainActivity/images/menu.svg</file>
         <file>ui/MainActivity/images/menu_activated.svg</file>
         <file>ui/MainActivity/images/my_files.svg</file>
-        <file>ui/MainActivity/images/payment.png</file>
+        <file>ui/MainActivity/images/payment.svg</file>
         <file>ui/MainActivity/images/profile.png</file>
+        <file>ui/MainActivity/images/profile_picture.png</file>
         <file>ui/MainActivity/images/right_arrow.svg</file>
+        <file>ui/MainActivity/images/search.svg</file>
         <file>ui/MainActivity/images/settings.png</file>
         <file>ui/MainActivity/images/support.png</file>
         <file>ui/Login/CreateNewPassword.qml</file>
@@ -92,6 +94,7 @@
 	<file>ui/AppState/AppState.qml</file>
         <file>ui/Style.qml</file>
         <file>ui/Introduction/Welcome.qml</file>
+        <file>ui/Introduction/right_arrow.svg</file>
         <file>ui/Support/CreateTicket.qml</file>
         <file>ui/Support/CreateTicketForm.ui.qml</file>
         <file>ui/Support/forward.svg</file>
