@@ -7,35 +7,48 @@ SplitView {
     id: view
     orientation: Qt.Vertical
 
-    Rectangle {
+    ColumnLayout {
         id: presentation
-        color: "#EFEFEF"
-        width: parent.width
-        height: parent.height / 2
+
+        Rectangle { height: 40; color: "transparent" }
 
         Text {
             id: title
+            width: 25
             horizontalAlignment: Text.AlignHCenter
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottom: subtitle.top
-            text: "Cccccccccccc\nFFFFFfffffffffffff"
+            text: "Create Your\n Job Application"
+            wrapMode: Text.WordWrap
             font {
-                bold: true
-                pointSize: 16
+                family: Europa
+                pointSize: 30
             }
+            color: "#444f63"
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+        }
+
+        Rectangle {
+            id: line
+            height: 2
+            width: 100
+            color: "#7f7f7f"
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
         }
 
         Text {
             id: subtitle
-            horizontalAlignment: Text.AlignHCenter
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottom: loginPicture.top
-            text: "fffffff"
+            text: "To Your Dream Job"
+            font {
+                family: Europa
+                pointSize: 20
+            }
+            color: "#444f63"
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
         }
+
+        Rectangle { height: 40; color: "transparent" }
 
         Image {
             id: loginPicture
-            anchors.bottom: parent.bottom
             fillMode: Image.PreserveAspectFit
             source: "qrc:images/signin.svg"
         }
@@ -52,30 +65,37 @@ SplitView {
 
            TabButton {
                id: signUpBtn
+               height: 80
                text: qsTr("Sign Up")
                contentItem: Text {
+                   horizontalAlignment: Text.AlignHCenter
+                   verticalAlignment: Text.AlignBottom
+                   anchors.bottom: signUpBtn.bottom
                    text: signUpBtn.text
                    font {
                        family: "Europa"
+                       bold: true
+                       pointSize: 15
                    }
-                   horizontalAlignment: Text.AlignHCenter
-                   verticalAlignment: Text.AlignVCenter
-                   color: "black"
-
+                   color: "#444f63"
                }
            }
 
            TabButton {
                id: signInBtn
+               height: 80
                text: qsTr("Sign In")
                contentItem: Text {
                    text: signInBtn.text
                    font {
                        family: "Europa"
+                       bold: true
+                       pointSize: 15
                    }
                    horizontalAlignment: Text.AlignHCenter
-                   verticalAlignment: Text.AlignVCenter
-                   color: "black"
+                   verticalAlignment: Text.AlignBottom
+                   anchors.bottom: signInBtn.bottom
+                   color: "#444f63"
                }
            }
        }

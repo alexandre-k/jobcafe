@@ -13,8 +13,9 @@ Page {
         anchors.fill: parent
         anchors.leftMargin: 50
         anchors.rightMargin: 50
-        anchors.centerIn: parent
         spacing: 1
+
+        Rectangle { height: 25; color: "transparent" }
 
         TextField {
             id: name
@@ -33,6 +34,8 @@ Page {
             echoMode: TextInput.Password
             placeholderText: "Password"
         }
+
+        Rectangle { height: 25; color: "transparent" }
     }
     footer: NextButton { id: signup; btext: "next" }
 }

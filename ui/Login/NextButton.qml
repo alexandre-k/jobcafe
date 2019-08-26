@@ -13,25 +13,23 @@ RowLayout {
        font.capitalization: Font.AllUppercase
        Material.background: Material.Blue
        Material.foreground: "#ffffff"
-       Layout.minimumWidth: 200
-       Layout.minimumHeight: 60
+       Layout.minimumWidth: 190
+       Layout.minimumHeight: 70
        Layout.alignment: Qt.AlignRight
        background: Rectangle {
-           height: 60
+           height: 100
            width: 500
            radius: 30
            color: "#3497fd"
        }
        contentItem: RowLayout {
-           Rectangle {
-               width: 50
-           }
+           Rectangle { width: 40; color: "transparent" }
 
            Text {
                text: next.text
                font {
                    capitalization: Font.AllUppercase
-                   pointSize: 13
+                   pointSize: 18
                    letterSpacing: 1
                }
                color: "white"
@@ -42,9 +40,7 @@ RowLayout {
                Layout.alignment: Qt.AlignRight
            }
 
-           Rectangle {
-               width: 30
-           }
+           Rectangle { width: 20; color: "transparent" }
        }
     }
 }

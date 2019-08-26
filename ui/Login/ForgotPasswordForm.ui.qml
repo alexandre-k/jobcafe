@@ -25,7 +25,7 @@ Page {
             color: "#454f63"
             font {
                 family: "Lato"
-                pointSize: 16
+                pointSize: 20
             }
             Layout.alignment: Qt.AlignCenter
         }

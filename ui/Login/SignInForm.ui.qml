@@ -13,6 +13,9 @@ Page {
         anchors.fill: parent
         anchors.margins: 50
         anchors.centerIn: parent
+        spacing: 20
+
+        Rectangle { height: 10; color: "transparent" }
 
         TextField {
             id: username
@@ -25,14 +28,21 @@ Page {
             echoMode: TextInput.Password
             placeholderText: "Password"
         }
-        Text {
-            id: passwordReminder
-            text: "Forgot Password"
-            font {
-                family: "Gibson"
-                underline: true
+
+        Rectangle {
+            height: 25
+            width: passwordReminder.implicitWidth
+            color: "transparent"
+
+            Text {
+                id: passwordReminder
+                text: "Forgot Password"
+                font {
+                    family: "Gibson"
+                    underline: true
+                }
+                color: "#3497fd"
             }
-            color: "#3497fd"
 
             MouseArea {
                 id: passwordReminderArea
@@ -42,6 +52,7 @@ Page {
             Layout.margins: 30
         }
     }
+
     footer: NextButton { id: signin; btext: "sign in" }
 }
 
