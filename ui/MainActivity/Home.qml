@@ -3,21 +3,22 @@ import QtQuick.Controls 2.5
 import QtQuick.Controls.Material 2.3
 import QtQuick.Layouts 1.3
 
-
 HomeForm {
 
     menuArea.onClicked: drawer.open()
 
     Drawer {
         id: drawer
-        width: parent.width * 3 / 4
+        width: parent.width * 1 / 4
         height: parent.height
+        background: null
+
         SideMenu {
             drawer: drawer
         }
     }
 
-    follow.onClicked: {
+    followArea.onClicked: {
         followDialog.open()
     }
 

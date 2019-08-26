@@ -25,8 +25,8 @@ Page {
     Rectangle {
         anchors.left: parent.left
         anchors.leftMargin:  leftShift
-        height: 680
-        width: 370
+        height: root.height
+        width: root.width - 40
         radius: 50
         color: "#dfe2e8"
 

@@ -6,8 +6,8 @@ import QtWebView 1.1
 
 
 MyFilesForm {
-    website: "https://ok-google.io/"
-    Component.onCompleted: {
-        console.log("URL", webView.url)
-    }
+//    website: "https://ok-google.io/"
+//    Component.onCompleted: {
+//        console.log("URL", webView.url)
+//    }
 }

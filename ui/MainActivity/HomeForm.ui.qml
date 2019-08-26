@@ -2,21 +2,30 @@ import QtQuick 2.4
 import QtQuick.Controls 2.5
 import QtQuick.Controls.Material 2.3
 import QtQuick.Layouts 1.3
+import QtQuick.Window 2.3
+import "../Utils.js" as Utils
 
 Page {
     id: homeForm
+
     property alias menu: menu
     property alias menuArea: menuArea
-    property alias follow: follow
+    property alias followArea: followArea
     header: RowLayout {
-        Image {
-            id: menu
-            source: "images/menu.svg"
-            Layout.margins: 10
+        Rectangle {
+            width: 40
+            height: 40
+            color: "transparent"
+            Image {
+                id: menu
+                source: "images/menu.svg"
+            }
             MouseArea {
                 id: menuArea
                 anchors.fill: parent
             }
+            Layout.topMargin: 20
+            Layout.leftMargin: 20
         }
 
         Text {
@@ -25,119 +34,183 @@ Page {
             text: "Jjjjjjjjjjjjjj"
             font {
                 family: "Magnolia Script"
-                pointSize: 14
+                pointSize: 18
             }
             color: "#032f3e"
         }
     }
 
-    Rectangle {
-        id: backgroundColor
-        anchors.fill: parent
-        anchors.margins: 10
-        color: "#dfe2e8"
-        radius: 80
-        Item {
-            anchors.fill: parent
-            anchors.margins: 30
+    Canvas {
+        id: frame
 
-            ColumnLayout {
-                spacing: 10
-                RowLayout {
-                    spacing: 100
-                    Text {
-                        id: welcomeMessage
-                        text: qsTr("Welcome Back,\n" + root.state.user.firstName)
-                        color: "#241332"
-                        font {
-                            family: "Montserrat"
-                            bold: true
-                            pointSize: 13
-                        }
-                    }
+        width: root.width
+        height: root.height
 
-                    Button {
-                        id: follow
-                        text: "Follow"
-                        Material.background: Material.Purple
-                        Material.foreground: "#ffffff"
+        onPaint: {
+
+            const ctx = getContext("2d")
+
+            ctx.lineWidth = 4
+
+            ctx.fillStyle = "#dfe2e8"
+
+            Utils.drawRec(ctx, 20, 20, root.width - 30, root.height - 200, 100)
+
+            ctx.fill()
+
+        }
+
+        ColumnLayout {
+
+            spacing: 10
+            width: root.width - 30
+
+            RowLayout {
+                Rectangle { height: 10; color: "transparent" }
+
+                Text {
+                    id: welcomeMessage
+                    text: qsTr("Welcome Back,\n" + root.state.user.firstName)
+                    color: "#241332"
+                    font {
+                        family: "Montserrat"
+                        bold: true
+                        pointSize: 18
                     }
+                    Layout.leftMargin: 40
+                    Layout.topMargin: 30
                 }
 
-                ListView {
-                    id: view
-                    height: 500
-                    spacing: 10
-                    width: backgroundColor.width
-                    orientation: ListView.Vertical
-                    delegate: Rectangle {
-                        id: cell
-                        height: 100
-                        width: backgroundColor.width * 5 / 6
-                        color: "#eceff0"
-                        radius: 20
-                        RowLayout {
-                            anchors.fill: parent
+                Rectangle {
+                    color: "transparent"
+                    Layout.fillWidth: true
+                }
 
-                            spacing: 2
-                            Image {
-                                fillMode: Image.PreserveAspectFit
-                                source: image
-                                scale: .7
-                            }
+                Canvas {
+                    width: 100
+                    height: 40
+                    Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                    Layout.topMargin: 20
+                    Layout.rightMargin: 60
+                    onPaint: {
 
-                            Text {
-                                Layout.alignment: Text.AlignHCenter
-                                horizontalAlignment:  Text.AlignHCenter
-                                text: textContents
-                                font {
-                                    family: "Titillium Web"
-                                    pointSize: 10
-                                    bold: true
-                                }
-                                color: "#444f63"
-                            }
+                        const ctx = getContext("2d")
 
-                            Button {
-                                Layout.rightMargin: 15
-                                Layout.bottomMargin: 5
-                                Layout.alignment: Qt.AlignRight | Qt.AlignBottom
-                                Material.background: Material.Blue
-                                Material.foreground: "#ffffff"
-                                icon.source: "images/right_arrow.svg"
-                            }
-                        }
+                        ctx.lineWidth = 4
+
+                        ctx.fillStyle = "#8a56ac"
+
+                        Utils.drawRec(ctx, 0, 0, 100, 40, 35)
+
+                        ctx.fill()
+
                     }
 
-                    model: ListModel {
-                        ListElement {
-                            textContents: "Gggggggggg\nGGggggggggggg"
-                            image: "images/Group_1854.svg"
+                    Text {
+                        anchors.centerIn: parent
+                        text: "Follow"
+                        font {
+                            family: Montserrat
+                            pointSize: 10
+                            capitalization: Font.AllUppercase
+                            bold: true
                         }
-                        ListElement {
-                            textContents: "Gggggggggg\nGGggggggggggg"
-                            image: "images/Group_1855.svg"
+
+                        color: "#fff"
+                    }
+
+
+                    MouseArea {
+                        id: followArea
+                    }
+                }
+//                Rectangle {
+//                    id: follow
+
+//                    width: 100
+//                    height: 50
+//                    color: "#8a56ac"
+//                    Layout.topMargin: 30
+
+
+//                }
+            }
+
+
+            ListView {
+                id: view
+                height: 500
+                spacing: 15
+                width: 380
+                Layout.leftMargin: 40
+                orientation: ListView.Vertical
+                model: ListModel {
+                    ListElement {
+                        textContents: "Gggggggggg\nGGggggggggggg"
+                        image: "images/Group_1854.svg"
+                    }
+                    ListElement {
+                        textContents: "Gggggggggg\nGGggggggggggg"
+                        image: "images/Group_1855.svg"
+                    }
+                    ListElement {
+                        textContents: "Gggggggggg\nGGggggggggggg"
+                        image: "images/Group_1856.svg"
+                    }
+                    ListElement {
+                        textContents: "Gggggggggg\nGGggggggggggg"
+                        image: "images/Group_1857.svg"
+                    }
+                }
+                delegate: Rectangle {
+                    id: cell
+                    height: 110
+                    width: root.width - 70
+                    color: "#eceff0"
+                    radius: 20
+
+                    RowLayout {
+                        width: parent.width
+                        spacing: 0
+                        Image {
+                            fillMode: Image.PreserveAspectFit
+                            source: image
+                            Layout.margins: 5
+                            Layout.leftMargin: 10
                         }
-                        ListElement {
-                            textContents: "Gggggggggg\nGGggggggggggg"
-                            image: "images/Group_1856.svg"
+
+                        Text {
+                            Layout.alignment: Text.AlignHCenter
+                            horizontalAlignment:  Text.AlignHCenter
+                            text: textContents
+                            font {
+                                family: "Titillium Web"
+                                pointSize: 15
+                                bold: true
+                            }
+                            color: "#444f63"
                         }
-                        ListElement {
-                            textContents: "Gggggggggg\nGGggggggggggg"
-                            image: "images/Group_1857.svg"
+
+                        Rectangle {
+                            Layout.fillWidth: true
+                        }
+
+                        Button {
+                            Layout.rightMargin: 15
+                            Layout.bottomMargin: 5
+                            Layout.topMargin: 60
+                            Layout.alignment: Qt.AlignRight | Qt.AlignBottom
+                            Layout.preferredWidth: 40
+                            Material.background: "#1677cb"
+                            Material.foreground: "#fff"
+                            icon.source: "images/right_arrow.svg"
+                            icon.height: 10
+                            icon.width: 10
                         }
                     }
                 }
             }
         }
     }
-
 }
 
-
-
-
-/*##^## Designer {
-    D{i:0;autoSize:true;height:480;width:640}
-}
- ##^##*/
