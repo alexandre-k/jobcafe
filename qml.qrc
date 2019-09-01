@@ -14,6 +14,7 @@
 	<file>ui/BackButton/BackButton.qml</file>
 	<file>ui/ErrorMessage/ErrorMessage.qml</file>
 	<file>ui/ErrorMessage/warning.svg</file>
+	<file>ui/JTabButton/JTabButton.qml</file>
 	<file>ui/LoadingMessage/LoadingMessage.qml</file>
 	<file>ui/MainActivity/Follow.qml</file>
 	<file>ui/MainActivity/Frame.qml</file>
@@ -76,8 +77,11 @@
         <file>ui/Payment/PaymentSummary.qml</file>
         <file>ui/Payment/PaymentSummaryForm.ui.qml</file>
         <file>ui/Payment/PaymentText.qml</file>
+        <file>ui/Payment/Timeline.qml</file>
         <file>ui/Payment/Ellipse.qml</file>
         <file>ui/Payment/cart.svg</file>
+        <file>ui/Payment/completed.svg</file>
+        <file>ui/Payment/edit.svg</file>
         <file>ui/Profile/Entry.qml</file>
         <file>ui/Profile/Profile.qml</file>
         <file>ui/Profile/ProfileForm.ui.qml</file>
@@ -91,6 +95,7 @@
         <file>ui/Setting/PasswordForm.ui.qml</file>
         <file>ui/Setting/Notification.qml</file>
         <file>ui/Setting/NotificationForm.ui.qml</file>
+        <file>ui/Setting/NotificationSwitch.qml</file>
 	<file>ui/AppState/AppState.qml</file>
         <file>ui/Style.qml</file>
         <file>ui/Introduction/Welcome.qml</file>
