@@ -6,6 +6,29 @@ PaymentSummaryForm {
     property var paymentMethod: ({})
     property var subscriptionPlan: ({})
 
+    Component.onCompleted: {
+        paymentMethod = {
+            card: "Visa",
+            cardNumber: "5555********3333",
+            cardholderName: "Alexandre Krispin",
+            cvv: 734,
+            expirationDate: "2019/10",
+            address: "Shimotakaido 4-44-13",
+            city: "Tokyo",
+            stateProvince: "Tokyo",
+            postalCode: "111-3021",
+            country: "France",
+            firstname: "Alexandre",
+            lastname: "Krispin"
+        }
+        subscriptionPlan = {
+            label: "Premium Plan",
+            price: 10.23,
+            tax: 4,
+            priceAllTaxIncluded: 14.23
+        }
+    }
+
     function secureCreditCardNumber(cardNumbers) {
         if (cardNumbers.length < 15) {
             return;

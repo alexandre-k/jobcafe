@@ -24,7 +24,7 @@ Page {
                 font {
                     family: "Montserrat"
                     bold: true
-                    pointSize: 22
+                    pointSize: 18
                 }
                 color: "#444f63"
                 Layout.margins: 10
@@ -164,8 +164,3 @@ Page {
         }
     }
 }
-
-/*##^## Designer {
-    D{i:0;autoSize:true;height:480;width:640}
-}
- ##^##*/

@@ -16,9 +16,7 @@ Page {
         }
 
         Utils.request('GET', `/subscription-plan`, {}, updateSubscriptionPlan);
-
     }
-
 
     function selectPlan(label) {
         if (subscriptionPlans === undefined) {
@@ -82,13 +80,12 @@ Page {
                         anchors.fill: parent
                         onClicked: selectPlan(plan.name)
                     }
-
                 }
-
             }
         }
 
         PathView {
+            id: pathView
             Layout.preferredHeight: 300
             Layout.preferredWidth: 380
             preferredHighlightBegin: 0
@@ -97,7 +94,6 @@ Page {
             model: paymentPlans
             delegate: delegate
             path: Ellipse {}
-
         }
     }
 
@@ -123,7 +119,7 @@ Page {
             }
             MouseArea {
                 anchors.fill: parent
-//                onClicked:
+                onClicked: selectPlan(subscriptionPlans[pathView.currentIndex].label)
             }
         }
     }

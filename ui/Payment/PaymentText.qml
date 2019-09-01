@@ -1,11 +1,24 @@
 import QtQuick 2.4
+import QtQuick.Controls 2.5
+import QtQuick.Controls.Material 2.3
 import QtQuick.Layouts 1.3
 
-Text {
+TextField {
+    property string fieldText: fieldText
+    placeholderText: fieldText
+    Layout.preferredWidth: parent.width / 3
+    Layout.fillWidth: true
+    Layout.leftMargin: 20
+    Layout.topMargin: 10
+    Layout.alignment: Qt.AlignBottom
+
+    background: Rectangle {
+        color: "white"
+    }
     font {
         family: "Arial"
-        bold: true
+        pointSize: 13
     }
-    color: "#78849e"
-    Layout.margins: 10
+    color: "black"
+    placeholderTextColor: "#454f63"
 }
