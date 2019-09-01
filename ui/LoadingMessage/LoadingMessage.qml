@@ -8,6 +8,8 @@ Popup {
     id: errorMessage
     modal: true
     parent: Overlay.overlay
+    width: textMsg.text.length + 200
+    height: textMsg.text.length + 100
     x: Math.round((parent.width - width) / 2)
     y: Math.round((parent.height - height) / 2)
     focus: true
@@ -18,6 +20,7 @@ Popup {
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
         }
         Text {
+            id: textMsg
             text: msg
         }
 
