@@ -24,6 +24,7 @@ Page {
 
         Image {
             id: profilePicture
+            source: root.state.user.profilePicture
             fillMode: Image.PreserveAspectFit
             Layout.leftMargin: 50
             Layout.rightMargin: 50
@@ -40,11 +41,10 @@ Page {
             }
             color: "#444f63"
             Layout.alignment: Qt.AlignHCenter
-
         }
 
         Text {
-            text: root.state.user.membership? root.state.user.membership : "No membership"
+            text: root.state.user.membership ? root.state.user.membership : "No membership"
             font {
                 family: "Montserrat"
                 pointSize: 14
@@ -52,7 +52,6 @@ Page {
             color: "#444f63"
             opacity: 0.56
             Layout.alignment: Qt.AlignHCenter
-
         }
 
         Entry {
