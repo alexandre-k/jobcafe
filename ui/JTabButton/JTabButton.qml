@@ -5,10 +5,12 @@ import QtQuick.Layouts 1.3
 TabButton {
     id: tabButton
     property string textContent
-    contentItem: Rectangle {
-        color: "transparent"
-        Text{
+    height: 80
+    contentItem: Text{
             text: textContent
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignBottom
+            anchors.bottom: tabButton.bottom
             color: tabButton.checked ? "#444f63" : "#A29F9F"
             font {
                 family: "Europa"
@@ -16,7 +18,5 @@ TabButton {
                 capitalization: Font.MixedCase
                 bold: true
             }
-            anchors.centerIn: parent
-        }
     }
 }

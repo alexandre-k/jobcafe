@@ -4,6 +4,7 @@ import QtQuick.Controls.Material 2.3
 import QtQuick.Layouts 1.3
 import QtWebView 1.1
 import "../BackButton"
+import "../JTabButton"
 
 Page {
     id: myFilesForm
@@ -33,28 +34,16 @@ Page {
             currentIndex: swipeView.currentIndex
             Layout.minimumWidth: root.width - 30
 
-            TabButton {
+            JTabButton {
                 text: qsTr("MMMMMMM")
-                font {
-                    family: "Europa"
-                    bold: true
-                }
             }
 
-            TabButton {
+            JTabButton {
                 text: qsTr("MMMMMMM")
-                font {
-                    family: "Europa"
-                    bold: true
-                }
             }
 
-            TabButton {
+            JTabButton {
                 text: qsTr("MMMMMMM")
-                font {
-                    family: "Europa"
-                    bold: true
-                }
             }
         }
     }

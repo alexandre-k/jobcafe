@@ -3,6 +3,7 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
 import "../BackButton"
+import "../JTabButton"
 
 Page {
     id: support
@@ -30,20 +31,12 @@ Page {
             currentIndex: swipeView.currentIndex
             Layout.minimumWidth: 380
 
-            TabButton {
-                text: qsTr("Open tickets")
-                font {
-                    family: "Europa"
-                    bold: true
-                }
+            JTabButton {
+                textContent: qsTr("Open tickets")
             }
 
-            TabButton {
-                text: qsTr("Closed tickets")
-                font {
-                    family: "Europa"
-                    bold: true
-                }
+            JTabButton {
+                textContent: qsTr("Closed tickets")
             }
         }
     }

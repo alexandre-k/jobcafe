@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 1.4
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
+import "../JTabButton"
 
 SplitView {
     id: view
@@ -19,7 +20,7 @@ SplitView {
             text: "Create Your\n Job Application"
             wrapMode: Text.WordWrap
             font {
-                family: Europa
+                family: "Europa"
                 pointSize: 30
             }
             color: "#444f63"
@@ -38,7 +39,7 @@ SplitView {
             id: subtitle
             text: "To Your Dream Job"
             font {
-                family: Europa
+                family: "Europa"
                 pointSize: 20
             }
             color: "#444f63"
@@ -63,40 +64,14 @@ SplitView {
            id: tabBar
            currentIndex: swipeView.currentIndex
 
-           TabButton {
+           JTabButton {
                id: signUpBtn
-               height: 80
-               text: qsTr("Sign Up")
-               contentItem: Text {
-                   horizontalAlignment: Text.AlignHCenter
-                   verticalAlignment: Text.AlignBottom
-                   anchors.bottom: signUpBtn.bottom
-                   text: signUpBtn.text
-                   font {
-                       family: "Europa"
-                       bold: true
-                       pointSize: 15
-                   }
-                   color: "#444f63"
-               }
+               textContent: qsTr("Sign Up")
            }
 
-           TabButton {
+           JTabButton {
                id: signInBtn
-               height: 80
-               text: qsTr("Sign In")
-               contentItem: Text {
-                   text: signInBtn.text
-                   font {
-                       family: "Europa"
-                       bold: true
-                       pointSize: 15
-                   }
-                   horizontalAlignment: Text.AlignHCenter
-                   verticalAlignment: Text.AlignBottom
-                   anchors.bottom: signInBtn.bottom
-                   color: "#444f63"
-               }
+               textContent: qsTr("Sign In")
            }
        }
 

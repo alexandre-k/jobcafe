@@ -3,6 +3,7 @@ import QtQuick.Controls 2.5
 import QtQuick.Controls.Material 2.3
 import QtQuick.Layouts 1.3
 import "../BackButton"
+import "../JTabButton"
 
 Page {
 
@@ -39,11 +40,11 @@ Page {
            Layout.margins: 20
            currentIndex: swipeView.currentIndex
 
-           TabButton {
+           JTabButton {
                text: qsTr("Payment plans")
            }
 
-           TabButton {
+           JTabButton {
                text: qsTr("My plan")
            }
        }
