@@ -6,8 +6,6 @@ import QtQuick.Layouts 1.3
 
 Page {
     id: page
-    width: 410
-    height: 580
     property alias currentPassword: currentPassword
     property alias newPassword: newPassword
     property alias confirmPassword: confirmPassword
@@ -15,25 +13,21 @@ Page {
 
     ColumnLayout {
         id: passwordLayout
-        anchors.rightMargin: 30
-        anchors.leftMargin: 30
-        anchors.bottomMargin: 150
-        anchors.topMargin: 20
-        anchors.fill: parent
-        clip: false
-
-        Layout.fillWidth: true
-        Layout.fillHeight: true
+        width: root.width - 40
 
         TextField {
             id: currentPassword
             Layout.fillWidth: true
+            Layout.leftMargin: 40
+            Layout.topMargin: 20
             placeholderText: "Current password"
             echoMode: TextInput.Password
         }
         TextField {
             id: newPassword
             Layout.fillWidth: true
+            Layout.leftMargin: 40
+            Layout.topMargin: 30
             placeholderText: "New password"
             echoMode: TextInput.Password
         }
@@ -41,16 +35,28 @@ Page {
         TextField {
             id: confirmPassword
             Layout.fillWidth: true
+            Layout.leftMargin: 40
+            Layout.topMargin: 30
             placeholderText: "Confirm password"
             echoMode: TextInput.Password
         }
 
         Button {
             id: saveChanges
-            Layout.fillWidth: true
+            text: qsTr("Save")
             Material.background: Material.Blue
             Material.foreground: "#ffffff"
-            text: qsTr("Save")
+            Layout.preferredHeight: 70
+            Layout.fillWidth: true
+            Layout.leftMargin: 40
+            Layout.topMargin: 40
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            font {
+                family: "Roboto"
+                pointSize: 16
+                capitalization: Font.MixedCase
+                bold: false
+            }
         }
     }
 }

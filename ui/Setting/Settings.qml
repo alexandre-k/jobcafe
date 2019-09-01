@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
 import "../BackButton"
+import "../JTabButton"
 
 Page {
     id: settings
@@ -14,22 +15,25 @@ Page {
         Text {
             text: qsTr("Setting")
             font {
-                pointSize: 16
+                family: "Montserrat"
+                pointSize: 24
                 bold: true
             }
-            Layout.leftMargin: 20
+            color: "#444f63"
+            Layout.bottomMargin: 30
+            Layout.leftMargin: 40
         }
         TabBar {
             id: tabBar
             currentIndex: swipeView.currentIndex
             Layout.fillWidth: true
-            Layout.margins: 20
-            TabButton {
-                text: qsTr("Password")
+
+            JTabButton {
+                textContent: qsTr("Password")
             }
 
-            TabButton {
-                text: qsTr("Notification")
+            JTabButton {
+                textContent: qsTr("Notification")
             }
         }
     }
@@ -39,6 +43,7 @@ Page {
        anchors.fill: parent
        currentIndex: tabBar.currentIndex
        orientation: Qt.Horizontal
+
        Password {}
        Notification {}
     }
