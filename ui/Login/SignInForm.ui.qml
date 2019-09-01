@@ -21,6 +21,7 @@ Page {
             id: username
             Layout.fillWidth: true
             placeholderText: "Username"
+            inputMethodHints: Qt.ImhEmailCharactersOnly
         }
         TextField {
             id: password

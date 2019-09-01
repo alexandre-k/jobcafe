@@ -33,6 +33,7 @@ Page {
             Layout.fillWidth: true
             echoMode: TextInput.Password
             placeholderText: "Password"
+            inputMethodHints: Qt.ImhEmailCharactersOnly
         }
 
         Rectangle { height: 25; color: "transparent" }
