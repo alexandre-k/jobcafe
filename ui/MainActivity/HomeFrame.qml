@@ -17,17 +17,6 @@ Page {
         Templates {}
     }
 
-//    InnerShadow {
-//        anchors.fill: tabBar
-//        horizontalOffset: -20
-//        verticalOffset: 20
-//        radius: 8.0
-//        samples: 17
-//        spread: 10
-//        color: "#80000000"
-
-//    }
-
     footer: TabBar {
         id: tabBar
         contentHeight: 80    

@@ -65,7 +65,7 @@ Page {
                     Layout.margins: 20
                     Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                     font {
-                        family: Lato
+                        family: "Lato"
                         pointSize: 12
                     }
                     color: "#515253"

@@ -119,9 +119,9 @@ Page {
                         color: "#fff"
                     }
 
-
                     MouseArea {
                         id: followArea
+                        anchors.fill: parent
                     }
                 }
 //                Rectangle {
