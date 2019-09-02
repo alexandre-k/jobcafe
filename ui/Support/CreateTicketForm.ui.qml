@@ -8,6 +8,7 @@ import "../BackButton"
 
 Page {
     id: openTickets
+    width: root.width
     property alias submitTicket: submitTicket
     property alias uploadPicture: uploadPicture
     property alias message: message
@@ -17,6 +18,7 @@ Page {
     property alias ticketTitle: ticketTitle
 
     ColumnLayout {
+        width: parent.width - 20
 
         BackButton {
             Layout.margins: 20
@@ -26,7 +28,7 @@ Page {
             text: "Submit new ticket"
             font {
                 family: "Titillium Web"
-                pointSize: 14
+                pointSize: 16
                 bold: true
             }
             color: "#032f3e"
@@ -42,45 +44,101 @@ Page {
             Layout.leftMargin: 50
         }
 
-        //        Text {
-        //            Layout.fillWidth: true
-        //            fontSizeMode: Text.Fit
-        //            wrapMode: Text.WordWrap
-        //            textFormat: Text.RichText
-        //            text: "<p>We highly encourage you to check our website <a>Help Centre</a> before you submit a new ticket.</p>"
-        //        }
+        Text {
+            font {
+                family: "Titillium Web"
+                pointSize: 13
+            }
+            color: "#032f3e"
+            Layout.preferredWidth: root.width - 40
+            Layout.margins: 20
+            fontSizeMode: Text.Fit
+            wrapMode: Text.WordWrap
+            textFormat: Text.RichText
+            text: "<p>We highly encourage you to check our website <a>Help Centre</a> before you submit a new ticket.</p>"
+        }
         ComboBox {
             id: ticketCategory
             Layout.minimumWidth: 370
             Layout.leftMargin: 20
             Layout.rightMargin: 20
-            model: []
-            Image {
-                source: "down_arrow.svg"
+            model: ["Tutorials and Guides", "Something else"]
+            indicator: Image {
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 anchors.right: parent.right
-                anchors.leftMargin: 5
+                anchors.rightMargin: 20
+                source: "down_arrow.svg"
                 fillMode: Image.PreserveAspectFit
+            }
+            background: Rectangle {
+                implicitWidth: root.width - 100
+                implicitHeight: 50
+                radius: 5
+                color: "#dfe2e8"
+
+                RowLayout {
+                    Rectangle {
+                        Layout.preferredWidth: root.width - 100
+                        Layout.fillWidth: true
+                        color: "transparent"
+                    }
+
+                    Rectangle {
+                        height: 40
+                        width: 1.5
+                        color: "black"
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        Layout.margins: 5
+                    }
+                }
             }
         }
 
         TextField {
             id: ticketTitle
             Layout.leftMargin: 20
-            Layout.minimumWidth: 370
-            placeholderText: "Title..."
+            implicitWidth: root.width - 40
+            implicitHeight: 55
+            leftPadding: 10
+            Text {
+                text:"Title..."
+                visible: !ticketTitle.text && !ticketTitle.activeFocus
+                color: "#808080"
+                font {
+                    family: "Titillium Web"
+                    pointSize: 12
+                }
+                anchors.top: ticketTitle.top
+                anchors.left: ticketTitle.left
+                anchors.margins: 10
+            }
+            background: Rectangle {
+                radius: 5
+                color: "#dfe2e8"
+            }
         }
 
         TextArea {
             id: message
             height: 50
-            Layout.minimumWidth: 370
-            Layout.minimumHeight: 200
+            implicitWidth: root.width - 40
+            implicitHeight: 200
             Layout.margins: 20
             wrapMode: Text.WordWrap
             textMargin: 10
-            placeholderText: "Tap here to write..."
+            Text {
+                text:"Tap here to write..."
+                visible: !message.text && !message.activeFocus
+                color: "#808080"
+                font {
+                    family: "Titillium Web"
+                    pointSize: 12
+                }
+                anchors.top: message.top
+                anchors.left: message.left
+                anchors.margins: 10
+            }
             background: Rectangle {
                 color: "#dfe2e8"
             }
@@ -90,8 +148,31 @@ Page {
             id: uploadPicture
             Layout.leftMargin: 20
             Layout.rightMargin: 20
-            Layout.minimumWidth: 370
-            text: qsTr("Upload photo...")
+            Layout.preferredWidth: root.width - 40
+            contentItem: Text {
+                text: "Upload photo..."
+                font {
+                    family: "Titillium Web"
+                    pointSize: 13
+                }
+                color: "#000"
+                verticalAlignment: Qt.AlignVCenter
+            }
+
+            background: Rectangle {
+                color: "#dfe2e8"
+                radius: 5
+                implicitHeight: 50
+            }
+            indicator: Image {
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+                anchors.right: parent.right
+                anchors.rightMargin: 20
+                source: "upload.svg"
+                fillMode: Image.PreserveAspectFit
+            }
+
             FileDialog {
                 id: uploadPictureDialog
                 title: "Choose a picture"
@@ -101,11 +182,20 @@ Page {
 
         Button {
             id: submitTicket
-            Layout.minimumWidth: 350
-            Layout.leftMargin: 30
             text: qsTr("Submit ticket")
+            Layout.alignment: Qt.AlignHCenter
             Material.background: Material.Blue
             Material.foreground: "#ffffff"
+            Layout.preferredHeight: 70
+            Layout.preferredWidth: root.width - 50
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
+            font {
+                family: "Roboto"
+                pointSize: 14
+                capitalization: Font.MixedCase
+                bold: false
+            }
 
             Dialog {
                 id: confirmDialog
