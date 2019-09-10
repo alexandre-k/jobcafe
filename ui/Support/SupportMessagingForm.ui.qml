@@ -3,88 +3,76 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls 2.5
 import QtQuick.Controls.Material 2.3
 import QtQuick.Layouts 1.3
+import QtGraphicalEffects 1.0
 import "../BackButton"
 
 Page {
+
     id: ticketsOverview
     anchors.fill: parent
     property alias view: view
     property alias messages: messages
-    property alias newMesssage: newMessage
+    property alias newMessage: newMessage
     property alias sendArea: sendArea
     property alias changeTicketStatus: changeTicketStatus
+    property alias reOpen: reOpen
     property string ticketTitle
     property string ticketOwner
-    property string ticketStatus
+    property bool isOpen
 
-    header: Rectangle {
-        width: 100
-        height: 120
-        ColumnLayout {
+    header: Rectangle {}
+    Rectangle {
+        height: root.height - header.height - footer.height - 60
+        width: root.width
+        color: "transparent"
 
-        BackButton {
-            Layout.leftMargin: 20
-            Layout.topMargin: 20
-        }
-
-        Text {
-            text: "Ticket"
-            font {
-                family: "Montserrat"
-                bold: true
-                pointSize: 16
-            }
-            color: "#444f63"
-            Layout.leftMargin: 30
-            Layout.topMargin: 10
-        }
-
-        Text {
-            text: ticketTitle
-            font {
-                family: "Montserrat"
-                bold: true
-                pointSize: 12
-            }
-            color: "#444f63"
-            Layout.leftMargin: 10
-            Layout.maximumWidth: 370
-            fontSizeMode: Text.Fit
-            wrapMode: Text.WordWrap
-        }
+        ListView {
+            id: view
+            anchors.fill: parent
+            anchors.leftMargin: 30
+            anchors.rightMargin: 20
+            anchors.bottom: footer.top
+            anchors.bottomMargin: 180
+            orientation: ListView.Vertical
+            spacing: 30
+            model: ListModel { id: messages }
+            delegate: MessageElement { id: messageDelegate }
         }
     }
 
-    ListView {
-        id: view
-        anchors.fill: parent
-        orientation: ListView.Vertical
-        model: ListModel { id: messages }
-        delegate: MessageElement { id: messageDelegate }
-    }
-
-    footer:
+    footer:Rectangle {
+        id: footer
+        width: root.width
+        height: isOpen ? 190 : 90
+        color: "#eceff0"
         ColumnLayout {
+            width: parent.width
 
             TextArea {
                 id: newMessage
-                height: 50
-                Layout.minimumWidth: 370
-                Layout.minimumHeight: text.length + 20
+                visible: isOpen
+                Layout.preferredWidth: root.width - 40
+                Layout.preferredHeight: text.length + 60
+                Layout.maximumHeight: 150
                 Layout.margins: 20
-                wrapMode: Text.WordWrap
-                textMargin: 10
-                placeholderText: "Tap here to write..."
+                wrapMode: Text.WrapAnywhere
+                topPadding: 20
+                rightPadding: 20 + send.width
+                leftPadding: 20
+                bottomPadding: 20
+                placeholderText: "Say something ..."
                 background: Rectangle {
                     color: "#fff"
                     radius: 12
+
                     Image {
-                        // Credit the author: <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/"                 title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"                 title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
                         id: send
-                        source: "forward.svg"
+                        source: "add.svg"
+                        anchors.top: parent.top
                         anchors.right: parent.right
                         anchors.bottom: parent.bottom
-                        anchors.rightMargin: 10
+                        anchors.topMargin: 10
+                        anchors.rightMargin: 15
                         anchors.bottomMargin: 10
                         fillMode: Image.PreserveAspectFit
                         width: 25
@@ -98,21 +86,51 @@ Page {
             }
 
             Button {
-                id: changeTicketStatus
-                Layout.margins: 20
-                Layout.fillWidth: true
+                Layout.topMargin: 20
+                Layout.bottomMargin: 20
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                Layout.minimumWidth: 100
-                Material.background: Material.Blue
-                Material.foreground: "#ffffff"
-                text: ticketStatus === "OPEN" ? qsTr("Close ticket") : qsTr("Re-open ticket")
+                Layout.preferredWidth: 100
+                Layout.leftMargin: isOpen ? -50 : -100
+                Material.foreground: Material.Blue
+                contentItem: Item {
+                    anchors.fill: parent
+                    anchors.centerIn: parent
+                    Text {
+                        id: buttonText
+                        text: isOpen ? qsTr("Close ticket") : qsTr("Re-open ticket")
+                        color: "#3497fd"
+                        font {
+                            family: "Source Sans Pro"
+                            underline: true
+                            bold: true
+                            pointSize: 18
+                        }
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                    }
+
+                    Image {
+                        id: reOpen
+                        anchors.left: buttonText.right
+                        anchors.bottom: buttonText.bottom
+                        anchors.leftMargin: 10
+                        width: 30
+                        height: 30
+                        source: "reopen.svg"
+                        visible: !isOpen
+                        fillMode: Image.PreserveAspectFit
+                    }
+                }
+                background: Rectangle {
+                    implicitHeight: buttonText.height
+                    width: 200
+                    color: "transparent"
+                    MouseArea {
+                        id: changeTicketStatus
+                        anchors.fill: parent
+                    }
+                }
             }
         }
+    }
 }
-
-
-
-/*##^## Designer {
-    D{i:0;autoSize:true;height:480;width:640}
-}
- ##^##*/

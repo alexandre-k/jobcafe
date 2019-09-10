@@ -13,22 +13,18 @@ Page {
     property alias uploadPicture: uploadPicture
     property alias message: message
     property alias ticketCategory: ticketCategory
-    property alias uploadPictureDialog: uploadPictureDialog
+    // property alias uploadPictureDialog: uploadPictureDialog
     property alias confirmDialog: confirmDialog
     property alias ticketTitle: ticketTitle
 
     ColumnLayout {
         width: parent.width - 20
 
-        BackButton {
-            Layout.margins: 20
-        }
-
         Text {
             text: "Submit new ticket"
             font {
                 family: "Titillium Web"
-                pointSize: 16
+                pointSize: 19
                 bold: true
             }
             color: "#032f3e"
@@ -47,7 +43,7 @@ Page {
         Text {
             font {
                 family: "Titillium Web"
-                pointSize: 13
+                pointSize: 16
             }
             color: "#032f3e"
             Layout.preferredWidth: root.width - 40
@@ -97,7 +93,9 @@ Page {
 
         TextField {
             id: ticketTitle
-            Layout.leftMargin: 20
+            Layout.margins: 20
+            Layout.topMargin: 10
+            Layout.bottomMargin: 10
             implicitWidth: root.width - 40
             implicitHeight: 55
             leftPadding: 10
@@ -107,7 +105,7 @@ Page {
                 color: "#808080"
                 font {
                     family: "Titillium Web"
-                    pointSize: 12
+                    pointSize: 16
                 }
                 anchors.top: ticketTitle.top
                 anchors.left: ticketTitle.left
@@ -125,6 +123,8 @@ Page {
             implicitWidth: root.width - 40
             implicitHeight: 200
             Layout.margins: 20
+            Layout.topMargin: 10
+            Layout.bottomMargin: 10
             wrapMode: Text.WordWrap
             textMargin: 10
             Text {
@@ -133,7 +133,7 @@ Page {
                 color: "#808080"
                 font {
                     family: "Titillium Web"
-                    pointSize: 12
+                    pointSize: 16
                 }
                 anchors.top: message.top
                 anchors.left: message.left
@@ -146,14 +146,15 @@ Page {
 
         Button {
             id: uploadPicture
-            Layout.leftMargin: 20
-            Layout.rightMargin: 20
+            Layout.margins: 20
+            Layout.topMargin: 10
+            Layout.bottomMargin: 10
             Layout.preferredWidth: root.width - 40
             contentItem: Text {
                 text: "Upload photo..."
                 font {
                     family: "Titillium Web"
-                    pointSize: 13
+                    pointSize: 16
                 }
                 color: "#000"
                 verticalAlignment: Qt.AlignVCenter
@@ -172,12 +173,6 @@ Page {
                 source: "upload.svg"
                 fillMode: Image.PreserveAspectFit
             }
-
-            FileDialog {
-                id: uploadPictureDialog
-                title: "Choose a picture"
-                folder: shortcuts.home
-            }
         }
 
         Button {
@@ -192,7 +187,7 @@ Page {
             Layout.rightMargin: 10
             font {
                 family: "Roboto"
-                pointSize: 14
+                pointSize: 16
                 capitalization: Font.MixedCase
                 bold: false
             }

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="icon_add" data-name="icon/add" transform="translate(-32 -724)">
+    <rect id="bg" width="24" height="24" transform="translate(32 724)" fill="none"/>
+    <path id="union" d="M1484.25,673.4v-6.5h-6.5a.75.75,0,0,1,0-1.5h6.5v-6.5a.75.75,0,1,1,1.5,0v6.5h6.5a.75.75,0,0,1,0,1.5h-6.5v6.5a.75.75,0,1,1-1.5,0Z" transform="translate(-1441 69.85)" fill="#454f63"/>
+  </g>
+</svg>

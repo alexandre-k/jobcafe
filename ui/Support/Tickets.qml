@@ -4,26 +4,37 @@ import QtQuick.Controls 2.5
 import QtQuick.Controls.Material 2.3
 import QtQuick.Layouts 1.3
 import '../Utils.js' as Utils
+import "../LoadingMessage"
 
-TicketsForm{
+TicketsForm {
+
+    property var ticketsView
 
     Component.onCompleted: {
+        loadingMessage.open();
 
         const updateTickets = (data) => {
             data.map((ticket, index) => {
                 ticket.createdDate = Utils.formatDate(ticket.createdDate);
 
-                if (ticket.status === status) {
+                if (ticket.isOpen === isOpen) {
                     tickets.append(ticket);
                 }
             });
+            loadingMessage.close();
 
         }
         Utils.request('GET', `/ticket?owner=` + root.state.user.email, undefined, updateTickets);
-
     }
 
+    view.delegate: TicketElement { ticketsViewStack: ticketsView }
+
     openNewTicket.onClicked: {
-        stack.push("qrc:/ui/Support/CreateTicket.qml")
+        ticketsView.push("qrc:/ui/Support/CreateTicket.qml")
+    }
+
+    LoadingMessage {
+        id: loadingMessage
+        msg: "Loading tickets, be patient..."
     }
 }

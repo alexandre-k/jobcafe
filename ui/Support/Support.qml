@@ -8,35 +8,47 @@ import "../JTabButton"
 Page {
     id: support
 
-    header: ColumnLayout {
-        BackButton {
-            Layout.margins: 20
-        }
-
-        Text {
-            id: aboutTitle
+    header: Rectangle {
+        color: "#eceff0"
+        width: root.width
+        height: 230
+        ColumnLayout {
             width: parent.width
-            text: qsTr("Support")
-            color: "#444f63"
-            font {
-                pointSize: 16
-                bold: true
-                family: "Montserrat"
-            }
-            Layout.margins: 10
-        }
-
-        TabBar {
-            id: tabBar
-            currentIndex: swipeView.currentIndex
-            Layout.minimumWidth: 380
-
-            JTabButton {
-                textContent: qsTr("Open tickets")
+            height: parent.height
+            BackButton {
+                Layout.margins: 20
             }
 
-            JTabButton {
-                textContent: qsTr("Closed tickets")
+            Text {
+                id: aboutTitle
+                width: parent.width
+                text: qsTr("Support")
+                color: "#444f63"
+                font {
+                    pointSize: 24
+                    bold: true
+                    family: "Montserrat"
+                }
+                Layout.margins: -10
+                Layout.leftMargin: 40
+            }
+
+            TabBar {
+                id: tabBar
+                currentIndex: swipeView.currentIndex
+                Layout.fillWidth: true
+                height: 100
+                background: Rectangle {
+                    color: "transparent"
+                }
+
+                JTabButton {
+                    textContent: qsTr("Open tickets")
+                }
+
+                JTabButton {
+                    textContent: qsTr("Closed tickets")
+                }
             }
         }
     }
@@ -45,18 +57,32 @@ Page {
         id: swipeView
         currentIndex: tabBar.currentIndex
         anchors.fill: parent
-        Tickets {
+        anchors.topMargin: 15
 
-            id: openedTickets
-            status: "OPEN"
+        StackView {
+            id: openTicketsView
+            implicitHeight: parent.height
+            implicitWidth: parent.width
+            initialItem: openedTickets
+
+            Tickets {
+                id: openedTickets
+                isOpen: true
+                ticketsView: openTicketsView
+            }
         }
 
+        StackView {
+            id: closeTicketsView
+            implicitHeight: parent.height
+            implicitWidth: parent.width
+            initialItem: openedTickets
 
-        Tickets {
-
-            id: closedTickets
-            status: "CLOSED"
+            Tickets {
+                id: closedTickets
+                isOpen: false
+                ticketsView: closeTicketsView
+            }
         }
-
     }
 }

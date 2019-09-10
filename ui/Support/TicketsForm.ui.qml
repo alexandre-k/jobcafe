@@ -9,25 +9,32 @@ Page {
 
     property alias tickets: tickets
     property alias openNewTicket: openNewTicket
-    property string status
+    property bool isOpen
+    property alias view: view
 
     ListView {
         id: view
         anchors.fill: parent
         orientation: ListView.Vertical
-        delegate: TicketElement {}
-
         model: ListModel { id: tickets }
     }
 
-    footer:
-        RowLayout {
-            Button {
-                id: openNewTicket
-                Layout.leftMargin: 150
-                Material.background: Material.Blue
-                Material.foreground: "#ffffff"
-                text: qsTr("Open New Ticket")
-            }
+    footer: RowLayout { Button {
+        id: openNewTicket
+        text: "Open New Ticket"
+        Material.background: Material.Blue
+        Material.foreground: "#ffffff"
+        Layout.preferredHeight: 70
+        Layout.preferredWidth: 250
+        Layout.bottomMargin: 50
+        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+        font {
+            family: "Titillium Web"
+            pointSize: 16
+            capitalization: Font.MixedCase
+            underline: true
+            bold: true
         }
+        }
+    }
 }

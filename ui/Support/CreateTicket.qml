@@ -42,12 +42,14 @@ CreateTicketForm {
     ErrorMessage { id: errorMessage; msg: "Unable to open a ticket. Verify your Internet connection."
     }
 
-    uploadPicture.onClicked: uploadPictureDialog.open()
+    UploadPicture { id: uploadPicture }
 
-    uploadPictureDialog.onAccepted: {
-        picturePath = uploadPictureDialog.fileUrl;
-        Qt.quit();
-    }
+    uploadPicture.onClicked: uploadPicture.open()
+
+//    uploadPictureDialog.onAccepted: {
+//        picturePath = uploadPictureDialog.fileUrl;
+//        Qt.quit();
+//    }
 
     confirmDialog.onDiscard: {
         stack.pop();
