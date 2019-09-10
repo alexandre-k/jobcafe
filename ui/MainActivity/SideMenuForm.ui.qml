@@ -162,32 +162,38 @@ Page {
             Rectangle { Layout.preferredHeight: 100 }
 
             Item {
-                id: logout
                 width: 10
                 height: 10
                 Layout.leftMargin: rightShift
 
-                RowLayout {
+                Rectangle {
+                    id: logout
+                    color: "transparent"
+                    height: 40
+                    width: 100
 
-                    Image {
-                        source: "images/menu_logout.svg"
-                        Layout.alignment: Qt.AlignLeft
+                    MouseArea {
+                        id: logoutClickableArea
+                        anchors.fill: parent
                     }
-                    Text {
 
-                        text: "Log Out"
-                        font {
-                            family: "Montserrat"
-                            pointSize: 16
+                    RowLayout {
+                        anchors.fill: parent
+
+                        Image {
+                            source: "images/menu_logout.svg"
+                            Layout.alignment: Qt.AlignLeft
                         }
-                        color: "#1677cb"
-                        Layout.alignment: Qt.AlignRight
+                        Text {
+                            text: "Log Out"
+                            font {
+                                family: "Montserrat"
+                                pointSize: 16
+                            }
+                            color: "#1677cb"
+                            Layout.alignment: Qt.AlignRight
+                        }
                     }
-                }
-
-                MouseArea {
-                    id: logoutClickableArea
-                    anchors.fill: parent
                 }
             }
 
