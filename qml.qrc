@@ -33,22 +33,22 @@
         <file>ui/MainActivity/TemplatesForm.ui.qml</file>
         <file>ui/MainActivity/images/templates.svg</file>
         <file>ui/MainActivity/images/home.svg</file>
-        <file>ui/MainActivity/images/home.png</file>
+        <file>ui/MainActivity/images/my_files.svg</file>
         <file>ui/MainActivity/images/Group_1854.svg</file>
         <file>ui/MainActivity/images/Group_1855.svg</file>
         <file>ui/MainActivity/images/Group_1856.svg</file>
         <file>ui/MainActivity/images/Group_1857.svg</file>
-        <file>ui/MainActivity/images/logout.svg</file>
         <file>ui/MainActivity/images/menu.svg</file>
         <file>ui/MainActivity/images/menu_activated.svg</file>
-        <file>ui/MainActivity/images/my_files.svg</file>
-        <file>ui/MainActivity/images/payment.svg</file>
-        <file>ui/MainActivity/images/profile.png</file>
+        <file>ui/MainActivity/images/menu_home.svg</file>
+        <file>ui/MainActivity/images/menu_logout.svg</file>
+        <file>ui/MainActivity/images/menu_payment.svg</file>
+        <file>ui/MainActivity/images/menu_profile.svg</file>
+        <file>ui/MainActivity/images/menu_settings.svg</file>
+        <file>ui/MainActivity/images/menu_support.svg</file>
         <file>ui/MainActivity/images/profile_picture.png</file>
         <file>ui/MainActivity/images/right_arrow.svg</file>
         <file>ui/MainActivity/images/search.svg</file>
-        <file>ui/MainActivity/images/settings.png</file>
-        <file>ui/MainActivity/images/support.png</file>
         <file>ui/Login/CreateNewPassword.qml</file>
         <file>ui/Login/CreateNewPasswordForm.ui.qml</file>
         <file>ui/Login/ForgotPassword.qml</file>
@@ -81,7 +81,9 @@
         <file>ui/Payment/Ellipse.qml</file>
         <file>ui/Payment/cart.svg</file>
         <file>ui/Payment/completed.svg</file>
+        <file>ui/Payment/enumeration.svg</file>
         <file>ui/Payment/edit.svg</file>
+        <file>ui/Profile/images/profile_picture.png</file>
         <file>ui/Profile/Entry.qml</file>
         <file>ui/Profile/Profile.qml</file>
         <file>ui/Profile/ProfileForm.ui.qml</file>
@@ -99,11 +101,14 @@
 	<file>ui/AppState/AppState.qml</file>
         <file>ui/Style.qml</file>
         <file>ui/Introduction/Welcome.qml</file>
+        <file>ui/Introduction/SplashScreen.qml</file>
         <file>ui/Introduction/right_arrow.svg</file>
         <file>ui/Support/CreateTicket.qml</file>
         <file>ui/Support/CreateTicketForm.ui.qml</file>
         <file>ui/Support/down_arrow.svg</file>
-        <file>ui/Support/forward.svg</file>
+        <file>ui/Support/add.svg</file>
+        <file>ui/Support/me.svg</file>
+        <file>ui/Support/reopen.svg</file>
         <file>ui/Support/upload.svg</file>
 	<file>ui/Support/MessageElement.qml</file>
         <file>ui/Support/Support.qml</file>
@@ -112,5 +117,7 @@
         <file>ui/Support/Tickets.qml</file>
         <file>ui/Support/TicketsForm.ui.qml</file>
         <file>ui/Support/TicketElement.qml</file>
+        <file>ui/Support/UploadPicture.qml</file>
+        <file>ui/Support/TakeNewPhoto.qml</file>
     </qresource>
 </RCC>
