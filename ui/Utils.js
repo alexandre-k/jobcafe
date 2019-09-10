@@ -1,4 +1,4 @@
-const ipAddress = 'http://52.197.89.183:8089';
+const ipAddress = 'http://3.112.50.23:8089';
 
 function request(verb, endpoint, obj, onSuccess, onError) {
 
@@ -51,7 +51,7 @@ const formatDate = aDate => {
         "December"
     ];
     const createdDate = new Date(aDate);
-    return `${createdDate.getUTCFullYear()} ${monthNames[createdDate.getMonth()]} ${createdDate.getUTCDate()}`;
+    return `${monthNames[createdDate.getMonth()]} ${createdDate.getUTCDate()}, ${createdDate.getUTCHours()}:${createdDate.getUTCMinutes()}`;
 }
 
 function drawRec(ctx, x, y, width, height, radius) {
