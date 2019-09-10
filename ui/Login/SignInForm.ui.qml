@@ -40,6 +40,7 @@ Page {
                 text: "Forgot Password"
                 font {
                     family: "Gibson"
+                    pointSize: 13
                     underline: true
                 }
                 color: "#3497fd"

@@ -40,6 +40,7 @@ Page {
             placeholderText: "Email address"
             Layout.alignment: Qt.AlignCenter
             Layout.minimumWidth: 300
+            inputMethodHints: Qt.ImhEmailCharactersOnly
         }
 
         NextButton {

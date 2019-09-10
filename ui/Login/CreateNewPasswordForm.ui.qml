@@ -13,9 +13,10 @@ Page {
 
     ColumnLayout {
         width: parent.width
+        height: parent.height / 2
 
         BackButton {
-            Layout.margins: 10
+            Layout.margins: 20
         }
 
         Text {

@@ -10,6 +10,7 @@ SplitView {
 
     ColumnLayout {
         id: presentation
+        width: root.width
 
         Rectangle { height: 40; color: "transparent" }
 
@@ -17,6 +18,7 @@ SplitView {
             id: title
             width: 25
             horizontalAlignment: Text.AlignHCenter
+
             text: "Create Your\n Job Application"
             wrapMode: Text.WordWrap
             font {
@@ -24,6 +26,7 @@ SplitView {
                 pointSize: 30
             }
             color: "#444f63"
+            Layout.fillWidth: true
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
         }
 

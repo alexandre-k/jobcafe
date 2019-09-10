@@ -29,7 +29,7 @@ RowLayout {
                text: next.text
                font {
                    capitalization: Font.AllUppercase
-                   pointSize: 18
+                   pointSize: 16
                    letterSpacing: 1
                }
                color: "white"

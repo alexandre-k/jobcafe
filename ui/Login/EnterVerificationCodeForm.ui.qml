@@ -22,7 +22,7 @@ Page {
             text: "Your privacy is important to us."
             font {
                 family: "Lato"
-                pointSize: 14
+                pointSize: 18
             }
             color: "#454f63"
             Layout.alignment: Qt.AlignCenter
@@ -32,7 +32,7 @@ Page {
             text: "We have sent a verification code to your email address. Enter the verification code below."
             font {
                 family: "Open Sans"
-                pointSize: 12
+                pointSize: 14
             }
             color: "#454f63"
             wrapMode: Text.Wrap
@@ -43,32 +43,63 @@ Page {
 
         TextField {
             id: verificationCode
-            horizontalAlignment: TextInput.AlignHCenter
             inputMethodHints: Qt.ImhPreferNumbers
             maximumLength: 4
+            leftPadding: 20
             background: Rectangle {
                 radius: 7
                 color: "#ffffff"
-                border.color: verificationCode.focus ? "#3497fd" : "transparent"
-
-                Text {
-                    anchors.centerIn: parent
-                    text: verificationCode.focus || verificationCode.text ? "" : qsTr("Verification code")
-                    font {
-                        family: "Lato"
-                        pointSize: 14
-                        bold: true
-                        letterSpacing: 1
-                    }
-
-                    color: "#454f63"
-                }
+                border.color: "#3497fd"
             }
-
-            Layout.alignment: Qt.AlignCenter || Qt.AlignVCenter
+            Layout.alignment: Qt.AlignLeft || Qt.AlignVCenter
             Layout.fillWidth: true
             Layout.leftMargin: 50
             Layout.rightMargin: 50
+            Rectangle {
+                id: fieldsetBackground
+                implicitHeight: 4
+                implicitWidth: fieldset.width + 5
+                color: "white"
+                anchors.bottomMargin: 400
+
+                Text {
+                    id: fieldset
+                    text: "Verification Code"
+                    font {
+                        family: "Gibson"
+                        pointSize: 11
+                    }
+                    color: "#3497fd"
+                    anchors.bottom: fieldsetBackground.top
+                    anchors.bottomMargin: -7
+                }
+                anchors.top: verificationCode.top
+                anchors.left: verificationCode.left
+                anchors.leftMargin: 15
+            }
+            Rectangle {
+                anchors.top: verificationCode.top
+                anchors.right: verificationCode.right
+                anchors.rightMargin: 20
+                anchors.topMargin: 10
+                implicitHeight: clearText.height
+                implicitWidth: clearText.width
+                color: "transparent"
+                Text {
+                    id: clearText
+                    text: verificationCode.focus && verificationCode.text ? "x" : ""
+                    font {
+                        family: "Lato"
+                        pointSize: 15
+                        letterSpacing: 1
+                    }
+                    color: "#454f63"
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: verificationCode.clear()
+                }
+            }
         }
 
         Text {
@@ -76,6 +107,7 @@ Page {
             text: "Send Code Again"
             font {
                 family: "Gibson"
+                pointSize: 13
                 underline: true
             }
             color: "#3497fd"
