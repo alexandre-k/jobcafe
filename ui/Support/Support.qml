@@ -6,6 +6,32 @@ import "../BackButton"
 import "../JTabButton"
 
 Page {
+    Component.onCompleted: {
+            root.state.user = {
+              "email": "john.doe@gmail.com",
+              "fullName": "John Doe",
+              "firstName": "John",
+              "lastName": "Doe",
+              "password": "toto",
+              "phone": "080-1111-2222",
+              "profession": {
+                "label": "Accountant"
+              },
+              "membership": {
+                "label": "Basic Plan",
+                "price": 3.99,
+                "tax": 8.2
+              },
+              "isNewMessageNotified": true,
+              "isNewServiceAdvertised": true,
+              "subscribed": true,
+              "createdDate": "2019-08-12T10:39:28.565+0000",
+              "updatedDate": "2019-08-12T10:39:28.565+0000",
+              "isStaff": false,
+              "profilePicture": "http://localhost:8080/profile_picture.png"
+            }
+        }
+
     id: support
 
     header: Rectangle {
@@ -56,7 +82,9 @@ Page {
     SwipeView {
         id: swipeView
         currentIndex: tabBar.currentIndex
-        anchors.fill: parent
+//        anchors.fill: parent
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
         anchors.topMargin: 15
 
         StackView {
@@ -67,7 +95,7 @@ Page {
 
             Tickets {
                 id: openedTickets
-                isOpen: true
+                isOpen: false
                 ticketsView: openTicketsView
             }
         }

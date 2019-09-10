@@ -14,15 +14,17 @@ TicketsForm {
         loadingMessage.open();
 
         const updateTickets = (data) => {
+            console.log("DATA **********************")
             data.map((ticket, index) => {
                 ticket.createdDate = Utils.formatDate(ticket.createdDate);
-
-                if (ticket.isOpen === isOpen) {
+                             console.log("APPEND TICKET ", Object.keys(ticket))
+                         console.log(" -> ", ticket.open, " ? ", isOpen)
+                if (ticket.open === isOpen) {
+                             console.log("APPEND TICKET ")
                     tickets.append(ticket);
                 }
             });
             loadingMessage.close();
-
         }
         Utils.request('GET', `/ticket?owner=` + root.state.user.email, undefined, updateTickets);
     }
