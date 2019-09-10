@@ -19,7 +19,7 @@ Page {
                 font {
                     family: "Montserrat"
                     bold: true
-                    pointSize: 16
+                    pointSize: 24
                 }
                 color: "#444f63"
                 Layout.margins: 10
@@ -37,15 +37,15 @@ Page {
        TabBar {
            id: tabBar
            Layout.fillWidth: true
-           Layout.margins: 20
+           Layout.bottomMargin: 40
            currentIndex: swipeView.currentIndex
 
            JTabButton {
-               text: qsTr("Payment plans")
+               textContent: qsTr("Payment plans")
            }
 
            JTabButton {
-               text: qsTr("My plan")
+               textContent: qsTr("My plan")
            }
        }
     }

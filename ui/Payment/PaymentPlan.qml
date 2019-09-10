@@ -33,6 +33,7 @@ Page {
     ErrorMessage { id: errorMessage }
 
     ColumnLayout {
+        width: root.width
 
         Rectangle {
             height: 100
@@ -58,8 +59,8 @@ Page {
             id: delegate
 
                 Rectangle {
-                    width: 200
-                    height: 300
+                    width: 320
+                    height: 400
                     color: "transparent"
                     clip: true
                     opacity: PathView.isCurrentItem ? 1 : 0.5
@@ -70,8 +71,8 @@ Page {
                     id: plan
                     property string name: label
                     anchors.horizontalCenter: parent.horizontalCenter
-                    width: 200
-                    height: 300
+                    width: 320
+                    height: 400
                     fillMode: Image.PreserveAspectFit
                     source: imageSource
 
@@ -86,8 +87,9 @@ Page {
 
         PathView {
             id: pathView
-            Layout.preferredHeight: 300
-            Layout.preferredWidth: 380
+            Layout.preferredHeight: root.height
+            Layout.preferredWidth: root.width
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             preferredHighlightBegin: 0
             preferredHighlightEnd: 1
             highlightRangeMode:  PathView.StrictlyEnforceRange
@@ -98,7 +100,7 @@ Page {
     }
 
     footer: ColumnLayout {
-        height: 200
+        height: 100
         Rectangle {
             width: checkout.implicitWidth + 70
             height: checkout.implicitHeight + 30

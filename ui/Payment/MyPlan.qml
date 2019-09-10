@@ -6,16 +6,7 @@ import "../BackButton"
 
 Page {
     id: myPlan
-        Component.onCompleted: {
-            plan = {
-                label: "Premium",
-                orderer: "k.m.alexandre@gmail.com",
-                createdDate: "2019/10",
-                deliveryEstimate: "2019/11",
-                id: "RF 124-03",
-                priceAllTaxIncluded: 12
-            }
-        }
+
     property var plan
     ColumnLayout {
         anchors.fill: parent
@@ -31,54 +22,60 @@ Page {
                     bold: true
                 }
                 color: "#000"
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignLeft
             }
 
-            Rectangle { width: 40; color: "transparent" }
+//            Rectangle { width: 40; color: "transparent" }
+            Item {
+                Layout.alignment: Qt.AlignRight
+                Layout.fillWidth: true
 
-            Text {
-                text: "$" + plan.priceAllTaxIncluded
-                font {
-                    family: "Quicksand"
-                    pointSize: 32
-                    bold: true
-                }
-                color: "#333"
-            }
-
-            Text {
-                text: "99"
-                font {
-                    family: "Quicksand"
-                    pointSize: 12
-                    bold: true
-                }
-                Layout.bottomMargin: 25
-            }
-
-            Rectangle {
-                height: 30
-                width: 2
-                color: "black"
-            }
-
-            ColumnLayout {
                 Text {
-                    text: "PER"
+                    text: "$" + plan.priceAllTaxIncluded
                     font {
                         family: "Quicksand"
-                        pointSize: 7
+                        pointSize: 32
+                        bold: true
                     }
-                    Layout.topMargin: -10
-                    Layout.leftMargin: 10
+                    color: "#333"
                 }
 
                 Text {
-                    text: "Annum"
+                    text: "99"
                     font {
                         family: "Quicksand"
-                        pointSize: 7
+                        pointSize: 12
+                        bold: true
                     }
-                    Layout.leftMargin: 10
+                    Layout.bottomMargin: 25
+                }
+
+                Rectangle {
+                    height: 30
+                    width: 2
+                    color: "black"
+                }
+
+                ColumnLayout {
+                    Text {
+                        text: "PER"
+                        font {
+                            family: "Quicksand"
+                            pointSize: 7
+                        }
+                        Layout.topMargin: -10
+                        Layout.leftMargin: 10
+                    }
+
+                    Text {
+                        text: "Annum"
+                        font {
+                            family: "Quicksand"
+                            pointSize: 7
+                        }
+                        Layout.leftMargin: 10
+                    }
                 }
             }
         }
@@ -87,7 +84,7 @@ Page {
             Layout.leftMargin: 20
 
             Image {
-                source: "completed.svg"
+                source: "enumeration.svg"
             }
 
             Rectangle { width: 10; color: "transparent" }
@@ -178,7 +175,7 @@ Page {
                     font {
                         family: "Arial"
                         bold: true
-                        pointSize: 10
+                        pointSize: 11
                     }
                     color: "#78849e"
                 }
@@ -192,7 +189,7 @@ Page {
                     font {
                         family: "Arial"
                         bold: true
-                        pointSize: 10
+                        pointSize: 11
                     }
                     color: "#78849e"
                 }
@@ -206,7 +203,7 @@ Page {
                     font {
                         family: "Arial"
                         bold: true
-                        pointSize: 10
+                        pointSize: 11
                     }
                     color: "#78849e"
                 }
@@ -236,10 +233,10 @@ Page {
             Layout.leftMargin: 30
             Layout.rightMargin: 30
             font {
-                family: "Roboto"
-                pointSize: 14
+                family: "Titillium Web"
+                pointSize: 13
                 capitalization: Font.MixedCase
-                bold: false
+                bold: true
                 underline: true
             }
         }
