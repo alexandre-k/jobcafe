@@ -7,9 +7,9 @@ import QtWebView 1.1
 
 
 TemplatesForm {
-//    website: "https://get.google.com/apptips/apps/#!/all"
-//    Component.onCompleted: {
-//        console.log("URL", webView.url)
-//    }
+
+    search.onClicked: {
+       onClicked: Qt.openUrlExternally("https://google.com")
+    }
 }
 

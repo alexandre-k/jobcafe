@@ -5,16 +5,19 @@ import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 
 Page {
+    id: homeFrame
 
-    anchors.fill: parent
     SwipeView {
         id: view
         currentIndex: tabBar.currentIndex
         anchors.fill: parent
+        onCurrentIndexChanged: {
+            myFiles.tabBar.currentIndex = 0
+        }
 
-        Home {}
-        MyFiles {}
-        Templates {}
+        Home { id: home }
+        MyFiles { id: myFiles }
+        Templates { id: templates }
     }
 
     footer: TabBar {

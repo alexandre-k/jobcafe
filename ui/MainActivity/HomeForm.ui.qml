@@ -30,7 +30,6 @@ Page {
 
         Text {
             // TODO remove anchors, replace with Layout
-            anchors.centerIn: parent
             text: "Jjjjjjjjjjjjjj"
             font {
                 family: "Magnolia Script"
@@ -110,7 +109,7 @@ Page {
                         anchors.centerIn: parent
                         text: "Follow"
                         font {
-                            family: Montserrat
+                            family: "Montserrat"
                             pointSize: 10
                             capitalization: Font.AllUppercase
                             bold: true

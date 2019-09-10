@@ -9,8 +9,9 @@ import "../JTabButton"
 Page {
     id: myFilesForm
 
-    //    property string website
-    //    property alias webView: webView
+    property alias swipeView: swipeView
+    property alias tabBar: tabBar
+
     header: ColumnLayout {
         BackButton {
             Layout.margins: 20
@@ -32,18 +33,19 @@ Page {
         TabBar {
             id: tabBar
             currentIndex: swipeView.currentIndex
-            Layout.minimumWidth: root.width - 30
+            Layout.maximumWidth: root.width - 30
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
 
             JTabButton {
-                text: qsTr("MMMMMMM")
+                textContent: qsTr("MMMMMMM")
             }
 
             JTabButton {
-                text: qsTr("MMMMMMM")
+                textContent: qsTr("MMMMMMM")
             }
 
             JTabButton {
-                text: qsTr("MMMMMMM")
+                textContent: qsTr("MMMMMMM")
             }
         }
     }
@@ -52,11 +54,15 @@ Page {
         id: swipeView
         currentIndex: tabBar.currentIndex
         anchors.fill: parent
+        onCurrentIndexChanged: {
+            console.log("Index changed! ", tabBar.currentIndex, "-> ", swipeView.currentIndex)
+        }
 
         Page {
+
             Text {
                 anchors.centerIn: parent
-                text: "Google"
+                text: "Google 1"
                 font {
                     family: "Lato"
                     pointSize: 30
@@ -70,7 +76,7 @@ Page {
         Page {
             Text {
                 anchors.centerIn: parent
-                text: "Google"
+                text: "Google 2"
                 font {
                     family: "Lato"
                     pointSize: 30
@@ -82,9 +88,10 @@ Page {
         }
 
         Page {
+
             Text {
                 anchors.centerIn: parent
-                text: "Google"
+                text: "Google 3"
                 font {
                     family: "Lato"
                     pointSize: 30
@@ -97,7 +104,3 @@ Page {
     }
 }
 
-/*##^## Designer {
-    D{i:0;autoSize:true;height:480;width:640}
-}
- ##^##*/

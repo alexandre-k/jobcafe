@@ -25,8 +25,8 @@ Item {
             source: image
             fillMode: Image.PreserveAspectFit
             Layout.alignment: Qt.AlignLeft
-            Layout.preferredHeight: 20
-            Layout.preferredWidth: 20
+            Layout.preferredHeight: 30
+            Layout.preferredWidth: 30
 
         }
         Text {
@@ -34,7 +34,7 @@ Item {
             color: "#444f63"
             font {
                 family: "Montserrat"
-                pointSize: 12
+                pointSize: 16
             }
             Layout.alignment: Qt.AlignRight
         }

@@ -11,8 +11,9 @@ import "../BackButton"
 Page {
     id: myFilesForm
 
-//    property string website
-//    property alias webView: webView
+    property alias search: search
+    property alias searchBar: searchBar
+
     header: ColumnLayout {
         BackButton {
             Layout.margins: 20
@@ -35,63 +36,59 @@ Page {
     ColumnLayout {
         width: root.width
 
-        RectangularGlow {
-            id: effect
-            anchors.fill: searchBar
-            glowRadius: 5
-            spread: 0.2
-            color: "#444f63"
-            cornerRadius: searchBar.radius + glowRadius
-        }
-
-        Rectangle {
+        TextField {
             id: searchBar
-            height: 60
+            Layout.preferredHeight: 60
             Layout.preferredWidth: root.width - 50
             Layout.margins: 20
-            radius: 5
             antialiasing: true
-            color: "#eee"
-
-            border {
-                color: Qt.rgba(0, 0, 0, 0.01)
-                width: 1
+            leftPadding: 10
+            rightPadding: 70
+            background: Rectangle {
+                id: searchBarBorder
+                radius: 5
+                color: "#eee"
+                border {
+                    color: "black"
+                }
+                layer.enabled: true
+                layer.effect:
+                    DropShadow {
+                        id: effect
+                        anchors.fill: searchBarBorder
+                        radius: 8
+                        spread: 0.2
+                        color: "#444f63"
+                    }
             }
 
-            RowLayout {
-
-                Text {
-                    text: "Search your templates here..."
-                    Layout.margins: 20
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                    font {
-                        family: "Lato"
-                        pointSize: 12
-                    }
-                    color: "#515253"
+            Text {
+                text: "Search your templates here..."
+                anchors.top: searchBar.top
+                anchors.left: searchBar.left
+                anchors.margins: 20
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                visible: !searchBar.text && !searchBar.activeFocus
+                font {
+                    family: "Lato"
+                    pointSize: 12
                 }
+                color: "#515253"
+            }
 
-                TextInput {
+            Image {
+                source: "images/search.svg"
+                anchors.top: searchBar.top
+                anchors.right: searchBar.right
+                anchors.rightMargin: 25
+                anchors.topMargin: 15
+                fillMode: Image.PreserveAspectFit
+                MouseArea {
+                    id: search
                     anchors.fill: parent
-                    selectByMouse: true
-                }
-
-                Rectangle { width: 50 }
-
-                Image {
-                    // <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"             title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-                    source: "images/search.svg"
-                    Layout.preferredHeight: 25
-                    Layout.preferredWidth: 25
-                    Layout.alignment: Qt.AlignRight
-                    fillMode: Image.PreserveAspectFit
-                    MouseArea {
-                        id: search
-                        anchors.fill: parent
-                        onClicked: console.log("Search")
-                    }
                 }
             }
+
         }
 
         Rectangle { color: "transparent"; height: 100 }

@@ -87,7 +87,7 @@ Page {
                 font {
                     family: "Montserrat"
                     bold: true
-                    pointSize: 22
+                    pointSize: 24
                 }
                 color: "#444f63"
                 Layout.leftMargin: rightShift + 20
@@ -96,10 +96,10 @@ Page {
 
             Text {
                 id: membership
-                text: root.state.user.membership? root.state.user.membership.label : "No membership"
+                text: root.state.user.membership ? root.state.user.membership.label + " Membership" : "No membership"
                 font {
                     family: "Montserrat"
-                    pointSize: 12
+                    pointSize: 14
                 }
                 color: "#444f63"
                 opacity: 0.56
@@ -112,33 +112,33 @@ Page {
             SideMenuElement {
                 id: home
                 label: "Home"
-                image: "images/home.png"
+                image: "images/menu_home.svg"
                 Layout.leftMargin: rightShift
             }
 
             SideMenuElement {
                 id: profile
                 label: "Edit profile"
-                image: "images/profile.png"
+                image: "images/menu_profile.svg"
                 Layout.leftMargin: rightShift
             }
 
             SideMenuElement {
                 id: payment
                 label: "Payment plan"
-                image: "images/payment.svg"
+                image: "images/menu_payment.svg"
                 Layout.leftMargin: rightShift
             }
             SideMenuElement {
                 id: support
                 label: "Support"
-                image: "images/support.png"
+                image: "images/menu_support.svg"
                 Layout.leftMargin: rightShift
             }
             SideMenuElement {
                 id: settings
                 label: "Settings"
-                image: "images/settings.png"
+                image: "images/menu_settings.svg"
                 Layout.leftMargin: rightShift
             }
 
@@ -150,7 +150,7 @@ Page {
                 color: "#444f63"
                 font {
                     family: "Montserrat"
-                    pointSize: 12
+                    pointSize: 16
                 }
                 MouseArea {
                     id: aboutUsClickableArea
@@ -159,7 +159,7 @@ Page {
                 Layout.leftMargin: rightShift
             }
 
-            Rectangle { height: 40 }
+            Rectangle { Layout.preferredHeight: 100 }
 
             Item {
                 id: logout
@@ -170,7 +170,7 @@ Page {
                 RowLayout {
 
                     Image {
-                        source: "images/logout.svg"
+                        source: "images/menu_logout.svg"
                         Layout.alignment: Qt.AlignLeft
                     }
                     Text {
@@ -178,7 +178,7 @@ Page {
                         text: "Log Out"
                         font {
                             family: "Montserrat"
-                            pointSize: 12
+                            pointSize: 16
                         }
                         color: "#1677cb"
                         Layout.alignment: Qt.AlignRight
@@ -191,12 +191,13 @@ Page {
                 }
             }
 
-            Rectangle { height: 50 }
+            Rectangle { Layout.preferredHeight: 110 }
 
             Text {
                 id: appVersion
                 text: "Version 1.0 beta-2"
                 Layout.leftMargin: rightShift
+                font.pointSize: 13
             }
         }
     }
