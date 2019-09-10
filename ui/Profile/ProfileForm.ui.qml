@@ -3,6 +3,7 @@ import QtQuick.Controls 2.5
 import QtQuick.Controls.Material 2.3
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.3
+import QtGraphicalEffects 1.0
 import "../BackButton"
 
 Page {
@@ -14,21 +15,44 @@ Page {
     property alias next: next
     property alias profileName: profileName
     property alias profilePicture: profilePicture
-    anchors.fill: parent
+    property int profilePictureSize: 70
 
     ColumnLayout {
+        width: root.width
+        spacing: 10
 
         BackButton {
             Layout.margins: 20
         }
 
-        Image {
-            id: profilePicture
-            source: root.state.user.profilePicture
-            fillMode: Image.PreserveAspectFit
-            Layout.leftMargin: 50
-            Layout.rightMargin: 50
-            Layout.minimumWidth: 300
+        Item {
+            width: parent.width
+            height: profilePictureSize
+            Layout.alignment: Qt.AlignHCenter
+
+            Rectangle {
+                id: frame
+                width: profilePictureSize
+                height: profilePictureSize
+                radius: 10
+                visible: false
+            }
+
+            Image {
+                id: profilePicture
+                source: "qrc:ui/MainActivity/images/profile_picture.png"
+                width: profilePictureSize
+                height: profilePictureSize
+                fillMode: Image.PreserveAspectCrop
+                anchors.centerIn: parent
+                sourceSize: Qt.size(parent.width, parent.height)
+                smooth: true
+                visible: true
+                layer.enabled: true
+                layer.effect: OpacityMask {
+                    maskSource: frame
+                }
+            }
         }
 
         Text {
@@ -44,7 +68,7 @@ Page {
         }
 
         Text {
-            text: root.state.user.membership ? root.state.user.membership : "No membership"
+            text: root.state.user.membership ? root.state.user.membership.label + " Membership" : "No membership"
             font {
                 family: "Montserrat"
                 pointSize: 14
@@ -86,9 +110,27 @@ Page {
             Image {
                 source: "account.svg"
                 fillMode: Image.PreserveAspectFit
+                anchors.left: parent.left
+                anchors.top: parent.top
+                anchors.topMargin: 15
+                anchors.leftMargin: 5
             }
+
+            contentItem: Text {
+                leftPadding: 40
+                text: profession.displayText
+                font {
+                    family: "Segoe UI"
+                    pointSize: 14
+                }
+                color: "#000100"
+                verticalAlignment: Text.AlignVCenter
+                elide: Text.ElideRight
+            }
+
             Layout.alignment: Qt.AlignHCenter
-            Layout.minimumWidth: 300
+            Layout.preferredWidth: 300
+            Layout.topMargin: 20
         }
 
         Button {
@@ -96,8 +138,16 @@ Page {
             text: qsTr("Save changes")
             Material.background: Material.Blue
             Material.foreground: "#ffffff"
-            Layout.alignment: Qt.AlignHCenter
-            Layout.minimumWidth: 300
+            Layout.preferredHeight: 70
+            Layout.preferredWidth: root.width - 100
+            Layout.topMargin: 20
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            font {
+                family: "Roboto"
+                pointSize: 16
+                capitalization: Font.MixedCase
+                bold: false
+            }
         }
     }
 }

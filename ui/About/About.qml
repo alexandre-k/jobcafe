@@ -3,6 +3,7 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
 import "../BackButton"
+import "../JTabButton"
 
 Page {
     id: aboutUs
@@ -18,7 +19,7 @@ Page {
            text: qsTr("About Us")
            color: "#444f63"
            font {
-               pointSize: 16
+               pointSize: 24
                bold: true
                family: "Montserrat"
            }
@@ -31,12 +32,12 @@ Page {
            Layout.margins: 20
            currentIndex: swipeView.currentIndex
 
-           TabButton {
-               text: qsTr("About Us")
+           JTabButton {
+               textContent: qsTr("About Us")
            }
 
-           TabButton {
-               text: qsTr("Terms of Use")
+           JTabButton {
+               textContent: qsTr("Terms of Use")
            }
        }
     }

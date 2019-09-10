@@ -11,7 +11,7 @@ ProfileForm {
     name.text: root.state.user.fullName;
     profileName.text: root.state.user.fullName;
     phone.text: root.state.user.phone
-    profilePicture.source: root.state.user.profilePicture
+//    profilePicture.source: root.state.user.profilePicture
 
     Component.onCompleted: function () {
         function updateModel (data) {

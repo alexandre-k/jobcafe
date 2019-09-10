@@ -27,6 +27,7 @@ Page {
             id: tabBar
             currentIndex: swipeView.currentIndex
             Layout.fillWidth: true
+            Layout.margins: 20
 
             JTabButton {
                 textContent: qsTr("Password")

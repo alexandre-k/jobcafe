@@ -17,6 +17,12 @@ TextField {
                 anchors.leftMargin: 5
         fillMode: Image.PreserveAspectFit
     }
+    font {
+        family: "Segoe UI"
+        pointSize: 14
+    }
+
     Layout.alignment: Qt.AlignHCenter
     Layout.minimumWidth: 300
+    Layout.topMargin: 20
 }

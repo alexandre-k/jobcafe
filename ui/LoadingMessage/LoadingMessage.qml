@@ -8,12 +8,13 @@ Popup {
     id: errorMessage
     modal: true
     parent: Overlay.overlay
-    width: textMsg.text.length + 200
-    height: textMsg.text.length + 100
+    width: textMsg.text.length + 300
+    height: textMsg.text.length + 120
     x: Math.round((parent.width - width) / 2)
     y: Math.round((parent.height - height) / 2)
     focus: true
     ColumnLayout {
+        width: parent.width
 
         BusyIndicator {
             running: true
@@ -22,6 +23,15 @@ Popup {
         Text {
             id: textMsg
             text: msg
+            font {
+                family: "Montserrat"
+                pointSize: 16
+            }
+            fontSizeMode: Text.Fit
+            wrapMode: Text.WordWrap
+            Layout.maximumWidth: parent.width
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
         }
 
     }

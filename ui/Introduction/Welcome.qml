@@ -4,8 +4,7 @@ import QtQuick.Controls.Material 2.3
 import QtQuick.Layouts 1.3
 
     Page {
-        id: welcome
-        anchors.fill: parent
+        id: welcome8176
 
         header:ColumnLayout {
             Rectangle { height: 100; color: "transparent" }
@@ -59,12 +58,14 @@ import QtQuick.Layouts 1.3
 
         footer: RowLayout {
             id: getStarted
+            width: root.width
+            height: 80
             spacing: 0
 
             Rectangle {
                 Layout.preferredWidth: root.width - 80
                 Layout.alignment: Qt.AlignLeft
-                Layout.preferredHeight: 80
+                Layout.preferredHeight: parent.height
                 color: "#41aaff"
                 Text {
                     text: "Get started"
@@ -77,6 +78,11 @@ import QtQuick.Layouts 1.3
                     color: "white"
                     anchors.centerIn: parent
                 }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: stack.push("qrc:/ui/Login/Login.qml")
+                }
+
             }
 
             Rectangle {
@@ -91,12 +97,13 @@ import QtQuick.Layouts 1.3
                     anchors.centerIn: parent
 
                 }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: stack.push("qrc:/ui/Login/Login.qml")
+                }
+
             }
 
-            MouseArea {
-                anchors.fill: parent
-                onClicked: stack.push("qrc:/ui/Login/Login.qml")
-            }
 
         }
     }
