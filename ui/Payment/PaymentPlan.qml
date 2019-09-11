@@ -25,7 +25,6 @@ Page {
         }
 
         const subscriptionPlan = subscriptionPlans.find(plan => plan.label === label);
-        console.log(subscriptionPlan)
         subscriptionPlan.priceAllTaxIncluded = Number(subscriptionPlan.price) + Number(subscriptionPlan.tax);
         stack.push("qrc:/ui/Payment/PaymentCart.qml", {subscriptionPlan: subscriptionPlan});
     }

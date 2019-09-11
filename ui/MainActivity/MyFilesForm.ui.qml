@@ -54,9 +54,6 @@ Page {
         id: swipeView
         currentIndex: tabBar.currentIndex
         anchors.fill: parent
-        onCurrentIndexChanged: {
-            console.log("Index changed! ", tabBar.currentIndex, "-> ", swipeView.currentIndex)
-        }
 
         Page {
 

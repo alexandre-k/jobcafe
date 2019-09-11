@@ -28,7 +28,6 @@ CreateNewPasswordForm {
     }
 
     function onError(status, response) {
-        console.log(status, response)
         errorMessage.msg = "Unable to update your password. Verify your internet connection.";
         errorMessage.open();
     }

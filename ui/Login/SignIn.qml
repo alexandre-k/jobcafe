@@ -24,8 +24,6 @@ SignInForm {
 
         const onError = (status, response) => {
             loadingMessage.close();
-            console.log(response)
-            console.log(status)
             errorMessage.msg = "Unable to sign you in:\n" + response;
             errorMessage.open();
         }

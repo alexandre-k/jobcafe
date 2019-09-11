@@ -6,6 +6,7 @@ import "../BackButton"
 import "../JTabButton"
 
 Page {
+    property int headerHeight: 230
     Component.onCompleted: {
             root.state.user = {
               "email": "john.doe@gmail.com",
@@ -37,12 +38,22 @@ Page {
     header: Rectangle {
         color: "#eceff0"
         width: root.width
-        height: 230
+        height: headerHeight
         ColumnLayout {
             width: parent.width
             height: parent.height
             BackButton {
+                id: backButton
                 Layout.margins: 20
+                MouseArea {
+                    id: backButtonArea
+                    anchors.fill: parent
+                    onClicked: {
+                        stack.pop();
+                        openTicketsView.pop();
+                        closeTicketsView.pop();
+                    }
+                }
             }
 
             Text {
@@ -82,28 +93,25 @@ Page {
     SwipeView {
         id: swipeView
         currentIndex: tabBar.currentIndex
-//        anchors.fill: parent
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        anchors.topMargin: 15
+        anchors.fill: parent
 
         StackView {
             id: openTicketsView
-            implicitHeight: parent.height
-            implicitWidth: parent.width
+            width: root.width
+            height: root.height - headerHeight
             initialItem: openedTickets
 
             Tickets {
                 id: openedTickets
-                isOpen: false
+                isOpen: true
                 ticketsView: openTicketsView
             }
         }
 
         StackView {
             id: closeTicketsView
-            implicitHeight: parent.height
-            implicitWidth: parent.width
+            width: root.width
+            height: root.height - headerHeight
             initialItem: openedTickets
 
             Tickets {

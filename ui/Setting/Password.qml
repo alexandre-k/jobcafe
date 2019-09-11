@@ -28,7 +28,6 @@ PasswordForm {
     }
 
     currentPassword.onEditingFinished: {
-        console.log('Entered password: ', currentPassword.text)
         if (currentPassword.text === root.state.user.password) {
             currentPasswordMatched = true;
         } else {
@@ -39,11 +38,9 @@ PasswordForm {
     newPassword.onEditingFinished: {
         var validPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{6,16}$/;
         if (validPassword.test(newPassword.text)) {
-            console.log('correct');
             return true;
         }
         else {
-            console.log('Your password should be more than 6 characters, have at least one uppercase and lowercase letter, one number and one symbol.')
             newPassword.text = ''
             return false;
 

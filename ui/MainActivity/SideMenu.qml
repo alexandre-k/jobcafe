@@ -17,7 +17,6 @@ SideMenuForm {
     aboutUsClickableArea.onClicked: showView("qrc:/ui/About/About.qml")
     closeMenuClickableArea.onClicked: drawer.close()
     logoutClickableArea.onClicked: {
-        console.log("Log out")
         stack.pop();
         drawer.close();
     }
