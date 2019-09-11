@@ -1,4 +1,4 @@
-const ipAddress = 'http://3.112.50.23:8089';
+const ipAddress = 'http://192.168.0.10:8089';
 
 function request(verb, endpoint, obj, onSuccess, onError) {
 
@@ -35,7 +35,7 @@ function request(verb, endpoint, obj, onSuccess, onError) {
     }
 }
 
-const formatDate = aDate => {
+const formatDate = (aDate, withTime = true) => {
     const monthNames = [
         "January",
         "February",
@@ -51,7 +51,11 @@ const formatDate = aDate => {
         "December"
     ];
     const createdDate = new Date(aDate);
-    return `${monthNames[createdDate.getMonth()]} ${createdDate.getUTCDate()}, ${createdDate.getUTCHours()}:${createdDate.getUTCMinutes()}`;
+    if (withTime) {
+        return `${monthNames[createdDate.getMonth()]} ${createdDate.getUTCDate()}, ${createdDate.getUTCHours()}:${createdDate.getUTCMinutes()}`;
+    } else {
+        return `${monthNames[createdDate.getMonth()]} ${createdDate.getUTCDate()}`
+    }
 }
 
 function drawRec(ctx, x, y, width, height, radius) {

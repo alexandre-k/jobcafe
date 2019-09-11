@@ -17,8 +17,7 @@ ColumnLayout {
         border.width: 1
         MouseArea {
             anchors.fill: parent
-            onClicked: {
-                console.log("TICKETS VIEW : ", ticketsViewStack)
+            onClicked: {      
                 ticketsViewStack.push("qrc:/ui/Support/SupportMessaging.qml", {
                     ticketId: id,
                     ticketTitle: title,

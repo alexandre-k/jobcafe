@@ -8,10 +8,9 @@ Page {
     id: ticketsOverview
 
     property alias tickets: tickets
-    property alias openNewTicket: openNewTicket
+//    property alias openNewTicket: openNewTicket
     property bool isOpen
     property alias view: view
-    anchors.fill: parent
 
     ListView {
         id: view

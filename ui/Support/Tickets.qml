@@ -16,7 +16,7 @@ TicketsForm {
         const updateTickets = (data) => {
             console.log("DATA **********************")
             data.map((ticket, index) => {
-                ticket.createdDate = Utils.formatDate(ticket.createdDate);
+                ticket.createdDate = Utils.formatDate(ticket.createdDate, false);
                              console.log("APPEND TICKET ", Object.keys(ticket))
                          console.log(" -> ", ticket.open, " ? ", isOpen)
                 if (ticket.open === isOpen) {
@@ -31,9 +31,9 @@ TicketsForm {
 
     view.delegate: TicketElement { ticketsViewStack: ticketsView }
 
-    openNewTicket.onClicked: {
-        ticketsView.push("qrc:/ui/Support/CreateTicket.qml")
-    }
+//    openNewTicket.onClicked: {
+//        ticketsView.push("qrc:/ui/Support/CreateTicket.qml")
+//    }
 
     LoadingMessage {
         id: loadingMessage
