@@ -6,17 +6,92 @@ import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.3
 import "../BackButton"
 
-Page {
+ScrollView {
     id: openTickets
     width: root.width
     property alias submitTicket: submitTicket
     property alias uploadPicture: uploadPicture
     property alias message: message
     property alias ticketCategory: ticketCategory
+    property alias goToHomePage: goToHomePage
     // property alias uploadPictureDialog: uploadPictureDialog
     property alias confirmDialog: confirmDialog
     property alias ticketTitle: ticketTitle
 
+
+    Popup {
+        id: confirmDialog
+        width: root.width - 60
+        height: 230
+        modal: true
+        x: Math.round((parent.width - width) / 2)
+        y: Math.round((parent.height + height) / 3)
+        parent: Overlay.overlay
+        padding: 0
+        topInset: 50
+        bottomInset: 100
+        contentItem: Rectangle {
+            radius: 10
+            color: "black"
+
+            ColumnLayout {
+                width: parent.width
+                spacing: 10
+
+
+                Text {
+                    font {
+                        family: "Gibson"
+                        pointSize: 24
+                        bold: true
+                    }
+                    color: "#fff"
+                    Layout.topMargin: 20
+                    Layout.leftMargin: 30
+                    text: "Submitted"
+                }
+
+                Text {
+                    text: "Your support ticket has been successfully submitted."
+                    font {
+                        family: "Gibson"
+                        pointSize: 14
+                    }
+                    color: "#fff"
+                    Layout.leftMargin: 30
+                    Layout.rightMargin: 4
+                    wrapMode: Text.WordWrap
+                    fontSizeMode: Text.Fit
+                    Layout.maximumWidth: root.width
+                    Layout.fillWidth: true
+                }
+
+                Button {
+                    id: goToHomePage
+                    text: qsTr("Home page")
+                    Layout.alignment: Qt.AlignHCenter
+                    Material.background: Material.Blue
+                    Material.foreground: "#ffffff"
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 70
+                    Layout.topMargin: 20
+                    Layout.leftMargin: 50
+                    Layout.rightMargin: 50
+                    background: Rectangle {
+                        radius: 5
+                        color: "#2699fb"
+                    }
+
+                    font {
+                        family: "Roboto"
+                        pointSize: 11
+                        capitalization: Font.MixedCase
+                        bold: false
+                    }
+                }
+            }
+        }
+    }
     ColumnLayout {
         width: parent.width - 20
 
@@ -191,29 +266,6 @@ Page {
                 capitalization: Font.MixedCase
                 bold: false
             }
-
-            Dialog {
-                id: confirmDialog
-                title: "Submitted"
-                Column {
-                    Text {
-                        text: "Your support ticket has been successfully submitted."
-                    }
-                    Button {
-                        text: "Home page"
-                        Material.background: Material.Blue
-                        Material.foreground: "#ffffff"
-                    }
-                }
-            }
         }
     }
 }
-
-
-
-
-/*##^## Designer {
-    D{i:0;autoSize:true;height:480;width:640}
-}
- ##^##*/

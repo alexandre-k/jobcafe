@@ -8,9 +8,10 @@ Page {
     id: ticketsOverview
 
     property alias tickets: tickets
-//    property alias openNewTicket: openNewTicket
-    property bool isOpen
+    property alias openNewTicket: openNewTicket
     property alias view: view
+    width: root.width
+    height: root.height - headerHeight
 
     ListView {
         id: view
@@ -30,9 +31,6 @@ Page {
             Layout.preferredHeight: 70
             Layout.preferredWidth: 250
             Layout.bottomMargin: 50
-            Layout.leftMargin: (root.width - 250) / 2
-
-//            Layout.fillWidth: true
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             font {
                 family: "Titillium Web"

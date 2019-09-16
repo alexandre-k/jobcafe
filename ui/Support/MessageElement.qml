@@ -61,7 +61,7 @@ Column {
                         }
 
                         Image {
-                            source: author.email === root.state.user.email ? "qrc:ui/Support/me.svg" : "qrc:ui/MainActivity/images/profile_picture.png"
+                            source: author.email === root.state.user.email ? "qrc:ui/Support/me.svg" : "file://" + root.appDir + "/profile_picture.png"
                             fillMode: Image.PreserveAspectFit
                             width: parent.width
                             height: parent.height

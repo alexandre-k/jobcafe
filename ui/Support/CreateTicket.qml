@@ -29,11 +29,11 @@ CreateTicketForm {
         }
 
         const newTicket = {
-            title: title.text,
-            owner: root.state.user,
+            title: ticketTitle.text,
+            owner: root.state.user.email,
             category: ticketCategory.currentText,
             content: message.text,
-            attachedFile: picturePath
+            // attachedFile: picturePath
         }
 
         Utils.request('POST', '/ticket', newTicket, onSuccess, onError);
@@ -51,7 +51,7 @@ CreateTicketForm {
 //        Qt.quit();
 //    }
 
-    confirmDialog.onDiscard: {
+    goToHomePage.onClicked: {
         stack.pop();
     }
 }
