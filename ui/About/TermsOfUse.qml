@@ -3,7 +3,7 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
 
-Page {
+ScrollView {
 
     Flickable {
         contentHeight: termsOfUse.implicitHeight
@@ -16,11 +16,15 @@ Page {
                 id: termsOfUse
                 lineHeight: 1.3
                 height: text.length
-                Layout.maximumWidth: 380
-                Layout.margins: 20
+                Layout.maximumWidth: root.width - 100
+                Layout.margins: 40
                 fontSizeMode: Text.Fit
                 wrapMode: Text.WordWrap
                 textFormat: Text.RichText
+                font {
+                    pointSize: 14
+                    family: "Montserrat"
+                }
                 text: "<h2><img src='shield.svg' width='20' height='20'></img> Who May Use the Services?</h2>
                 <p>When one door of hapiness closes, another opens.
                 <ul>
