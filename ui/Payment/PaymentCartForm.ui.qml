@@ -24,7 +24,7 @@ Page {
                 font {
                     family: "Montserrat"
                     bold: true
-                    pointSize: 18
+                    pointSize: 24
                 }
                 color: "#444f63"
                 Layout.margins: 10
@@ -40,13 +40,25 @@ Page {
         }
 
         Rectangle {
-            Layout.minimumWidth: 380
-            Layout.minimumHeight: 210
+            Layout.minimumWidth: root.width - 40
+            Layout.minimumHeight: 270
             Layout.margins: 15
+            radius: 10
+
+            Rectangle {
+                width: 20; height: 20
+                anchors.right: parent.right
+                anchors.rightMargin: 25
+                transform: Rotation { origin.x: 25; origin.y: 25; angle: 45}
+            }
 
             ColumnLayout {
 
                 spacing: 5
+
+                Rectangle {
+                    height: 20
+                }
 
                 Text {
                     id: cartItems
@@ -55,6 +67,7 @@ Page {
                         family: "Titillium Web"
                         bold: true
                         underline: true
+                        pointSize: 13
                     }
                     color: "#032f3e"
                     Layout.margins: 10
@@ -67,6 +80,7 @@ Page {
                             family: "Titillium Web"
                             bold: true
                             underline: true
+                            pointSize: 13
                         }
                         color: "#032f3e"
                         Layout.margins: 10
@@ -81,7 +95,7 @@ Page {
                         font {
                             family: "Titillium Web"
                             bold: true
-                            underline: true
+                            pointSize: 16
                         }
                         color: "#032f3e"
                         Layout.margins: 10
@@ -99,12 +113,13 @@ Page {
                             family: "Titillium Web"
                             bold: true
                             underline: true
+                            pointSize: 14
                         }
                         color: "white"
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
                     }
-                    height: 70
+                    implicitHeight: 65
                     Layout.fillWidth: true
                     Layout.margins: 10
                     Layout.leftMargin: 50
@@ -124,9 +139,12 @@ Page {
                 RowLayout {
                     Text {
                         id: planReview
-                        text: subscriptionPlan ? subscriptionPlan.label : "No plan found"
+                        text: subscriptionPlan ? subscriptionPlan.label + " Plan Jjjjjjjj" : "No plan found"
                         font {
+                            family: "Titillium Web"
                             underline: true
+                            bold: true
+                            pointSize: 11
                         }
                         Layout.margins: 10
                         Layout.leftMargin: 20
@@ -137,11 +155,21 @@ Page {
                         width: 90
                         height: 20
                         radius: 5
+                        gradient: Gradient {
+                            GradientStop { position: 0.0; color: "#3B85C8" }
+                            GradientStop { position: 1.0; color: "#286398" }
+                        }
+
                         Text {
                             id: price
                             text: subscriptionPlan ? "A$" + subscriptionPlan.price : "A$0"
                             color: "#fff"
                             anchors.centerIn: parent
+                            font {
+                                family: "Titillium Web"
+                                pointSize: 11
+                                bold: true
+                            }
                         }
                         color: "#286398"
                     }
@@ -152,6 +180,7 @@ Page {
                         font {
                             family: "Titillium Web"
                             underline: true
+                            pointSize: 14
                         }
                         color: "#2699fb"
                         MouseArea {

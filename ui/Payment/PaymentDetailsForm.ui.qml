@@ -117,7 +117,7 @@ ScrollView {
                         id: cardNumber
                         fieldText: "Card Number"
                         inputMethodHints: Qt.ImhDIgitsOnly
-                        maximumLength: 16
+                        maximumLength: 19
                     }
 
                     RowLayout {
@@ -141,7 +141,7 @@ ScrollView {
                             id: expirationDate
                             placeholderText: "Exp. Date"
                             inputMethodHints: Qt.ImhDIgitsOnly
-                            maximumLength: 6
+                            maximumLength: 7
                         }
                     }
                 }

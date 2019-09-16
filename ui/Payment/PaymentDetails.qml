@@ -66,8 +66,20 @@ PaymentDetailsForm {
         paymentMethod.cardNumber = cardNumber.text;
     }
 
+    cardNumber.onTextEdited: {
+        if (cardNumber.text.replace(/-/g, '').length % 4 == 0) {
+            cardNumber.text = cardNumber.text + "-"
+        }
+    }
+
     cvv.onEditingFinished: {
         paymentMethod.cvv = cvv.text;
+    }
+
+    expirationDate.onTextEdited: {
+        if (expirationDate.length == 4) {
+            expirationDate.text = expirationDate.text + "/"
+        }
     }
 
     expirationDate.onEditingFinished: {

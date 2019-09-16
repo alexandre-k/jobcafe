@@ -3,19 +3,49 @@ import QtQuick.Controls 2.5
 import QtQuick.Controls.Material 2.3
 import QtQuick.Layouts 1.3
 import "../BackButton"
+import '../Utils.js' as Utils
 
 Page {
     id: myPlan
 
-    property var plan
+    property var subscription
+    property string totalPrice
+
+    Component.onCompleted: {
+
+        function updateOrderedPlan(data) {
+            subscription = data;
+            totalPrice = String(Number(subscription.plan.price) + Number(subscription.plan.tax));
+        }
+
+        Utils.request('GET', `/order?email=` + root.state.user.email, {}, updateOrderedPlan);
+      }
+
+    Text {
+        text: "No current subscription found."
+        visible: root.state.user.membership ? false : true
+        anchors.fill: parent
+        anchors.centerIn: parent
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        wrapMode: Text.WordWrap
+        fontSizeMode: Text.Fit
+        font {
+            family: "Quicksand"
+            pointSize: 24
+            bold: true
+        }
+    }
+
     ColumnLayout {
         anchors.fill: parent
         anchors.margins: 20
+        visible: root.state.user.membership ? true : false
 
         RowLayout {
             Layout.leftMargin: 20
             Text {
-                text: plan.label
+                text: subscription.plan.label + " Plan"
                 font {
                     family: "Quicksand"
                     pointSize: 24
@@ -26,56 +56,51 @@ Page {
                 Layout.alignment: Qt.AlignLeft
             }
 
-//            Rectangle { width: 40; color: "transparent" }
-            Item {
-                Layout.alignment: Qt.AlignRight
-                Layout.fillWidth: true
+            Text {
+                text: "$" + totalPrice.split('.')[0]
+                font {
+                    family: "Quicksand"
+                    pointSize: 32
+                    bold: true
+                }
+                color: "#333"
+            }
 
+            Text {
+                text: totalPrice.split('.')[1]
+                font {
+                    family: "Quicksand"
+                    pointSize: 12
+                    bold: true
+                }
+                Layout.bottomMargin: 25
+            }
+
+            Rectangle {
+                height: 30
+                width: 2
+                color: "black"
+                Layout.leftMargin: 10
+            }
+
+            ColumnLayout {
                 Text {
-                    text: "$" + plan.priceAllTaxIncluded
+                    text: "PER"
                     font {
                         family: "Quicksand"
-                        pointSize: 32
-                        bold: true
+                        pointSize: 7
                     }
-                    color: "#333"
+                    Layout.topMargin: -10
+                    Layout.leftMargin: 10
                 }
 
                 Text {
-                    text: "99"
+                    text: "Annum"
                     font {
                         family: "Quicksand"
-                        pointSize: 12
-                        bold: true
+                        pointSize: 7
                     }
-                    Layout.bottomMargin: 25
-                }
-
-                Rectangle {
-                    height: 30
-                    width: 2
-                    color: "black"
-                }
-
-                ColumnLayout {
-                    Text {
-                        text: "PER"
-                        font {
-                            family: "Quicksand"
-                            pointSize: 7
-                        }
-                        Layout.topMargin: -10
-                        Layout.leftMargin: 10
-                    }
-
-                    Text {
-                        text: "Annum"
-                        font {
-                            family: "Quicksand"
-                            pointSize: 7
-                        }
-                        Layout.leftMargin: 10
-                    }
+                    Layout.leftMargin: 10
                 }
             }
         }
@@ -103,7 +128,7 @@ Page {
         RowLayout {
             Layout.leftMargin: 20
             Image {
-                source: "completed.svg"
+                source: "enumeration.svg"
             }
 
             Rectangle { width: 10; color: "transparent" }
@@ -122,7 +147,7 @@ Page {
         RowLayout {
             Layout.leftMargin: 20
             Image {
-                source: "completed.svg"
+                source: "enumeration.svg"
             }
 
             Rectangle { width: 10; color: "transparent" }
@@ -142,6 +167,7 @@ Page {
             width: root.width - 40
             height: 260
             color: "white"
+
             ColumnLayout {
                 id: columnLayout
                 width: parent.width - 20
@@ -159,7 +185,7 @@ Page {
 
                 PaymentText {
                     id: paymentPlan
-                    text: plan.label
+                    text: subscription.plan.label + " Plan Jjjjjjjj"
                     font.pointSize: 13
                     color: "black"
                     Layout.topMargin: -5
@@ -168,7 +194,7 @@ Page {
 
                 PaymentText {
                     id: paymentDate
-                    text: "Payment date: " + plan.createdDate
+                    text: "Payment date: " + Utils.dateAsYyyyMmDd(subscription.createdDate);
                     Layout.topMargin: -5
                     Layout.bottomMargin: 0
                     Layout.leftMargin: 20
@@ -182,7 +208,7 @@ Page {
 
                 PaymentText {
                     id: estimatedDeliveryDate
-                    text: "Estimated delivery date: " + plan.deliveryEstimate
+                    text: "Estimated delivery date: " + Utils.dateAsYyyyMmDd(subscription.deliveryEstimate)
                     Layout.topMargin: -5
                     Layout.bottomMargin: 0
                     Layout.leftMargin: 20
@@ -196,7 +222,7 @@ Page {
 
                 PaymentText {
                     id: paymentReference
-                    text: "Reference No. " + plan.id
+                    text: "Reference No. " + subscription.id
                     Layout.topMargin: -5
                     Layout.bottomMargin: 0
                     Layout.leftMargin: 20
@@ -210,7 +236,7 @@ Page {
 
                 PaymentText {
                     id: paymentSum
-                    text: "Payment: $" + plan.priceAllTaxIncluded
+                    text: "Payment: $" + totalPrice
                     Layout.topMargin: -5
                     Layout.bottomMargin: 0
                     Layout.leftMargin: 20
