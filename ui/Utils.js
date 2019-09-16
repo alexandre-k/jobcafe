@@ -1,4 +1,4 @@
-const ipAddress = 'http://192.168.0.10:8089';
+const ipAddress = 'http://jobcafe-ecs-alb-403270078.ap-northeast-1.elb.amazonaws.com:8089';
 
 function request(verb, endpoint, obj, onSuccess, onError) {
 
@@ -56,6 +56,11 @@ const formatDate = (aDate, withTime = true) => {
     } else {
         return `${monthNames[createdDate.getMonth()]} ${createdDate.getUTCDate()}`
     }
+}
+
+const dateAsYyyyMmDd = (aDate) => {
+    const date = new Date(aDate);
+    return `${date.getFullYear()}/${String(date.getMonth()).padStart(2, '0')}/${String(date.getDay()).padStart(2, '0')}`;
 }
 
 function drawRec(ctx, x, y, width, height, radius) {
