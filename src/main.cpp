@@ -1,7 +1,10 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
-#include "appstate.h"
+#include <QStandardPaths>
+#include <QDir>
+#include "download.h"
+#include <QDebug>
 
 int main(int argc, char *argv[])
 {
@@ -9,12 +12,14 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
-    AppState app_state;
-    app_state.fetchUser(QString("john.doe@gmail.com"));
-
     QQmlApplicationEngine engine;
+
+    QString appFolder = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+    QDir appDir(appFolder);
+
+    qmlRegisterType<Download>("download", 1, 0, "Download");
     auto root = engine.rootContext();
-    root->setContextProperty("appstate", &app_state);
+    root->setContextProperty("appFolder", appDir.path());
     const QUrl url(QStringLiteral("qrc:/ui/Main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {

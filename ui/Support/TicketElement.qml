@@ -22,7 +22,7 @@ ColumnLayout {
                     ticketId: id,
                     ticketTitle: title,
                     ticketOwner: owner.email,
-                    isOpen
+                    isOpen: open
                 })
             }
         }
@@ -52,7 +52,8 @@ ColumnLayout {
                     width: profilePictureWidth
                     height: profilePictureWidth
                     fillMode: Image.PreserveAspectFit
-                    source: "qrc:ui/MainActivity/images/profile_picture.png"
+                    source: "file://" + root.appDir + "/profile_picture.png"
+                    cache: true
                     visible: true
                     layer.enabled: true
                     layer.effect: OpacityMask {

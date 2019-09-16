@@ -47,12 +47,12 @@ Page {
                         height: 60
                         radius: 10
                         visible: false
-
                     }
 
                     Image {
                         id: profilePicture
-                        source: "images/profile_picture.png"
+                        source: ""
+                        cache: true
                         width: 60
                         height: 60
                         fillMode: Image.PreserveAspectCrop

@@ -25,6 +25,7 @@ ApplicationWindow {
 
     property var stack: stackView
     property var state: appState
+    property string appDir: appFolder
 
     AppState {
         id: appState
