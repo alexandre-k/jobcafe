@@ -6,6 +6,7 @@ import QtQuick.Layouts 1.3
 import '../Utils.js' as Utils
 
 ProfileForm {
+
     email.text: root.state.user.email;
     password.text: 'a' * root.state.user.passwordLength + 'a';
     name.text: root.state.user.fullName;

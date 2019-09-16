@@ -40,7 +40,8 @@ Page {
 
             Image {
                 id: profilePicture
-                source: "qrc:ui/MainActivity/images/profile_picture.png"
+                source: "file://" + root.appDir + "/profile_picture.png"
+                cache: true
                 width: profilePictureSize
                 height: profilePictureSize
                 fillMode: Image.PreserveAspectCrop
@@ -94,26 +95,54 @@ Page {
             id: password
             echoMode: TextInput.Password
             name: "Password"
-            readOnly: true
             image: "password.svg"
+            editable: false
         }
 
         Entry {
             id: phone
             name: "Phone number"
             image: "phone.svg"
+            optional: true
         }
 
         ComboBox {
             id: profession
             model: []
-            Image {
-                source: "account.svg"
-                fillMode: Image.PreserveAspectFit
-                anchors.left: parent.left
-                anchors.top: parent.top
-                anchors.topMargin: 15
-                anchors.leftMargin: 5
+
+            background: Rectangle {
+                implicitWidth: parent.width
+                implicitHeight: parent.height + 10
+                color: "transparent"
+                Image {
+                    source: "account.svg"
+                    fillMode: Image.PreserveAspectFit
+                    anchors.left: parent.left
+                    anchors.top: parent.top
+                    anchors.topMargin: 15
+                    anchors.leftMargin: 5
+                }
+                Rectangle {
+                    id: line
+                    width: parent.width
+                    height: 1
+                    anchors.bottom: parent.bottom
+                    color: "#b4b4b4"
+                }
+
+                Text {
+                    visible: optional
+                    text: "Optional*"
+                    anchors.right: parent.right
+                    anchors.top: parent.bottom
+                    anchors.topMargin: 5
+                    font {
+                        family: "Lato"
+                        pointSize: 8
+                    }
+                    color: "#000"
+
+                }
             }
 
             contentItem: Text {
@@ -131,6 +160,26 @@ Page {
             Layout.alignment: Qt.AlignHCenter
             Layout.preferredWidth: 300
             Layout.topMargin: 20
+
+            indicator: Text {
+                id: edit
+                anchors.right: parent.right
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 20
+                text: "Edit"
+                font {
+                    family: "Lato"
+                    pointSize: 12
+                }
+                color: "#000"
+                visible: editable
+            }
+
+//                   Connections {
+//                       target: control
+//                       onPressedChanged: canvas.requestPaint()
+//                   }
+
         }
 
         Button {
