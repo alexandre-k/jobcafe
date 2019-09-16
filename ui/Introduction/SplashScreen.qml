@@ -2,7 +2,8 @@ import QtQuick 2.12
 import QtQuick.Controls 2.5
 import QtQuick.Controls.Material 2.3
 import QtQuick.Layouts 1.3
-
+// CREDIT AUTHOR FOR APPLICATION ICON
+// <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a></div>
     Page {
         id: splashScreen
 
