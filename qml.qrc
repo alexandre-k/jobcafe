@@ -46,7 +46,6 @@
         <file>ui/MainActivity/images/menu_profile.svg</file>
         <file>ui/MainActivity/images/menu_settings.svg</file>
         <file>ui/MainActivity/images/menu_support.svg</file>
-        <file>ui/MainActivity/images/profile_picture.png</file>
         <file>ui/MainActivity/images/right_arrow.svg</file>
         <file>ui/MainActivity/images/search.svg</file>
         <file>ui/Login/CreateNewPassword.qml</file>
@@ -83,15 +82,16 @@
         <file>ui/Payment/completed.svg</file>
         <file>ui/Payment/enumeration.svg</file>
         <file>ui/Payment/edit.svg</file>
-        <file>ui/Profile/images/profile_picture.png</file>
         <file>ui/Profile/Entry.qml</file>
         <file>ui/Profile/Profile.qml</file>
         <file>ui/Profile/ProfileForm.ui.qml</file>
-        <file>ui/Profile/account.svg</file>
-        <file>ui/Profile/mail.svg</file>
-        <file>ui/Profile/name.svg</file>
-        <file>ui/Profile/password.svg</file>
-        <file>ui/Profile/phone.svg</file>
+        <file>ui/Profile/images/account.svg</file>
+        <file>ui/Profile/images/mail.svg</file>
+        <file>ui/Profile/images/name.svg</file>
+        <file>ui/Profile/images/no.svg</file>
+        <file>ui/Profile/images/password.svg</file>
+        <file>ui/Profile/images/photo.svg</file>
+        <file>ui/Profile/images/phone.svg</file>
         <file>ui/Setting/Settings.qml</file>
         <file>ui/Setting/Password.qml</file>
         <file>ui/Setting/PasswordForm.ui.qml</file>
