@@ -40,7 +40,6 @@ private:
     QNetworkAccessManager m_manager;
     QUrl m_url;
     QUrl m_destination;
-    QNetworkAccessManager m_networkAccessManager;
     QNetworkReply* m_reply;
     void saveDownloadedFile(QIODevice *data);
 };
