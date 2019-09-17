@@ -16,6 +16,7 @@ Page {
     property alias profileName: profileName
     property alias profilePicture: profilePicture
     property int profilePictureSize: 70
+    property alias takePhotoArea: takePhotoArea
 
     ColumnLayout {
         width: root.width
@@ -52,6 +53,22 @@ Page {
                 layer.enabled: true
                 layer.effect: OpacityMask {
                     maskSource: frame
+                }
+            }
+            Image {
+                id: takePhoto
+                source: "qrc:/ui/Profile/images/photo.svg"
+                fillMode: Image.PreserveAspectCrop
+                width: 20
+                height: 20
+                anchors.bottom: profilePicture.bottom
+                anchors.right: profilePicture.right
+                anchors.bottomMargin: -10
+                anchors.rightMargin: -10
+
+                MouseArea {
+                    id: takePhotoArea
+                    anchors.fill: parent
                 }
             }
         }

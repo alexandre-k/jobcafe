@@ -3,7 +3,9 @@
 #include <QQmlContext>
 #include <QStandardPaths>
 #include <QDir>
+#include <QFile>
 #include "download.h"
+#include "upload.h"
 #include <QDebug>
 
 int main(int argc, char *argv[])
@@ -18,6 +20,7 @@ int main(int argc, char *argv[])
     QDir appDir(appFolder);
 
     qmlRegisterType<Download>("download", 1, 0, "Download");
+    qmlRegisterType<Upload>("upload", 1, 0, "Upload");
     auto root = engine.rootContext();
     root->setContextProperty("appFolder", appDir.path());
     const QUrl url(QStringLiteral("qrc:/ui/Main.qml"));
