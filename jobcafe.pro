@@ -15,7 +15,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         src/main.cpp \
-        src/download.cpp
+        src/download.cpp \
+        src/upload.cpp
 
 RESOURCES += qml.qrc
 
@@ -31,7 +32,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-        src/download.h
+        src/download.h \
+        src/upload.h
 
 include(android_openssl/openssl.pri)
 
