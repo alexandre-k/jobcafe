@@ -99,27 +99,27 @@ Page {
         Entry {
             id: name
             name: "Name"
-            image: "name.svg"
+            image: "qrc:/ui/Profile/images/name.svg"
         }
 
         Entry {
             id: email
             name: "Email"
-            image: "mail.svg"
+            image: "qrc:/ui/Profile/images/mail.svg"
         }
 
         Entry {
             id: password
             echoMode: TextInput.Password
             name: "Password"
-            image: "password.svg"
+            image: "qrc:/ui/Profile/images/password.svg"
             editable: false
         }
 
         Entry {
             id: phone
             name: "Phone number"
-            image: "phone.svg"
+            image: "qrc:/ui/Profile/images/phone.svg"
             optional: true
         }
 
@@ -132,7 +132,7 @@ Page {
                 implicitHeight: parent.height + 10
                 color: "transparent"
                 Image {
-                    source: "account.svg"
+                    source: "qrc:/ui/Profile/images/account.svg"
                     fillMode: Image.PreserveAspectFit
                     anchors.left: parent.left
                     anchors.top: parent.top
@@ -148,7 +148,6 @@ Page {
                 }
 
                 Text {
-                    visible: optional
                     text: "Optional*"
                     anchors.right: parent.right
                     anchors.top: parent.bottom
@@ -189,7 +188,6 @@ Page {
                     pointSize: 12
                 }
                 color: "#000"
-                visible: editable
             }
 
 //                   Connections {
