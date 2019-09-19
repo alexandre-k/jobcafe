@@ -20,7 +20,6 @@ SOURCES += \
 
 RESOURCES += qml.qrc
 
-# Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
 
 # Additional import path used to resolve QML modules just for Qt Quick Designer
@@ -49,4 +48,8 @@ DISTFILES += \
 contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
     ANDROID_PACKAGE_SOURCE_DIR = \
         $$PWD/android
+
+    ANDROID_EXTRA_LIBS = \
+        $$PWD/android_openssl/openssl-1.1.1c/libcrypto.so \
+        $$PWD/android_openssl/openssl-1.1.1c/libssl.so
 }
