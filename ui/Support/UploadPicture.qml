@@ -2,12 +2,13 @@ import QtQuick 2.4
 import QtQuick.Controls 2.5
 import QtQuick.Controls.Material 2.3
 import QtQuick.Layouts 1.3
+import QtQuick.Dialogs 1.2
 
 Popup {
-    id: followDialog
+    id: uploadPictureDialog
     width: root.width - 20
     height: 300
-    implicitWidth: facebook.width * 3
+    implicitWidth: root.width * 3
     modal: true
     x: Math.round((parent.width - width) / 2)
     y: Math.round((parent.height + height) / 2)
@@ -67,7 +68,10 @@ Popup {
 
                         MouseArea {
                             anchors.fill: parent
-                            onClicked: console.log("Take new photo clicked")
+                            onClicked: {
+                                stack.push("qrc:/ui/Support/TakeNewPhoto.qml")
+                                uploadPictureDialog.close();
+                            }
                         }
                     }
 
@@ -99,10 +103,20 @@ Popup {
 
                         MouseArea {
                             anchors.fill: parent
-                            onClicked: console.log("Choose existing photo clicked")
+                            onClicked: picturesDialog.open()
                         }
                     }
                 }
+            }
+
+            FileDialog {
+                Component.onCompleted: {
+                    console.log("PICTURES FODLER", picturesFolder)
+                }
+
+                id: picturesDialog
+                folder: "file://" + picturesFolder
+                selectFolder: true
             }
 
             Rectangle {
@@ -134,9 +148,3 @@ Popup {
             }
     }
 }
-
-//FileDialog {
-//    id: uploadPictureDialog
-//    title: "Choose a picture"
-//    folder: shortcuts.home
-//}

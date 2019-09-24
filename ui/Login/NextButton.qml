@@ -13,8 +13,8 @@ RowLayout {
        font.capitalization: Font.AllUppercase
        Material.background: Material.Blue
        Material.foreground: "#ffffff"
-       Layout.minimumWidth: 190
-       Layout.minimumHeight: 70
+       Layout.preferredWidth: (root.width / 2) + btext.implicitWidth
+       Layout.minimumHeight: root.height / 15
        Layout.alignment: Qt.AlignRight
        background: Rectangle {
            height: 100

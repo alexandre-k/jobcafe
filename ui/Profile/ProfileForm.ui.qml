@@ -6,7 +6,7 @@ import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 import "../BackButton"
 
-Page {
+ScrollView {
     property alias name: name
     property alias email: email
     property alias password: password
@@ -22,9 +22,7 @@ Page {
         width: root.width
         spacing: 10
 
-        BackButton {
-            Layout.margins: 20
-        }
+        BackButton {}
 
         Item {
             width: parent.width
@@ -174,7 +172,7 @@ Page {
             }
 
             Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: 300
+            Layout.preferredWidth: 3 * root.width / 4
             Layout.topMargin: 20
 
             indicator: Text {
@@ -203,8 +201,9 @@ Page {
             Material.background: Material.Blue
             Material.foreground: "#ffffff"
             Layout.preferredHeight: 70
-            Layout.preferredWidth: root.width - 100
+            Layout.preferredWidth: 3 * root.width / 4
             Layout.topMargin: 20
+            Layout.bottomMargin: 20
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             font {
                 family: "Roboto"

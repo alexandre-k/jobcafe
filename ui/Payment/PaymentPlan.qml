@@ -2,7 +2,6 @@ import QtQuick 2.4
 import QtQuick.Controls 2.5
 import QtQuick.Controls.Material 2.3
 import QtQuick.Layouts 1.3
-import "../BackButton"
 import "../ErrorMessage"
 import "../Utils.js" as Utils
 
@@ -58,8 +57,8 @@ Page {
             id: delegate
 
                 Rectangle {
-                    width: 320
-                    height: 400
+                    width: 3 * root.width / 4
+                    height: root.height / 3
                     color: "transparent"
                     clip: true
                     opacity: PathView.isCurrentItem ? 1 : 0.5
@@ -70,8 +69,8 @@ Page {
                     id: plan
                     property string name: label
                     anchors.horizontalCenter: parent.horizontalCenter
-                    width: 320
-                    height: 400
+                    width: 3 * root.width / 4
+                    height: root.height / 3
                     fillMode: Image.PreserveAspectFit
                     source: imageSource
 

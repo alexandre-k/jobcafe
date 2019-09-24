@@ -63,7 +63,7 @@ ScrollView {
 
             ComboBox {
                 id: creditCardIssuer
-                Layout.preferredWidth: root.width - 40
+                Layout.preferredWidth: 9 * root.width / 10
                 Layout.preferredHeight: 70
                 model: ["VISA", "MasterCard"]
                 background: Rectangle {
@@ -81,7 +81,7 @@ ScrollView {
             }
 
             Rectangle {
-                width: root.width - 40
+                width: 9 * root.width / 10
                 height: 70
                 color: "white"
                 RowLayout {
@@ -108,7 +108,7 @@ ScrollView {
 
             Rectangle {
                 id: cardInfo
-                width: root.width - 40
+                width: 9 * root.width / 10
                 height: 125
                 color: "white"
                 ColumnLayout {
@@ -148,7 +148,7 @@ ScrollView {
             }
 
             Rectangle {
-                width: root.width - 40
+                width: 9 * root.width / 10
                 height: 60
                 color: "white"
 
@@ -163,7 +163,7 @@ ScrollView {
             }
 
             Rectangle {
-                width: root.width - 40
+                width: 9 * root.width / 10
                 height: 130
                 color: "white"
                 ColumnLayout {
@@ -219,7 +219,7 @@ ScrollView {
             Material.background: Material.Blue
             Material.foreground: "#ffffff"
             Layout.fillWidth: true
-            Layout.preferredHeight: 70
+            Layout.preferredHeight: root.height / 15
             Layout.leftMargin: 10
             Layout.rightMargin: 10
             font {

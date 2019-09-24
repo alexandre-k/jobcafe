@@ -6,17 +6,32 @@ import QtQuick.Layouts 1.3
 import QtWebView 1.1
 import QtQuick.Window 2.3
 import QtGraphicalEffects 1.0
-import "../BackButton"
 
 Page {
     id: myFilesForm
 
     property alias search: search
     property alias searchBar: searchBar
+    property alias backButtonArea: backButtonArea
+    property alias backButton: backButton
 
     header: ColumnLayout {
-        BackButton {
+        Rectangle {
+            id: backButton
+            width: 25
+            height: 25
+            opacity: 1
+            color: "transparent"
             Layout.margins: 20
+            Layout.bottomMargin: root.height / 60
+            Image {
+                source: "/images/arrow-left258.svg"
+            }
+            MouseArea {
+                id: backButtonArea
+                anchors.fill: parent
+            }
+
         }
 
         Text {

@@ -5,7 +5,7 @@ import QtQuick.Layouts 1.3
 TabButton {
     id: tabButton
     property string textContent
-    height: 70
+    height: root.height / 15
     contentItem: Text{
             text: textContent
             horizontalAlignment: Text.AlignHCenter

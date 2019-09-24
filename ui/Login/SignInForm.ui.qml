@@ -11,11 +11,11 @@ Page {
     property alias passwordReminderArea: passwordReminderArea
     ColumnLayout {
         anchors.fill: parent
-        anchors.margins: 50
-        anchors.centerIn: parent
-        spacing: 20
+        anchors.leftMargin: 50
+        anchors.rightMargin: 50
+        spacing: 1
 
-        Rectangle { height: 10; color: "transparent" }
+        Rectangle { height: 25; color: "transparent" }
 
         TextField {
             id: username

@@ -48,7 +48,7 @@ ProfileForm {
     Upload {
         id: upload
         user: root.state.user.email
-        fullPath: photoPath
+        files: [photoPath]
         url: Utils.ipAddress + "/picture"
     }
 

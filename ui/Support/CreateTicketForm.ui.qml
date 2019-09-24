@@ -1,10 +1,8 @@
 import QtQuick 2.12
-import QtQuick.Controls 1.4
 import QtQuick.Controls 2.5
 import QtQuick.Controls.Material 2.3
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.3
-import "../BackButton"
 
 ScrollView {
     id: openTickets
@@ -14,14 +12,13 @@ ScrollView {
     property alias message: message
     property alias ticketCategory: ticketCategory
     property alias goToHomePage: goToHomePage
-    // property alias uploadPictureDialog: uploadPictureDialog
     property alias confirmDialog: confirmDialog
     property alias ticketTitle: ticketTitle
 
 
     Popup {
         id: confirmDialog
-        width: root.width - 60
+        width: parent.width - (parent.width / 7)
         height: 230
         modal: true
         x: Math.round((parent.width - width) / 2)
@@ -121,7 +118,7 @@ ScrollView {
                 pointSize: 16
             }
             color: "#032f3e"
-            Layout.preferredWidth: root.width - 40
+            Layout.preferredWidth: root.width - (root.width / 10)
             Layout.margins: 20
             fontSizeMode: Text.Fit
             wrapMode: Text.WordWrap
@@ -130,27 +127,27 @@ ScrollView {
         }
         ComboBox {
             id: ticketCategory
-            Layout.minimumWidth: 370
+            Layout.preferredWidth: root.width - (root.width / 10)
             Layout.leftMargin: 20
             Layout.rightMargin: 20
-            model: ["Tutorials and Guides", "Something else"]
+            model: []
             indicator: Image {
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 anchors.right: parent.right
-                anchors.rightMargin: 20
+                anchors.rightMargin: root.width / 20
                 source: "down_arrow.svg"
                 fillMode: Image.PreserveAspectFit
             }
             background: Rectangle {
-                implicitWidth: root.width - 100
+                implicitWidth: 3 * root.width / 4
                 implicitHeight: 50
                 radius: 5
                 color: "#dfe2e8"
 
                 RowLayout {
                     Rectangle {
-                        Layout.preferredWidth: root.width - 100
+                        Layout.preferredWidth: 3 * root.width / 4
                         Layout.fillWidth: true
                         color: "transparent"
                     }
@@ -171,7 +168,7 @@ ScrollView {
             Layout.margins: 20
             Layout.topMargin: 10
             Layout.bottomMargin: 10
-            implicitWidth: root.width - 40
+            implicitWidth: root.width - (root.width / 10)
             implicitHeight: 55
             leftPadding: 10
             Text {
@@ -195,7 +192,7 @@ ScrollView {
         TextArea {
             id: message
             height: 50
-            implicitWidth: root.width - 40
+            implicitWidth: root.width - (root.width / 10)
             implicitHeight: 200
             Layout.margins: 20
             Layout.topMargin: 10
@@ -224,7 +221,7 @@ ScrollView {
             Layout.margins: 20
             Layout.topMargin: 10
             Layout.bottomMargin: 10
-            Layout.preferredWidth: root.width - 40
+            Layout.preferredWidth: root.width - (root.width / 10)
             contentItem: Text {
                 text: "Upload photo..."
                 font {
@@ -250,6 +247,49 @@ ScrollView {
             }
         }
 
+        Rectangle {
+
+            color: "#dfe2e8"
+            Layout.preferredHeight: 70
+            Layout.preferredWidth: root.width - (root.width / 10)
+            Layout.leftMargin: 20
+            radius: 15
+            visible: root.supportPhotos.count > 0 ? true : false
+            RowLayout {
+                spacing: 10
+                width: root.width - (root.width / 10)
+                anchors.left: parent.left
+                anchors.leftMargin: 40
+                ListView {
+                    id: listView
+                    model: root.supportPhotos
+                    clip: true
+                    Layout.preferredWidth: root.width
+                    Layout.preferredHeight: 50
+                    spacing: 10
+                    orientation: ListView.Horizontal
+                    delegate:
+                    Image {
+                        source: path
+                        fillMode: Image.PreserveAspectFit
+                        width: 70
+                        height: 70
+
+                        Image {
+                            source: "qrc:/ui/Profile/images/no.svg"
+                            fillMode: Image.PreserveAspectFit
+                            width: 20
+                            height: 20
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: root.supportPhotos.remove(index)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         Button {
             id: submitTicket
             text: qsTr("Submit ticket")
@@ -257,9 +297,10 @@ ScrollView {
             Material.background: Material.Blue
             Material.foreground: "#ffffff"
             Layout.preferredHeight: 70
-            Layout.preferredWidth: root.width - 50
+            Layout.preferredWidth: root.width - (root.width / 8)
             Layout.leftMargin: 10
             Layout.rightMargin: 10
+            Layout.bottomMargin: 20
             font {
                 family: "Roboto"
                 pointSize: 16

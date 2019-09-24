@@ -6,49 +6,52 @@ import QtQuick.Layouts 1.3
 Page {
     id: welcome
 
-    header:ColumnLayout {
-        Rectangle { height: 100; color: "transparent" }
-        Image {
-            source: "qrc:/images/introduction.svg"
-            fillMode: Image.PreserveAspectFit
-        }
-    }
-
     Rectangle {
         anchors.fill: parent
         color: "#eceff0"
 
         ColumnLayout {
+            spacing: 0
+            Rectangle { Layout.preferredHeight: root.height / 10; color: "transparent" }
+            Image {
+                source: "qrc:/images/introduction.svg"
+                fillMode: Image.PreserveAspectFit
+                Layout.preferredWidth: root.width
+            }
 
             Text {
                 id: title
-                Layout.topMargin: 50
-                Layout.leftMargin: 50
-                Layout.maximumWidth: 360
+                Layout.topMargin: root.height / 30
+                Layout.leftMargin: root.width / 8
+                Layout.maximumWidth: 3 * root.width / 4
                 text: "Looooooo Aaaaaannnn kkk"
                 fontSizeMode: Text.Fit
                 wrapMode: Text.WordWrap
                 font {
                     bold: true
-                    pointSize: 38
+                    pointSize: root.welcomeTitleSize
                     family: "Europa"
                 }
                 color: "#7f7f7f"
             }
 
             Rectangle {
-                Layout.leftMargin: 50
+                Layout.leftMargin: root.width / 8
                 height: 1
-                width: 50
+                Layout.preferredWidth: root.width / 4
+                Layout.minimumWidth: 50
                 color: "black"
             }
 
             Text {
                 id: subtitle
-                Layout.leftMargin: 50
+                Layout.leftMargin: root.width / 8
+                Layout.maximumWidth: 3 * root.width / 4
                 text: "we are here to help"
+                fontSizeMode: Text.Fit
+                wrapMode: Text.WordWrap
                 font {
-                    pointSize: 22
+                    pointSize: root.welcomeSubtitleSize
                     family: "Europa"
                 }
                 color: "#7f7f7f"
@@ -59,11 +62,11 @@ Page {
     footer: RowLayout {
         id: getStarted
         width: root.width
-        height: 80
-        spacing: 0
+        height: root.height / 10
+        spacing: -2
 
         Rectangle {
-            Layout.preferredWidth: root.width - 80
+            Layout.preferredWidth: (3 * root.width / 4) + 5
             Layout.alignment: Qt.AlignLeft
             Layout.preferredHeight: parent.height
             color: "#41aaff"
@@ -71,7 +74,7 @@ Page {
                 text: "Get started"
                 font {
                     capitalization: Font.AllUppercase
-                    pointSize: 18
+                    pointSize: root.welcomeGetStartedSize
                     letterSpacing: 3
                     bold: true
                 }
@@ -82,13 +85,12 @@ Page {
                 anchors.fill: parent
                 onClicked: stack.push("qrc:/ui/Login/Login.qml")
             }
-
         }
 
         Rectangle {
             color: "#3497fd"
-            Layout.preferredWidth: 80
-            Layout.preferredHeight: 80
+            Layout.preferredWidth: (root.width / 4) + 5
+            Layout.preferredHeight: root.height / 10
             Layout.alignment: Qt.AlignRight
 
             Image {
@@ -103,7 +105,6 @@ Page {
             }
 
         }
-
 
     }
 }

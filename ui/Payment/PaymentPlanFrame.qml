@@ -9,9 +9,7 @@ Page {
 
     header: ColumnLayout {
 
-        BackButton {
-            Layout.margins: 20
-        }
+        BackButton {}
 
         RowLayout {
             Text {
@@ -37,7 +35,8 @@ Page {
        TabBar {
            id: tabBar
            Layout.fillWidth: true
-           Layout.bottomMargin: 40
+           Layout.bottomMargin: root.height / 27
+           contentHeight: root.height / 20
            currentIndex: swipeView.currentIndex
 
            JTabButton {

@@ -2,8 +2,6 @@ import QtQuick 2.12
 import QtQuick.Controls 2.5
 import QtQuick.Controls.Material 2.3
 import QtQuick.Layouts 1.3
-import QtWebView 1.1
-import "../BackButton"
 import "../JTabButton"
 
 Page {
@@ -11,10 +9,26 @@ Page {
 
     property alias swipeView: swipeView
     property alias tabBar: tabBar
+    property alias backButtonArea: backButtonArea
+    property alias backButton: backButton
 
     header: ColumnLayout {
-        BackButton {
+        Rectangle {
+            id: backButton
+            width: 25
+            height: 25
+            opacity: 1
+            color: "transparent"
             Layout.margins: 20
+            Layout.bottomMargin: root.height / 60
+            Image {
+                source: "/images/arrow-left258.svg"
+            }
+            MouseArea {
+                id: backButtonArea
+                anchors.fill: parent
+            }
+
         }
 
         Text {

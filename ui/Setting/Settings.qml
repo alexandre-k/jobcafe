@@ -9,9 +9,7 @@ Page {
     anchors.fill: parent
 
     header: ColumnLayout {
-        BackButton {
-            Layout.margins: 20
-        }
+        BackButton {}
         Text {
             text: qsTr("Setting")
             font {
@@ -20,12 +18,13 @@ Page {
                 bold: true
             }
             color: "#444f63"
-            Layout.bottomMargin: 30
+            Layout.bottomMargin: root.height / 40
             Layout.leftMargin: 40
         }
         TabBar {
             id: tabBar
             currentIndex: swipeView.currentIndex
+            contentHeight: root.height / 20
             Layout.fillWidth: true
             Layout.margins: 20
 

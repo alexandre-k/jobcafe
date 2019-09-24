@@ -42,7 +42,6 @@ Page {
             height: parent.height
             BackButton {
                 id: backButton
-                Layout.margins: 20
                 MouseArea {
                     id: backButtonArea
                     anchors.fill: parent
@@ -74,6 +73,7 @@ Page {
                 id: tabBar
                 currentIndex: swipeView.currentIndex
                 Layout.fillWidth: true
+                contentHeight: root.height / 20
                 height: 100
                 background: Rectangle {
                     color: "transparent"

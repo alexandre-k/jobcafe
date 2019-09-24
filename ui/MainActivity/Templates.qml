@@ -7,7 +7,6 @@ import QtWebView 1.1
 
 
 TemplatesForm {
-
     search.onClicked: {
        onClicked: Qt.openUrlExternally("https://google.com")
     }

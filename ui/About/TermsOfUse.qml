@@ -16,8 +16,8 @@ ScrollView {
                 id: termsOfUse
                 lineHeight: 1.3
                 height: text.length
-                Layout.maximumWidth: root.width - 100
-                Layout.margins: 40
+                Layout.maximumWidth: root.width - (root.width / 4)
+                Layout.margins: root.width / 10
                 fontSizeMode: Text.Fit
                 wrapMode: Text.WordWrap
                 textFormat: Text.RichText

@@ -65,6 +65,7 @@
         <file>ui/Payment/premium.png</file>
         <file>ui/Payment/standard.png</file>
         <file>ui/Payment/MyPlan.qml</file>
+        <file>ui/Payment/MyPlanText.qml</file>
         <file>ui/Payment/PaymentCart.qml</file>
         <file>ui/Payment/PaymentCartForm.ui.qml</file>
         <file>ui/Payment/PaymentDetails.qml</file>
@@ -77,6 +78,7 @@
         <file>ui/Payment/PaymentSummaryForm.ui.qml</file>
         <file>ui/Payment/PaymentText.qml</file>
         <file>ui/Payment/Timeline.qml</file>
+        <file>ui/Payment/TimelineElement.qml</file>
         <file>ui/Payment/Ellipse.qml</file>
         <file>ui/Payment/cart.svg</file>
         <file>ui/Payment/completed.svg</file>
@@ -110,6 +112,9 @@
         <file>ui/Support/me.svg</file>
         <file>ui/Support/reopen.svg</file>
         <file>ui/Support/upload.svg</file>
+        <file>ui/Support/photos.svg</file>
+        <file>ui/Support/attach.svg</file>
+        <file>ui/Support/redo.svg</file>
 	<file>ui/Support/MessageElement.qml</file>
         <file>ui/Support/Support.qml</file>
         <file>ui/Support/SupportMessaging.qml</file>

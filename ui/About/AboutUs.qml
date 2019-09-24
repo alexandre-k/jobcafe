@@ -18,8 +18,8 @@ ScrollView {
                family: "Montserrat"
            }
            color: "#444f63"
-           Layout.maximumWidth: root.width - 100
-           Layout.margins: 40
+           Layout.maximumWidth: root.width - (root.width / 4)
+           Layout.margins: root.width / 10
         }
     }
 }

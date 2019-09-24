@@ -18,7 +18,7 @@ ApplicationWindow {
     id: root
     visible: true
     width: 410
-    height: Screen.height
+    height: 400
     title: qsTr("Tabs")
     Material.primary: Material.Blue
     Material.accent: Material.Blue
@@ -26,6 +26,25 @@ ApplicationWindow {
     property var stack: stackView
     property var state: appState
     property string appDir: appFolder
+    property alias supportPhotos: supportPhotos
+    property int welcomeTitleSize: 30
+    property int welcomeSubtitleSize: 22
+    property int welcomeGetStartedSize: 18
+    property int loginTitleSize: 30
+
+    ListModel {
+        id: supportPhotos
+
+//        ListElement {
+//            path: "file:///home/alex/Pictures/IMG_00000003.jpg"
+//        }
+//        ListElement {
+//            path: "file:///home/alex/Pictures/IMG_00000002.jpg"
+//        }
+//        ListElement {
+//            path: "file:///home/alex/Pictures/IMG_00000001.jpg"
+//        }
+    }
 
     AppState {
         id: appState
@@ -38,7 +57,7 @@ ApplicationWindow {
         implicitHeight: parent.height
         implicitWidth: parent.width
 
-        SplashScreen { id: splashScreen }
+        MyPlan { id: splashScreen }
 
     }
 }

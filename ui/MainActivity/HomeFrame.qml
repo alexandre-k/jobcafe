@@ -6,6 +6,10 @@ import QtGraphicalEffects 1.0
 
 Page {
     id: homeFrame
+    function resetView () {
+        view.setCurrentIndex(0)
+        tabBar.setCurrentIndex(0)
+    }
 
     SwipeView {
         id: view
@@ -16,8 +20,14 @@ Page {
         }
 
         Home { id: home }
-        MyFiles { id: myFiles }
-        Templates { id: templates }
+        MyFiles {
+            id: myFiles
+            backButtonArea.onClicked: resetView()
+        }
+        Templates {
+            id: templates
+            backButtonArea.onClicked: resetView()
+        }
     }
 
     footer: TabBar {

@@ -2,6 +2,7 @@ import QtQuick 2.4
 import "../Utils.js" as Utils
 
 PaymentCompletedForm {
+
     property var planOrder
 
     goToHomePage.onClicked: {

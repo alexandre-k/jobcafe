@@ -1,4 +1,6 @@
 const ipAddress = 'http://jobcafe-ecs-alb-403270078.ap-northeast-1.elb.amazonaws.com:8089';
+const username = 'admin';
+const password = 'admin';
 
 function request(verb, endpoint, obj, onSuccess, onError) {
 
@@ -9,6 +11,7 @@ function request(verb, endpoint, obj, onSuccess, onError) {
     xhr.open(verb, url);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.setRequestHeader('Accept', 'application/json');
+    xhr.setRequestHeader('Authorization', 'Basic ' + Qt.btoa(username + ':' + password));
     var data = obj? JSON.stringify(obj) : '';
     xhr.send(data);
     console.log(verb + ' ' + endpoint + '\n\t' + data);

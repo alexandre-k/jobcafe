@@ -28,8 +28,8 @@ import QtQuick.Layouts 1.3
                 Layout.topMargin: root.height / 3
 
                 Rectangle {
-                    width: 80
-                    height: 80
+                    width: root.width / 5
+                    height: root.width / 5
                     radius: 50
                     color: "transparent"
                     border {
@@ -85,6 +85,9 @@ import QtQuick.Layouts 1.3
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                fontSizeMode: Text.Fit
+                wrapMode: Text.WordWrap
+                Layout.preferredWidth: root.width - (root.width / 10)
             }
 
             Text {

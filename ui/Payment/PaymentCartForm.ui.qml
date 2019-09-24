@@ -14,10 +14,9 @@ Page {
     anchors.fill: parent
     ColumnLayout {
         spacing: 5
-        BackButton {
-            id: backButton
-            Layout.margins: 20
-        }
+
+        BackButton {}
+
         RowLayout {
             Text {
                 text: "Payment plan"
@@ -40,8 +39,8 @@ Page {
         }
 
         Rectangle {
-            Layout.minimumWidth: root.width - 40
-            Layout.minimumHeight: 270
+            Layout.minimumWidth: 9 * root.width / 10
+            Layout.minimumHeight: 2 * root.width / 3
             Layout.margins: 15
             radius: 10
 
@@ -85,7 +84,7 @@ Page {
                         color: "#032f3e"
                         Layout.margins: 10
                         Layout.alignment: Qt.AlignLeft
-                        Layout.minimumWidth: 270
+                        Layout.preferredWidth: 2 * root.width / 3
                         Layout.fillWidth: true
                     }
 
@@ -129,7 +128,7 @@ Page {
                 Rectangle {
                     id: line
                     height: 1
-                    width: 300
+                    width: 3 * root.width / 4
                     color: "black"
                     Layout.fillWidth: true
                     Layout.leftMargin: 20

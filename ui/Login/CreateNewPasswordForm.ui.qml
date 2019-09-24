@@ -15,9 +15,7 @@ Page {
         width: parent.width
         height: parent.height / 2
 
-        BackButton {
-            Layout.margins: 20
-        }
+        BackButton {}
 
         Text {
              text: qsTr("Enter your new password")

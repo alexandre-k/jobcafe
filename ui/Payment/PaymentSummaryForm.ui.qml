@@ -25,13 +25,12 @@ ScrollView {
     ColumnLayout {
 
         anchors.fill: parent
-        anchors.margins: 20
+        anchors.margins: root.width / 20
 
-        BackButton {
-            Layout.margins: 10
-        }
+        BackButton {}
 
         RowLayout {
+            width: parent.width
             Text {
                 text: "Payment plan"
                 font {
@@ -48,7 +47,7 @@ ScrollView {
             Image {
                 source: "cart.svg"
                 Layout.margins: 10
-                Layout.rightMargin: 20
+                Layout.rightMargin: root.width / 20
             }
         }
 
@@ -62,11 +61,12 @@ ScrollView {
             color: "#444f63"
             Layout.margins: 10
             Layout.leftMargin: 10
-            Layout.bottomMargin: 30
+            Layout.bottomMargin: root.height / 36
             Layout.fillWidth: true
         }
 
         ColumnLayout {
+            width: parent.width
             spacing: 20
 
             Timeline { productsCompleted: true; paymentDetailsCompleted: true }
@@ -74,7 +74,7 @@ ScrollView {
             Rectangle { height: 25; color: "transparent" }
 
             Rectangle {
-                width: root.width - 40
+                width: 9 * root.width / 10
                 height: 140
                 color: "white"
 
@@ -119,7 +119,7 @@ ScrollView {
             }
 
             Rectangle {
-                width: root.width - 40
+                width: 9 * root.width / 10
                 height: 60
                 color: "white"
 
@@ -158,7 +158,7 @@ ScrollView {
             }
 
             Rectangle {
-                width: root.width - 40
+                width: 9 * root.width / 10
                 height: 120
                 color: "white"
 
@@ -206,7 +206,7 @@ ScrollView {
             }
 
             Rectangle {
-                width: root.width - 40
+                width: 9 * root.width / 10
                 height: 60
                 color: "white"
                 RowLayout {
@@ -229,7 +229,7 @@ ScrollView {
             }
 
             Rectangle {
-                width: root.width - 40
+                width: 9 * root.width / 10
                 height: 130
                 color: "white"
                 ColumnLayout {
@@ -354,16 +354,16 @@ ScrollView {
             }
 
             Rectangle {
-                width: root.width - 40
+                width: 9 * root.width / 10
                 height: 10
                 color: "transparent"
                 RowLayout {
-                    Rectangle { width: 125 }
+                    Rectangle { width: root.width / 3 }
 
                     Rectangle {
                         id: line
                         height: 1
-                        width: 225
+                        width: 9 * root.wdith / 15
                         color: "#78849e"
                         Layout.margins: 10
                         Layout.fillWidth: true

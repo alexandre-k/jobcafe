@@ -101,6 +101,6 @@ TextField {
     }
 
     Layout.alignment: Qt.AlignHCenter
-    Layout.minimumWidth: 300
+    Layout.preferredWidth: 3 * root.width / 4
     Layout.topMargin: 20
 }

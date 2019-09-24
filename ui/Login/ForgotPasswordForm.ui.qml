@@ -14,10 +14,7 @@ Page {
         width: parent.width
         height: parent.height / 2
 
-        BackButton {
-            id: backButton
-            Layout.margins: 20
-        }
+        BackButton { id: backButton }
 
         Text {
             id: element
@@ -39,7 +36,7 @@ Page {
             }
             placeholderText: "Email address"
             Layout.alignment: Qt.AlignCenter
-            Layout.minimumWidth: 300
+            Layout.minimumWidth: root.width - (root.width / 4)
             inputMethodHints: Qt.ImhEmailCharactersOnly
         }
 

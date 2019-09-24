@@ -7,33 +7,34 @@ import "../JTabButton"
 SplitView {
     id: view
     orientation: Qt.Vertical
+    anchors.fill: parent
 
     ColumnLayout {
         id: presentation
         width: root.width
 
-        Rectangle { height: 40; color: "transparent" }
+        Rectangle { height: root.height / 30; color: "transparent" }
 
         Text {
             id: title
-            width: 25
+            Layout.preferredWidth: root.width
             horizontalAlignment: Text.AlignHCenter
 
-            text: "Create Your\n Job Application"
+            text: "Create Your Job Application"
             wrapMode: Text.WordWrap
             font {
                 family: "Europa"
-                pointSize: 30
+                pointSize: loginTitleSize
             }
             color: "#444f63"
-            Layout.fillWidth: true
+
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
         }
 
         Rectangle {
             id: line
             height: 2
-            width: 100
+            Layout.preferredWidth: root.width / 4
             color: "#7f7f7f"
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
         }
@@ -49,12 +50,13 @@ SplitView {
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
         }
 
-        Rectangle { height: 40; color: "transparent" }
+        Rectangle { height: root.height / 30; color: "transparent" }
 
         Image {
             id: loginPicture
             fillMode: Image.PreserveAspectFit
             source: "qrc:images/signin.svg"
+            Layout.minimumWidth: root.width
         }
     }
 
@@ -66,6 +68,7 @@ SplitView {
        header:TabBar {
            id: tabBar
            currentIndex: swipeView.currentIndex
+           contentHeight: root.height / 20
 
            JTabButton {
                id: signUpBtn

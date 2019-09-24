@@ -2,10 +2,9 @@ import QtQuick 2.4
 import QtQuick.Controls 2.5
 import QtQuick.Controls.Material 2.3
 import QtQuick.Layouts 1.3
-import "../BackButton"
 import '../Utils.js' as Utils
 
-Page {
+ScrollView {
     id: myPlan
 
     property var subscription
@@ -39,7 +38,7 @@ Page {
 
     ColumnLayout {
         anchors.fill: parent
-        anchors.margins: 20
+        anchors.margins: 30
         visible: root.state.user.membership ? true : false
 
         RowLayout {
@@ -105,82 +104,28 @@ Page {
             }
         }
 
-        RowLayout {
-            Layout.leftMargin: 20
+        MyPlanText { textField: "GGGGGGGGGGG" }
 
-            Image {
-                source: "enumeration.svg"
-            }
+        MyPlanText { textField: "GGGGGGGGGGG" }
 
-            Rectangle { width: 10; color: "transparent" }
-
-            Text {
-                text: "GGGGGGGGGGG"
-                font {
-                    family: "Quicksand"
-                    bold: true
-                    pointSize: 18
-                }
-                color: "#000"
-            }
-        }
-
-        RowLayout {
-            Layout.leftMargin: 20
-            Image {
-                source: "enumeration.svg"
-            }
-
-            Rectangle { width: 10; color: "transparent" }
-
-            Text {
-                text: "GGGGGGGGGGG"
-                font {
-                    family: "Quicksand"
-                    bold: true
-                    pointSize: 18
-                }
-                color: "#000"
-            }
-        }
-
-        RowLayout {
-            Layout.leftMargin: 20
-            Image {
-                source: "enumeration.svg"
-            }
-
-            Rectangle { width: 10; color: "transparent" }
-
-            Text {
-                text: "GGGGGGGGGGGGG"
-                font {
-                    family: "Quicksand"
-                    bold: true
-                    pointSize: 18
-                }
-                color: "#000"
-            }
-        }
+        MyPlanText { textField: "GGGGGGGGGGG" }
 
         Rectangle {
-            width: root.width - 40
-            height: 260
+            Layout.fillWidth: true
+            Layout.minimumWidth: 3 * root.width / 4
+            Layout.preferredHeight: root.height / 4
             color: "white"
 
             ColumnLayout {
                 id: columnLayout
-                width: parent.width - 20
+                anchors.left: parent.left
+                anchors.top: parent.top
+                anchors.margins: 20
+                width: parent.width
                 spacing: 0
+
                 PaymentText {
                     text: "Payment Summary"
-                    font {
-                        family: "Arial"
-                        bold: true
-                        pointSize: 10
-                    }
-                    color: "#78849e"
-                    Layout.bottomMargin: 0
                 }
 
                 PaymentText {
@@ -188,64 +133,26 @@ Page {
                     text: subscription.plan.label + " Plan Jjjjjjjj"
                     font.pointSize: 13
                     color: "black"
-                    Layout.topMargin: -5
-                    Layout.bottomMargin: 0
                 }
 
                 PaymentText {
                     id: paymentDate
                     text: "Payment date: " + Utils.dateAsYyyyMmDd(subscription.createdDate);
-                    Layout.topMargin: -5
-                    Layout.bottomMargin: 0
-                    Layout.leftMargin: 20
-                    font {
-                        family: "Arial"
-                        bold: true
-                        pointSize: 11
-                    }
-                    color: "#78849e"
                 }
 
                 PaymentText {
                     id: estimatedDeliveryDate
                     text: "Estimated delivery date: " + Utils.dateAsYyyyMmDd(subscription.deliveryEstimate)
-                    Layout.topMargin: -5
-                    Layout.bottomMargin: 0
-                    Layout.leftMargin: 20
-                    font {
-                        family: "Arial"
-                        bold: true
-                        pointSize: 11
-                    }
-                    color: "#78849e"
                 }
 
                 PaymentText {
                     id: paymentReference
                     text: "Reference No. " + subscription.id
-                    Layout.topMargin: -5
-                    Layout.bottomMargin: 0
-                    Layout.leftMargin: 20
-                    font {
-                        family: "Arial"
-                        bold: true
-                        pointSize: 11
-                    }
-                    color: "#78849e"
                 }
 
                 PaymentText {
                     id: paymentSum
                     text: "Payment: $" + totalPrice
-                    Layout.topMargin: -5
-                    Layout.bottomMargin: 0
-                    Layout.leftMargin: 20
-                    font {
-                        family: "Arial"
-                        bold: true
-                        pointSize: 11
-                    }
-                    color: "#78849e"
                 }
             }
         }
@@ -256,8 +163,8 @@ Page {
             Material.foreground: "#ffffff"
             Layout.fillWidth: true
             Layout.preferredHeight: 70
-            Layout.leftMargin: 30
-            Layout.rightMargin: 30
+            Layout.leftMargin: root.width / 9
+            Layout.rightMargin: root.width / 9
             font {
                 family: "Titillium Web"
                 pointSize: 13

@@ -13,7 +13,7 @@ Page {
     property alias paymentPlan: paymentPlan
     anchors.fill: parent
     anchors.margins: 20
-    width: root.width - 20
+    width: 19 * root.width / 20
 
     ColumnLayout {
         width: parent.width
@@ -56,8 +56,6 @@ Page {
                 paymentDetailsCompleted: true
                 summaryCompleted: true
                 confirmationCompleted: true
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                Layout.leftMargin: 10
             }
 
             Rectangle { height: 25; color: "transparent" }
@@ -78,22 +76,19 @@ Page {
             }
 
             Rectangle {
-                width: parent.width - 20
-                height: 260
+                id: summaryFrame
+                Layout.preferredWidth: 19 * parent.width / 20
+                Layout.preferredHeight: 240
                 color: "white"
                 ColumnLayout {
                     id: columnLayout
-                    width: parent.width - 20
-                    spacing: 0
+                    anchors.left: summaryFrame.left
+                    anchors.leftMargin: 30
+                    anchors.top: summaryFrame.top
+                    anchors.topMargin: 20
+                    spacing: 15
                     PaymentText {
-                        text: "Payment Summary"
-                        font {
-                            family: "Arial"
-                            bold: true
-                            pointSize: 11
-                        }
-                        color: "#78849e"
-                        Layout.bottomMargin: 0
+                        fieldText: "Payment Summary"
                     }
 
                     PaymentText {
@@ -101,65 +96,28 @@ Page {
                         text: planOrder.label
                         font.pointSize: 14
                         color: "black"
-                        Layout.topMargin: -5
-                        Layout.bottomMargin: 0
                     }
 
-                PaymentText {
-                    id: paymentDate
-                    text: "Payment date: " + planOrder.createdDate
-                    Layout.topMargin: -5
-                    Layout.bottomMargin: 0
-                    Layout.leftMargin: 20
-                    font {
-                        family: "Arial"
-                        bold: true
-                        pointSize: 11
-                    }
-                    color: "#78849e"
-                }
+                    PaymentText {
+                        id: paymentDate
+                        fieldText: "Payment date: " + planOrder.createdDate
 
-                PaymentText {
-                    id: estimatedDeliveryDate
-                    text: "Estimated delivery date: " + planOrder.deliveryEstimate
-                    Layout.topMargin: -5
-                    Layout.bottomMargin: 0
-                    Layout.leftMargin: 20
-                    font {
-                        family: "Arial"
-                        bold: true
-                        pointSize: 11
                     }
-                    color: "#78849e"
-                }
 
-                PaymentText {
-                    id: paymentReference
-                    text: "Reference No. " + planOrder.id
-                    Layout.topMargin: -5
-                    Layout.bottomMargin: 0
-                    Layout.leftMargin: 20
-                    font {
-                        family: "Arial"
-                        bold: true
-                        pointSize: 11
+                    PaymentText {
+                        id: estimatedDeliveryDate
+                        fieldText: "Estimated delivery date: " + planOrder.deliveryEstimate
                     }
-                    color: "#78849e"
-                }
 
-                PaymentText {
-                    id: paymentSum
-                    text: "Payment: $" + planOrder.priceAllTaxIncluded
-                    Layout.topMargin: -5
-                    Layout.bottomMargin: 0
-                    Layout.leftMargin: 20
-                    font {
-                        family: "Arial"
-                        bold: true
-                        pointSize: 11
+                    PaymentText {
+                        id: paymentReference
+                        fieldText: "Reference No. " + planOrder.id
                     }
-                    color: "#78849e"
-                }
+
+                    PaymentText {
+                        id: paymentSum
+                        fieldText: "Payment: $" + planOrder.priceAllTaxIncluded
+                    }
                 }
             }
 
@@ -174,7 +132,7 @@ Page {
                 lineHeight: 2
                 wrapMode: Text.WordWrap
                 fontSizeMode: Text.Fit
-                Layout.maximumWidth: root.width - 40
+                Layout.maximumWidth: 9 * root.width / 10
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             }
 
@@ -184,7 +142,7 @@ Page {
                 Material.background: Material.Blue
                 Material.foreground: "#ffffff"
                 Layout.preferredHeight: 70
-                Layout.preferredWidth: root.width - 60
+                Layout.preferredWidth: 17 * root.width / 20
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 font {
                     family: "Roboto"

@@ -62,7 +62,7 @@ Page {
         ColumnLayout {
 
             spacing: 10
-            width: root.width - 30
+            width: root.width
 
             RowLayout {
                 Rectangle { height: 10; color: "transparent" }
@@ -86,7 +86,7 @@ Page {
                 }
 
                 Canvas {
-                    width: 100
+                    width: root.width / 4
                     height: 40
                     Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                     Layout.topMargin: 20
@@ -99,7 +99,7 @@ Page {
 
                         ctx.fillStyle = "#8a56ac"
 
-                        Utils.drawRec(ctx, 0, 0, 100, 40, 35)
+                        Utils.drawRec(ctx, 0, 0, root.width / 4, root.width / 10, root.width / 12)
 
                         ctx.fill()
 
@@ -123,24 +123,14 @@ Page {
                         anchors.fill: parent
                     }
                 }
-//                Rectangle {
-//                    id: follow
-
-//                    width: 100
-//                    height: 50
-//                    color: "#8a56ac"
-//                    Layout.topMargin: 30
-
-
-//                }
             }
 
 
             ListView {
                 id: view
-                height: 500
                 spacing: 15
-                width: 380
+                height: root.height
+                width: root.width - (root.width / 10)
                 Layout.leftMargin: 40
                 orientation: ListView.Vertical
                 model: ListModel {
@@ -164,7 +154,7 @@ Page {
                 delegate: Rectangle {
                     id: cell
                     height: 110
-                    width: root.width - 70
+                    width: root.width - (root.width / 6)
                     color: "#eceff0"
                     radius: 20
 
@@ -176,10 +166,12 @@ Page {
                             source: image
                             Layout.margins: 5
                             Layout.leftMargin: 10
+                            Layout.preferredWidth: root.width / 4
                         }
 
                         Text {
                             Layout.alignment: Text.AlignHCenter
+                            Layout.preferredWidth: root.width / 3
                             horizontalAlignment:  Text.AlignHCenter
                             text: textContents
                             font {
