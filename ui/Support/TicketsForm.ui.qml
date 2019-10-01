@@ -7,7 +7,7 @@ import QtQuick.Layouts 1.3
 Page {
     id: ticketsOverview
 
-    property alias tickets: tickets
+    property var tickets
     property alias openNewTicket: openNewTicket
     property alias view: view
     width: root.width
@@ -17,7 +17,7 @@ Page {
         id: view
         anchors.fill: parent
         orientation: ListView.Vertical
-        model: ListModel { id: tickets }
+        model: tickets
     }
 
     footer: RowLayout {

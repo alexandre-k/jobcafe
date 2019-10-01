@@ -51,12 +51,12 @@ Page {
                 Image {
                     Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                     Layout.topMargin: 20
-                    Layout.leftMargin: 40
+                    Layout.leftMargin: root.width / 10
                     source: "images/home.svg"
                 }
                 Label {
                     Layout.alignment: Qt.AlignCenter
-                    Layout.leftMargin: 40
+                    Layout.leftMargin: root.width / 10
                     text: qsTr("Home")
                 }
             }
@@ -67,12 +67,12 @@ Page {
                 Image {
                     Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                     Layout.topMargin: 20
-                    Layout.leftMargin: 40
+                    Layout.leftMargin: root.width / 10
                     source: "images/my_files.svg"
                 }
                 Label {
                     Layout.alignment: Qt.AlignCenter
-                    Layout.leftMargin: 40
+                    Layout.leftMargin: root.width / 10
                     text: qsTr("My Files")
                 }
             }
@@ -83,12 +83,12 @@ Page {
                 Image {
                     Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                     Layout.topMargin: 20
-                    Layout.leftMargin: 40
+                    Layout.leftMargin: root.width / 10
                     source: "images/templates.svg"
                 }
                 Label {
                     Layout.alignment: Qt.AlignCenter
-                    Layout.leftMargin: 40
+                    Layout.leftMargin: root.width / 10
                     text: qsTr("Templates")
                 }
             }

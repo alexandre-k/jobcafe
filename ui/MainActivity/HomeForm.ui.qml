@@ -60,6 +60,7 @@ Page {
         }
 
         ColumnLayout {
+            id: mainLayout
 
             spacing: 10
             width: root.width
@@ -90,7 +91,7 @@ Page {
                     height: 40
                     Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                     Layout.topMargin: 20
-                    Layout.rightMargin: 60
+                    Layout.rightMargin: root.width / 7
                     onPaint: {
 
                         const ctx = getContext("2d")
@@ -99,7 +100,7 @@ Page {
 
                         ctx.fillStyle = "#8a56ac"
 
-                        Utils.drawRec(ctx, 0, 0, root.width / 4, root.width / 10, root.width / 12)
+                        Utils.drawRec(ctx, 0, 0, root.width / 4, 40, 35)
 
                         ctx.fill()
 

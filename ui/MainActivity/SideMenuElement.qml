@@ -18,16 +18,19 @@ Item {
     }
     RowLayout {
 
-        spacing: 25
+        spacing: root.width / 15
 
         Image {
             id: icon
             source: image
             fillMode: Image.PreserveAspectFit
+            sourceSize {
+                 height: 30
+                 width: 30
+             }
             Layout.alignment: Qt.AlignLeft
             Layout.preferredHeight: 30
             Layout.preferredWidth: 30
-
         }
         Text {
             text: label

@@ -26,16 +26,17 @@ Page {
         anchors.left: parent.left
         anchors.leftMargin:  leftShift
         height: root.height
-        width: root.width - 40
+        width: 9 * root.width / 10
         radius: 50
         color: "#dfe2e8"
 
         ColumnLayout {
-            spacing: 5
+            spacing: root.height / 60
             width: parent.width
 
-            Rectangle { height: 5 }
+            Rectangle { Layout.preferredHeight: 5 }
             RowLayout {
+                Layout.preferredWidth: 9 * root.width / 10
                 Layout.leftMargin: rightShift
 
                 Item {
@@ -65,8 +66,6 @@ Page {
                         }
                     }
                 }
-
-                Rectangle { width: 200 }
 
                 Image {
                     id: closeMenu
@@ -107,7 +106,7 @@ Page {
 
             }
 
-            Rectangle { height: 50 }
+            Rectangle { Layout.preferredHeight: root.height / 21 }
 
             SideMenuElement {
                 id: home
@@ -142,7 +141,7 @@ Page {
                 Layout.leftMargin: rightShift
             }
 
-            Rectangle { height: 30 }
+            Rectangle { Layout.preferredHeight: root.height / 35 }
 
             Text {
                 id: aboutUs
@@ -159,7 +158,7 @@ Page {
                 Layout.leftMargin: rightShift
             }
 
-            Rectangle { Layout.preferredHeight: 100 }
+            Rectangle { Layout.preferredHeight: root.height / 11 }
 
             Item {
                 width: 10
@@ -197,7 +196,7 @@ Page {
                 }
             }
 
-            Rectangle { Layout.preferredHeight: 110 }
+            Rectangle { Layout.preferredHeight: root.height / 10 }
 
             Text {
                 id: appVersion

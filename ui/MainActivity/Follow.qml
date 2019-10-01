@@ -6,22 +6,22 @@ import QtQuick.Layouts 1.3
 Popup {
     id: followDialog
     width: root.width - 20
-    height: 300
+    height: 2 * root.height / 7
     modal: true
     x: Math.round((parent.width - width) / 2)
     y: Math.round((parent.height + height) / 2)
     parent: Overlay.overlay
     padding: 0
     topInset: 50
-    bottomInset: 100
+    bottomInset: root.height / 10
     contentItem:
         ColumnLayout {
             width: parent.width
-            height: 500
+            height: root.height / 2
             spacing: 0
             Rectangle {
                 width: root.width - 20
-                height: 200
+                height: root.height / 5
                 radius: 10
                 color: "black"
                 ColumnLayout {

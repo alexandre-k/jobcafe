@@ -17,8 +17,8 @@ import "./ErrorMessage"
 ApplicationWindow {
     id: root
     visible: true
-    width: 410
-    height: 400
+    width: Screen.width
+    height: Screen.height
     title: qsTr("Tabs")
     Material.primary: Material.Blue
     Material.accent: Material.Blue
@@ -31,6 +31,8 @@ ApplicationWindow {
     property int welcomeSubtitleSize: 22
     property int welcomeGetStartedSize: 18
     property int loginTitleSize: 30
+    property var openedSupportTickets: ListModel {}
+    property var closedSupportTickets: ListModel {}
 
     ListModel {
         id: supportPhotos
@@ -57,7 +59,7 @@ ApplicationWindow {
         implicitHeight: parent.height
         implicitWidth: parent.width
 
-        MyPlan { id: splashScreen }
+        SplashScreen { id: splashScreen }
 
     }
 }

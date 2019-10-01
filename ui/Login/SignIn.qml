@@ -29,6 +29,7 @@ SignInForm {
         }
 
         Utils.request('POST', `/user/` + username.text, {
+                          "email": username.text,
                          "password": password.text}, onSuccess, onError);
         loadingMessage.open();
     }
