@@ -19,10 +19,15 @@ int main(int argc, char *argv[])
     QString appFolder = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
     QDir appDir(appFolder);
 
+    QString picturesFolder = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
+    QDir picturesDir(picturesFolder);
+
+    qDebug() << picturesFolder;
     qmlRegisterType<Download>("download", 1, 0, "Download");
     qmlRegisterType<Upload>("upload", 1, 0, "Upload");
     auto root = engine.rootContext();
     root->setContextProperty("appFolder", appDir.path());
+    root->setContextProperty("picturesFolder", picturesDir.path());
     const QUrl url(QStringLiteral("qrc:/ui/Main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
